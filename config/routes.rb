@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :deposit_types
   map.resources :accounts
   map.resource :user_session
 
