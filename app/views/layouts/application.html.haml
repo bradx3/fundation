@@ -1,0 +1,38 @@
+- SITE_NAME = "BUDGETO"
+
+!!! STRICT
+%html{:xmlns=>"http://www.w3.org/1999/xhtml", :lang=>"en"}
+%head
+  %meta{:'http-equiv'=>"Content-Type", :content=>"text/html; charset=utf-8"}
+  %title= SITE_NAME
+  = stylesheet_link_tag 'web_app_theme', "themes/bec/style", 
+%body
+  #container
+    #header
+      %h1=link_to SITE_NAME, '/'
+      #user-navigation
+        %ul
+          -if current_user
+            %li
+              - link_to(edit_user_path(current_user)) do
+                Logged in as: 
+                = current_user.login
+            %li= link_to 'Logout', user_session_path, :method => "delete"
+        .clear    
+      #main-navigation
+        %ul
+          %li= link_to "Home", "/"
+        .clear  
+    #wrapper
+      - if flash[:notice]
+        .flash
+          .message.warning
+            %p= flash[:notice]
+      #main
+        = yield
+        #footer
+          .block
+            %p Copyright &copy; 2009 BRAD AND WINNY
+      #sidebar
+        = yield :sidebar
+      .clear
