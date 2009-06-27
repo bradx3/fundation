@@ -1,0 +1,7 @@
+- form_for(@deposit_type, :html => { :class => "form" }) do |f|
+  .group
+    = f.label :name, nil, :class => "label"
+    = f.text_field :name
+
+  .group.navform
+    = f.submit(@deposit_type.new_record? ? "Create" : "Update")

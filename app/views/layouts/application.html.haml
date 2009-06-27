@@ -22,6 +22,7 @@
       #main-navigation
         %ul
           %li= link_to "Accounts", "/"
+          %li= link_to "Deposit Types", deposit_types_path
         .clear  
     #wrapper
       - if flash[:notice]
@@ -38,7 +39,7 @@
         .block
           %h3 Actions
           %ul.navigation
-            %li= link_to "Deposit Money"
+            %li= link_to "Deposit money"
             = yield :sidebar
 
       .clear

@@ -1,0 +1,9 @@
+%h2.title
+  %span= link_to "Edit", edit_deposit_type_path(@deposit_type)
+  Showing
+  = @deposit_type.name
+
+.inner
+  %p
+    %b Name:
+    =h @deposit_type.name
