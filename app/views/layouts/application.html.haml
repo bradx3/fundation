@@ -35,6 +35,10 @@
             = yield
 
       #sidebar
-        = yield :sidebar
+        .block
+          %h3 Actions
+          %ul.navigation
+            %li= link_to "Deposit Money"
+            = yield :sidebar
 
       .clear
