@@ -1,0 +1,8 @@
+--- 
+vendor/plugins/web-app-theme: 
+  squashed: true
+  url: git://github.com/pilu/web-app-theme.git
+  branch: master
+  type: git
+  revision: a237b73196ff03d9d5493c6f4690a60be5601825
+  remote: braid/vendor/plugins/web-app-theme
