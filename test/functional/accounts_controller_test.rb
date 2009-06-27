@@ -14,30 +14,35 @@ class AccountsControllerTest < ActionController::TestCase
 
   test "should create account" do
     assert_difference('Account.count') do
-      post :create, :account => { }
+      post :create, :account => Factory.build(:account).attributes
     end
 
     assert_redirected_to account_path(assigns(:account))
   end
 
   test "should show account" do
-    get :show, :id => accounts(:one).to_param
+    account = Factory.create(:account)
+    get :show, :id => account.to_param
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => accounts(:one).to_param
+    account = Factory.create(:account)
+    get :edit, :id => account.to_param
     assert_response :success
   end
 
   test "should update account" do
-    put :update, :id => accounts(:one).to_param, :account => { }
+    account = Factory.create(:account)
+    put :update, :id => account.to_param, :account => { }
     assert_redirected_to account_path(assigns(:account))
   end
 
   test "should destroy account" do
+    account = Factory.create(:account)
+
     assert_difference('Account.count', -1) do
-      delete :destroy, :id => accounts(:one).to_param
+      delete :destroy, :id => account.to_param
     end
 
     assert_redirected_to accounts_path
