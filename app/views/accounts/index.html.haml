@@ -5,12 +5,13 @@
     %tr
       %th Name
       %th Balance
+      %th.last
 
     - @accounts.each do |account|
       %tr{ :class => cycle("odd", "") }
         %td=h account.name
-        %td=h account.balance_in_cents
-        %td=h link_to "Show", account
+        %td=h account.balance
+        %td.last= link_to "Show", account
 
 
 - content_for :sidebar do
