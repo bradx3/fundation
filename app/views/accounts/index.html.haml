@@ -1,4 +1,9 @@
-%h2.title All Accounts
+%h2.title 
+  %span
+    Balance:
+    = number_to_currency(Account.sum(:balance_in_cents) / 100.0)
+
+  All Accounts
 
 .inner
   %table.table
