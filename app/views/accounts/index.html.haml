@@ -1,0 +1,19 @@
+%h2.title All Accounts
+
+.inner
+  %table.table
+    %tr
+      %th Name
+      %th Balance
+
+    - @accounts.each do |account|
+      %tr{ :class => cycle("odd", "") }
+        %td=h account.name
+        %td=h account.balance_in_cents
+        %td=h link_to "Show", account
+
+
+- content_for :sidebar do
+  .block
+    %ul.navigation
+      %li= link_to 'New account', new_account_path

@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @account.name %>
+</p>
+
+<p>
+  <b>Balance in cents:</b>
+  <%=h @account.balance_in_cents %>
+</p>
+
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>

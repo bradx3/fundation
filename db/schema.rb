@@ -9,7 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090627055506) do
+ActiveRecord::Schema.define(:version => 20090627061643) do
+
+  create_table "accounts", :force => true do |t|
+    t.string   "name"
+    t.integer  "balance_in_cents"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login",                              :null => false
