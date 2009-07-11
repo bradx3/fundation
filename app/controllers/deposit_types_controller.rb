@@ -25,6 +25,7 @@ class DepositTypesController < ApplicationController
   # GET /deposit_types/new.xml
   def new
     @deposit_type = DepositType.new
+    init_all_account_percentages
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,14 +36,7 @@ class DepositTypesController < ApplicationController
   # GET /deposit_types/1/edit
   def edit
     @deposit_type = DepositType.find(params[:id])
-
-    accounts = Account.all
-    percentages = @deposit_type.deposit_type_account_percentages
-    set_accounts = percentages.map { |d| d.account }
-
-    (accounts - set_accounts).each do |acc|
-      percentages.build(:percentage => 0, :account => acc)
-    end
+    init_all_account_percentages
   end
 
   # POST /deposit_types
@@ -88,6 +82,18 @@ class DepositTypesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(deposit_types_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  private
+
+  def init_all_account_percentages
+    accounts = Account.all
+    percentages = @deposit_type.deposit_type_account_percentages
+    set_accounts = percentages.map { |d| d.account }
+
+    (accounts - set_accounts).each do |acc|
+      percentages.build(:percentage => 0, :account => acc)
     end
   end
 end
