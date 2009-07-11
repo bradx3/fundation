@@ -12,4 +12,6 @@
       \%
 
   .group.navform
-    = f.submit(@deposit_type.new_record? ? "Create" : "Update")
+    = submit_button_for(f)
+    or 
+    = link_to "back", :back
