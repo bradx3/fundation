@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :deposits
+  map.resources :deposits, :collection => { :accounts => :any }
 
   map.resources :deposit_types
   map.resources :accounts

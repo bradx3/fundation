@@ -5,21 +5,22 @@
 
   .group
     = label_tag(:deposit_type, nil, :class => "label")
-    = select_tag :deposit_type, deposit_type_options
+    = select_tag :deposit_type, deposit_type_options, :id => "deposit_type"
 
-  - f.fields_for(:deposit_accounts) do |fields|
-    .columns
-      - da = fields.object
-      = fields.hidden_field :account_id, :value => da.account.id
-      = fields.label :percentage, da.account.name, :class => "label"
-      .column.left
-        .group
-          = fields.text_field :amount_in_cents, :class => "amount text_field"
-      .column.right
-        .group
-          = fields.text_field :percentage, :class => "percentage text_field"
-          \%
-    .clear
+  .deposit_accounts
+    - f.fields_for(:deposit_accounts) do |fields|
+      .columns
+        - da = fields.object
+        = fields.hidden_field :account_id, :value => da.account.id
+        = fields.label :percentage, da.account.name, :class => "label"
+        .column.left
+          .group
+            = fields.text_field :amount_in_cents, :class => "amount text_field"
+        .column.right
+          .group
+            = fields.text_field :percentage, :class => "percentage text_field"
+            \%
+      .clear
 
   .group.navform
     = submit_button_for(f)

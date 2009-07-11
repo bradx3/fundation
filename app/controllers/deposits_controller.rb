@@ -84,6 +84,23 @@ class DepositsController < ApplicationController
     end
   end
 
+  def accounts
+    @deposit_type = DepositType.find(params[:type_id])
+    @deposit_type.init_all_account_percentages
+    amount = params[:amount].to_i
+    
+    @result = {}
+    @deposit_type.deposit_type_account_percentages.each do |dtap|
+      values = {
+        :percentage => dtap.percentage,
+        :amount => (amount.to_f * (dtap.percentage / 100.0))
+      }
+      @result[dtap.account_id] = values
+    end
+
+    render :text => @result.to_json
+  end
+
 
   private
 
