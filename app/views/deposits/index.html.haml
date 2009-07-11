@@ -1,0 +1,16 @@
+%h2.title
+  All Deposits
+
+.inner
+  %table.table
+    %tr
+      %th Date
+      %th Amount
+      %th.last
+
+    - @deposits.each do |deposit|
+      %tr{ :class => cycle("odd", "") }
+        %td= deposit.created_at.to_formatted_s(:long)
+        %td= deposit.amount_in_cents
+        %td.last= link_to("Show", deposit)
+
