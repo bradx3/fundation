@@ -3,3 +3,7 @@
 
 h2.title span {
   float: right; }
+
+.group .text_field.small {
+  text-align: right;
+  width: 2.3em; }

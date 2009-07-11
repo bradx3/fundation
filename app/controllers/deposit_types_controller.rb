@@ -35,6 +35,14 @@ class DepositTypesController < ApplicationController
   # GET /deposit_types/1/edit
   def edit
     @deposit_type = DepositType.find(params[:id])
+
+    accounts = Account.all
+    percentages = @deposit_type.deposit_type_account_percentages
+    set_accounts = percentages.map { |d| d.account }
+
+    (accounts - set_accounts).each do |acc|
+      percentages.build(:percentage => 0, :account => acc)
+    end
   end
 
   # POST /deposit_types
