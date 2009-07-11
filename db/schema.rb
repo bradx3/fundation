@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(:version => 20090627065939) do
     t.datetime "updated_at"
   end
 
-  create_table "deposit_type_accounts", :force => true do |t|
+  create_table "deposit_type_account_percentages", :force => true do |t|
     t.integer  "deposit_type_id"
     t.integer  "account_id"
     t.integer  "percentage"

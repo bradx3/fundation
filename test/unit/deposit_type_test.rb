@@ -2,8 +2,7 @@ require 'test_helper'
 
 class DepositTypeTest < ActiveSupport::TestCase
   should_validate_presence_of :name
-  should_have_many :deposit_type_accounts
-
+  should_have_many :deposit_type_account_percentages
 
   context "an existing deposit type" do
     setup do 
