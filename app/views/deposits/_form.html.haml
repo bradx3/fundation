@@ -1,12 +1,12 @@
-- form_for(@deposit, :html => { :class => "form" }) do |f|
-  - f.fields_for(:deposit_accounts) do |fields|
-    .group
-      - da = fields.object
-      = fields.hidden_field :account_id, :value => da.account.id
-      = fields.label :percentage, da.account.name, :class => "label"
-      \%
+- f.fields_for(:deposit_accounts) do |fields|
+  .group
+    - da = fields.object
+    = fields.hidden_field :account_id, :value => da.account.id
+    = fields.label :percentage, da.account.name, :class => "label"
+    \%
 
-  .group.navform
-    = submit_button_for(f)
-    or 
-    = link_to "back", :back
+.group.navform
+  = submit_button_for(f)
+  or 
+  = link_to "back", :back
+      

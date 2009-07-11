@@ -1,4 +1,5 @@
 %h2.title Deposit money
 
 .inner
-  = render :partial => "form"
+  - form_for(@deposit, :html => { :class => "form" }) do |f|
+    = render :partial => "form", :locals => { :f => f }
