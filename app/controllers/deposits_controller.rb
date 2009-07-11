@@ -25,6 +25,7 @@ class DepositsController < ApplicationController
   # GET /deposits/new.xml
   def new
     @deposit = Deposit.new
+    init_all_deposit_accounts
 
     respond_to do |format|
       format.html # new.html.erb
@@ -80,6 +81,19 @@ class DepositsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(deposits_url) }
       format.xml  { head :ok }
+    end
+  end
+
+
+  private
+
+  def init_all_deposit_accounts
+    accounts = Account.all
+    deposit_accounts = @deposit.deposit_accounts
+    set_accounts = deposit_accounts.map { |d| d.account }
+
+    (accounts - set_accounts).each do |acc|
+      deposit_accounts.build(:percentage => 0, :account => acc)
     end
   end
 end

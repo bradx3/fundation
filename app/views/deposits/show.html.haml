@@ -1,0 +1,12 @@
+%h2.title
+  Showing deposit
+
+.inner
+  %p
+    %b Date:
+    =h @deposit.created_at.to_formatted_s(:long)
+
+  - @deposit.deposit_accounts.each do |da|
+    %p
+      %b=h da.account.name
+      =h "#{ da.amount_in_cents }"
