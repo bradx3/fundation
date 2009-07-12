@@ -3,6 +3,7 @@ document.observe("dom:loaded", function() {
 
     addDepositAmountListener();
     addDepositPercentageListener();
+    addDepositAccountAmountListener();
 });
 
 function addDepositTypeListener() {
@@ -32,24 +33,26 @@ function updateDepositValues(id, values) {
     var amount = account.down(".amount");
     var percentage = account.down(".percentage");
 
-    amount.value = values["amount"];
-    percentage.value = values["percentage"];
+    amount.value = values["amount"].toFixed(2);
+    percentage.value = values["percentage"].toFixed(2);
 }
 
 function addDepositAmountListener() {
     var amount = $("deposit_dollars");
     if (amount == null) { return; }
 
-    amount.observe("keyup", function() {
-	var dollars = floatVal(amount);
+    amount.observe("keyup", function(event) {
+	if (isNumberKey(event)) {
+	    var dollars = floatVal(amount);
 
-	$$(".percentage").each(function(percentageElem) {
-	    var account = percentageElem.up(".account");
-	    var percentage = floatVal(percentageElem) / 100.0;
-	    var acctAmmount = account.down(".amount");
-	    
-	    acctAmmount.value = (percentage * dollars).toFixed(2);
-	});
+	    $$(".percentage").each(function(percentageElem) {
+		var account = percentageElem.up(".account");
+		var percentage = floatVal(percentageElem) / 100.0;
+		var acctAmmount = account.down(".amount");
+		
+		acctAmmount.value = (percentage * dollars).toFixed(2);
+	    });
+	}
     });
 }
 
@@ -65,15 +68,43 @@ function floatVal(element) {
     return res;
 }
 
+function isNumberKey(event) {
+    var code = event.keyCode;
+    var res = (code >= 48 && code <= 57);
+    return res;
+}
 function addDepositPercentageListener() {
     $$(".percentage").each(function(elem) {
-	elem.observe("keyup", function() {
-	    var amount = floatVal("deposit_dollars");
-	    var percentage = floatVal(elem) / 100.0;
-	    var account = elem.up(".account");
-	    var acctAmount = account.down(".amount");
-
-	    acctAmount.value = (percentage * amount).toFixed(2);
+	elem.observe("keyup", function(event) {
+	    if (isNumberKey(event)) {
+		updateAccountAmountFromPercentage(elem);
+	    }
 	});
     });
+}
+function updateAccountAmountFromPercentage(percentageElem) {
+    var amount = floatVal("deposit_dollars");
+    var percentage = floatVal(percentageElem) / 100.0;
+    var account = percentageElem.up(".account");
+    var acctAmount = account.down(".amount");
+    
+    acctAmount.value = (percentage * amount).toFixed(2);
+}
+
+function addDepositAccountAmountListener() {
+    $$(".amount").each(function(elem) {
+	elem.observe("keyup", function(event) {
+	    if (isNumberKey(event)) {
+		updatePercentageFromAccountAmount(elem);
+	    }
+	});
+    });
+}
+function updatePercentageFromAccountAmount(amountElem) {
+    var amount = floatVal("deposit_dollars");
+    var acctAmount = floatVal(amountElem);
+    var account = amountElem.up(".account");
+    var percentage = account.down(".percentage");
+
+    percentage.value = (acctAmount * 100.0 / amount).toFixed(2);
 }
