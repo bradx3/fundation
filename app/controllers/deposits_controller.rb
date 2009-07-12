@@ -98,7 +98,7 @@ class DepositsController < ApplicationController
       @result[dtap.account_id] = values
     end
 
-    render :text => @result.to_json
+    render :json => @result.to_json
   end
 
 

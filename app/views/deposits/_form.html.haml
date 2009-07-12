@@ -9,12 +9,13 @@
 
   .deposit_accounts
     - f.fields_for(:deposit_accounts) do |fields|
-      .columns
+      .columns.account
         - da = fields.object
-        = fields.hidden_field :account_id, :value => da.account.id
+        = fields.hidden_field :account_id, :value => da.account_id, :id => "account_#{ da.account_id }"
         = fields.label :percentage, da.account.name, :class => "label"
         .column.left
           .group
+            $
             = fields.text_field :amount_in_cents, :class => "amount text_field"
         .column.right
           .group
