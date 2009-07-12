@@ -4,6 +4,6 @@ module DollarMethods
   end
 
   def dollars
-    return self.amount_in_cents / 100.0
+    return self.amount_in_cents.to_i / 100.0
   end
 end

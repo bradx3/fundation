@@ -1,7 +1,7 @@
 - form_for(@deposit, :html => { :class => "form" }) do |f|
   .group
-    = f.label :amount_in_cents, nil, :class => "label"
-    = f.text_field :amount_in_cents
+    = f.label :dollars, "Amount", :class => "label"
+    = f.text_field :dollars
 
   .group
     = label_tag(:deposit_type, nil, :class => "label")
