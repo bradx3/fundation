@@ -14,7 +14,7 @@
     - @accounts.each do |account|
       %tr{ :class => cycle("odd", "") }
         %td=h account.name
-        %td=h account.balance
+        %td=h currency(account.balance)
         %td.last= link_to "Show", account
 
 

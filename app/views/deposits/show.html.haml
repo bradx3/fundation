@@ -9,4 +9,4 @@
   - @deposit.deposit_accounts.each do |da|
     %p
       %b=h da.account.name
-      =h "#{ da.amount_in_cents }"
+      =h currency(da.dollars)

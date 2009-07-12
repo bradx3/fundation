@@ -1,4 +1,7 @@
 %h2.title
+  %span
+    Total:
+    = currency(@total)
   All Deposits
 
 .inner
@@ -11,6 +14,6 @@
     - @deposits.each do |deposit|
       %tr{ :class => cycle("odd", "") }
         %td= deposit.created_at.to_formatted_s(:long)
-        %td= deposit.amount_in_cents
+        %td= currency(deposit.dollars)
         %td.last= link_to("Show", deposit)
 
