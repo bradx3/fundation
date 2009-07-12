@@ -2,6 +2,7 @@ document.observe("dom:loaded", function() {
     addDepositTypeListener();
 
     addDepositAmountListener();
+    addDepositPercentageListener();
 });
 
 function addDepositTypeListener() {
@@ -62,4 +63,17 @@ function floatVal(element) {
     if (isNaN(res)) { res = 0; }
 
     return res;
+}
+
+function addDepositPercentageListener() {
+    $$(".percentage").each(function(elem) {
+	elem.observe("keyup", function() {
+	    var amount = floatVal("deposit_dollars");
+	    var percentage = floatVal(elem) / 100.0;
+	    var account = elem.up(".account");
+	    var acctAmount = account.down(".amount");
+
+	    acctAmount.value = (percentage * amount).toFixed(2);
+	});
+    });
 }
