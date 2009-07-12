@@ -1,4 +1,6 @@
 - form_for(@deposit, :html => { :class => "form" }) do |f|
+  = f.error_messages
+
   .group
     = f.label :dollars, "Amount", :class => "label"
     $
@@ -27,7 +29,7 @@
   .group
     = label_tag(:unallocated, "Total allocated", :class => "label")
     #unallocated.incorrect
-      $0.00
+      = currency(@deposit.allocated_dollars)
 
   .group.navform
     = submit_button_for(f)

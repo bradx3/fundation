@@ -52,6 +52,7 @@ function addDepositAmountListener() {
 		var acctAmmount = account.down(".amount");
 		
 		acctAmmount.value = (percentage * dollars).toFixed(2);
+		updateUnallocated();
 	    });
 	}
     });
