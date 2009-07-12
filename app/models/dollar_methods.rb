@@ -1,6 +1,6 @@
 module DollarMethods
   def dollars=(amount)
-    self.amount_in_cents = amount * 100.0
+    self.amount_in_cents = (amount.to_f * 100.0)
   end
 
   def dollars

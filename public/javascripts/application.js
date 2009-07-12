@@ -35,6 +35,7 @@ function updateDepositValues(id, values) {
 
     amount.value = values["amount"].toFixed(2);
     percentage.value = values["percentage"].toFixed(2);
+    updateUnallocated();
 }
 
 function addDepositAmountListener() {
@@ -89,6 +90,7 @@ function updateAccountAmountFromPercentage(percentageElem) {
     var acctAmount = account.down(".amount");
     
     acctAmount.value = (percentage * amount).toFixed(2);
+    updateUnallocated();
 }
 
 function addDepositAccountAmountListener() {
@@ -107,4 +109,22 @@ function updatePercentageFromAccountAmount(amountElem) {
     var percentage = account.down(".percentage");
 
     percentage.value = (acctAmount * 100.0 / amount).toFixed(2);
+    updateUnallocated();
+}
+
+function updateUnallocated() {
+    var amount = floatVal("deposit_dollars");
+    var total = 0;
+    $$(".amount").each(function(elem) {
+	total += floatVal(elem);
+    });
+
+    var unallocated = $("unallocated");
+    unallocated.update("$" + total.toFixed(2));
+    if (total != amount) {
+	unallocated.addClassName("incorrect");
+    }
+    else {
+	unallocated.removeClassName("incorrect");
+    }
 }

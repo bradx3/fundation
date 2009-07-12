@@ -1,7 +1,8 @@
 - form_for(@deposit, :html => { :class => "form" }) do |f|
   .group
     = f.label :dollars, "Amount", :class => "label"
-    = f.text_field :dollars
+    $
+    = f.text_field :dollars, :class => "text_field total"
 
   .group
     = label_tag(:deposit_type, nil, :class => "label")
@@ -16,12 +17,17 @@
         .column.left
           .group
             $
-            = fields.text_field :amount_in_cents, :class => "amount text_field"
+            = fields.text_field :dollars, :class => "amount text_field"
         .column.right
           .group
             = fields.text_field :percentage, :class => "percentage text_field"
             \%
       .clear
+
+  .group
+    = label_tag(:unallocated, "Total allocated", :class => "label")
+    #unallocated.incorrect
+      $0.00
 
   .group.navform
     = submit_button_for(f)
