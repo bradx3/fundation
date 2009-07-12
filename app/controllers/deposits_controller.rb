@@ -2,7 +2,7 @@ class DepositsController < ApplicationController
   # GET /deposits
   # GET /deposits.xml
   def index
-    @deposits = Deposit.all
+    @deposits = Deposit.all(:order => "created_at desc")
 
     respond_to do |format|
       format.html # index.html.erb
