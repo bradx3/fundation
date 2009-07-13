@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class DepositTest < ActiveSupport::TestCase
-  should_have_many :account_transactions
+  should_have_many :account_transactions, :dependent => :destroy
   should_belong_to :user
 
   should "convert dollars to cents" do

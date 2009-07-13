@@ -1,5 +1,5 @@
 class Transaction < ActiveRecord::Base
-  has_many :account_transactions
+  has_many :account_transactions, :dependent => :destroy
   accepts_nested_attributes_for :account_transactions
   belongs_to :user
   

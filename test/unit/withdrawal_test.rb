@@ -10,6 +10,16 @@ class WithdrawalTest < ActiveSupport::TestCase
     w.account_transactions.build(:account => @acc1, :dollars => 44)
     assert w.save!
 
-    assert w.dollars = -44
+    w.reload
+    assert_equal -44, w.account_transactions.first.dollars
+  end
+
+  should "update amount_in_cents from account_transactions before save" do
+    w = Withdrawal.new
+
+    w.account_transactions.build(:account => @acc1, :dollars => 44)
+    assert w.save!
+
+    assert_equal -4400, w.amount_in_cents
   end
 end

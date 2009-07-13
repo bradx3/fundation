@@ -1,0 +1,12 @@
+%h2.title
+  Showing withdrawal
+
+.inner
+  %p
+    %b Date:
+    =h @withdrawal.created_at.to_formatted_s(:long)
+
+  - @withdrawal.account_transactions.used.each do |da|
+    %p
+      %b=h da.account.name
+      =h currency(da.dollars)

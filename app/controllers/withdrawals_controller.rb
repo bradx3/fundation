@@ -30,4 +30,8 @@ class WithdrawalsController < ApplicationController
     end
   end
 
+  def show
+    @withdrawal = Transaction.find(params[:id])
+  end
+
 end
