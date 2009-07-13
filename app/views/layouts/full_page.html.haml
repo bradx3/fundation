@@ -1,0 +1,12 @@
+!!! STRICT
+%html{:xmlns=>"http://www.w3.org/1999/xhtml", :lang=>"en"}
+%head
+  %meta{:'http-equiv'=>"Content-Type", :content=>"text/html; charset=utf-8"}
+  %title= $SITE_NAME
+  = stylesheet_link_tag 'web_app_theme', "themes/bec/style", "application"
+%body
+  #container
+    #header
+      %h1=link_to $SITE_NAME, '/'
+    #box
+      = yield

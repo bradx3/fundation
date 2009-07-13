@@ -18,6 +18,8 @@
                 Logged in as: 
                 = current_user.login
             %li= link_to 'Logout', user_session_path, :method => "delete"
+          - else
+            %li= link_to "Login", "/login"
         .clear    
       #main-navigation
         %ul
