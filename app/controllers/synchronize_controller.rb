@@ -13,6 +13,10 @@ class SynchronizeController < ApplicationController
     else
       @withdrawal = Withdrawal.new(:dollars => difference)
       @withdrawal.init_all_deposit_accounts
+
+      default = @withdrawal.account_transactions.detect { |at| at.account.default_synchronize_fund? }
+      default.dollars = difference.abs if default
+
       render :template => "/withdrawals/new"
     end
     
