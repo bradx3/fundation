@@ -1,11 +1,13 @@
 class Transaction < ActiveRecord::Base
-  set_table_name :deposits
-
   has_many :account_transactions
   accepts_nested_attributes_for :account_transactions
   belongs_to :user
   
   include DollarMethods
+
+  def allocated_dollars
+    account_transactions.inject(0) { |total, da| total += da.dollars }    
+  end
 
   def init_all_deposit_accounts
     accounts = Account.all

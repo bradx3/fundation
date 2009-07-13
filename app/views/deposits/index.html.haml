@@ -15,7 +15,7 @@
     - @deposits.each do |deposit|
       %tr{ :class => cycle("odd", "") }
         %td= deposit.created_at.to_formatted_s(:long)
-        %td= currency(deposit.dollars)
+        %td= currency(deposit.allocated_dollars)
         %td= deposit.user
         %td.last= link_to("Show", deposit)
 

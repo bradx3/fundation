@@ -2,10 +2,6 @@ class Deposit < Transaction
   validate :allocations_add_to_total
   validate :amount_greater_than_zero
 
-  def allocated_dollars
-    account_transactions.inject(0) { |total, da| total += da.dollars }    
-  end
-
   private
 
   def amount_greater_than_zero
