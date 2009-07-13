@@ -1,5 +1,7 @@
 class Account < ActiveRecord::Base
   validates_presence_of :name
+  has_many :deposit_accounts
+
   include DollarMethods
 
   def self.total_balance
@@ -8,7 +10,13 @@ class Account < ActiveRecord::Base
 
   # Returns the balance of this account in dollars
   def balance
-    return 0
+    res = dollars
+
+    deposit_accounts.each do |dep|
+      res += dep.dollars
+    end
+
+    return res
   end
 
 
