@@ -8,9 +8,8 @@ class SessionsTest < ActionController::IntegrationTest
     end
 
     should "be able to log in" do
-      get "/"
-
-      click_link "login"
+      visit "/login"
+#      click_link "login"
       fill_in "login", :with => @user.login
       fill_in "password", :with => @user.password
       check "remember me"
@@ -20,7 +19,7 @@ class SessionsTest < ActionController::IntegrationTest
     end
 
     should "be able to log out" do
-      login
+      integration_login
       click_link "logout"
       assert_nil UserSession.find
     end

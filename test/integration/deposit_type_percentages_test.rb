@@ -3,6 +3,8 @@ require 'test_helper'
 class DepositTypePercentagesTest < ActionController::IntegrationTest
   context "a normal user" do
     setup do
+      integration_login
+
       @acc1 = Factory.create(:account)
       @acc2 = Factory.create(:account)
       @deposit_type = Factory.create(:deposit_type)

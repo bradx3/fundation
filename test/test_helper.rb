@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
+require "authlogic/test_case"
 
 class ActiveSupport::TestCase
   # Transactional fixtures accelerate your tests by wrapping each test method
@@ -35,16 +36,47 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  def self.should_require_user_for_all_methods
+    should "have require_user as a filter" do
+      filter = controller.class.filter_chain.detect do |filter|
+        filter.method == :require_user and
+          (filter.class == ActionController::Filters::BeforeFilter)
+      end
+
+      assert_not_nil filter, "No before filter found to require user"
+    end
+  end
 end
+
+class ActionController::TestCase
+  setup :activate_authlogic
+end
+
+require "webrat"
+
+Webrat.configure do |config|
+  config.mode = :rails
+end
+
 
 def login
   @user ||= Factory(:user)
+  UserSession.create(@user)
+  
+assert_not_nil UserSession.find
+end
 
-  get "/login"
+def integration_login
+  @user ||= Factory(:user)
+
+  visit "/login"
   fill_in "login", :with => @user.login
   fill_in "password", :with => @user.password
   check "remember me"
   click_button "Login"
 
-  assert_not_nil UserSession.find
+   assert_not_nil UserSession.find
 end
+
+

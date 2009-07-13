@@ -3,6 +3,8 @@ require 'test_helper'
 class DepositIntegrationTest < ActionController::IntegrationTest
   context "a normal user" do
     setup do
+      integration_login
+
       @acc1 = Factory.create(:account)
       @acc2 = Factory.create(:account)
     end
