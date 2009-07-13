@@ -1,10 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :withdrawals
-
+  map.resources :synchronize
   map.resources(:deposits, 
                 :collection => { :accounts => :any })
-
-
   map.resources :deposit_types, :as => "deposit_templates"
   map.resources :accounts
   map.resource :user_session
