@@ -1,15 +1,13 @@
-- site_name = "BUDGETO"
-
 !!! STRICT
 %html{:xmlns=>"http://www.w3.org/1999/xhtml", :lang=>"en"}
 %head
   %meta{:'http-equiv'=>"Content-Type", :content=>"text/html; charset=utf-8"}
-  %title= site_name
+  %title= $SITE_NAME
   = stylesheet_link_tag 'web_app_theme', "themes/bec/style", "application"
 %body
   #container
     #header
-      %h1=link_to site_name, '/'
+      %h1=link_to $SITE_NAME, '/'
       #user-navigation
         %ul
           -if current_user
