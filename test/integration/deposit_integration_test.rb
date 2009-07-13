@@ -21,6 +21,7 @@ class DepositIntegrationTest < ActionController::IntegrationTest
       assert_equal count + 1, Deposit.count
       deposit = assigns(:deposit)
       assert_equal 1000, deposit.dollars
+      assert_equal UserSession.find.user, deposit.user
     end
 
   end

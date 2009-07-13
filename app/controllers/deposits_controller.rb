@@ -43,6 +43,7 @@ class DepositsController < ApplicationController
   # POST /deposits.xml
   def create
     @deposit = Deposit.new(params[:deposit])
+    @deposit.user = current_user
 
     respond_to do |format|
       if @deposit.save
