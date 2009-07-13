@@ -52,9 +52,9 @@ class DepositsControllerTest < ActionController::TestCase
       setup do
         @acc1 = Factory.create(:account)
         @acc2 = Factory.create(:account)
-        @type = Factory.create(:deposit_type)
-        @type.deposit_type_account_percentages.build(:account => @acc1, :percentage => 25).save!
-        @type.deposit_type_account_percentages.build(:account => @acc2, :percentage => 75).save!
+        @type = Factory.create(:deposit_template)
+        @type.deposit_template_account_percentages.build(:account => @acc1, :percentage => 25).save!
+        @type.deposit_template_account_percentages.build(:account => @acc2, :percentage => 75).save!
       end
       
       should "return values with amount empty" do

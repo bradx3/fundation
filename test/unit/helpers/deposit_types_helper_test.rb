@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class DepositTypesHelperTest < ActionView::TestCase
+class DepositTemplateHelperTest < ActionView::TestCase
 end

@@ -1,0 +1,2 @@
+module DepositTemplatesHelper
+end

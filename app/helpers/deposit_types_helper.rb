@@ -1,2 +1,0 @@
-module DepositTypesHelper
-end

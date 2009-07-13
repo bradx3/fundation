@@ -10,8 +10,8 @@ Factory.define :account do |o|
   o.initial_balance_in_cents { rand(100000) }
 end
 
-Factory.define :deposit_type do |o|
-  o.sequence(:name) { |n| "deposit_type #{ n }" }
+Factory.define :deposit_template do |o|
+  o.sequence(:name) { |n| "deposit_template #{ n }" }
 end
 
 Factory.define :account_transaction do |o|

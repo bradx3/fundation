@@ -1,0 +1,14 @@
+%h2.title
+  %span= link_to "Edit", edit_deposit_template_path(@deposit_template)
+  Showing
+  = @deposit_template.name
+
+.inner
+  %p
+    %b Name:
+    =h @deposit_template.name
+
+  - @deposit_template.deposit_template_account_percentages.each do |percentage|
+    %p
+      %b=h percentage.account.name
+      =h "#{ percentage.percentage }%"

@@ -1,6 +1,6 @@
 module DepositsHelper
-  def deposit_type_options
-    options = DepositType.all.map { |dt| [ dt.name, dt.id ] }
+  def deposit_template_options
+    options = DepositTemplate.all.map { |dt| [ dt.name, dt.id ] }
     options = [ '' ] + options
     options_for_select(options)
   end

@@ -1,13 +1,13 @@
 document.observe("dom:loaded", function() {
-    addDepositTypeListener();
+    addDepositTemplateListener();
 
     addDepositAmountListener();
     addDepositPercentageListener();
     addDepositAccountAmountListener();
 });
 
-function addDepositTypeListener() {
-    var depositType = $("deposit_type");
+function addDepositTemplateListener() {
+    var depositType = $("deposit_template");
     if (depositType == null) { return; }
 
     depositType.observe("change", function() {

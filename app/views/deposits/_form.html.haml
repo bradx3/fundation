@@ -8,7 +8,7 @@
 
   .group
     = label_tag(:deposit_template, nil, :class => "label")
-    = select_tag :deposit_template, deposit_type_options, :id => "deposit_type"
+    = select_tag :deposit_template, deposit_template_options, :id => "deposit_template"
 
   .deposit_accounts
     - f.fields_for(:account_transactions) do |fields|

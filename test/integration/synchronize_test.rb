@@ -10,7 +10,7 @@ class SynchronizeTest < ActionController::IntegrationTest
 
     should "be able to synchronize accounts" do
       balance = Account.total_balance
-      amount = (balance / 2.0)
+      amount = (balance - 10)
 
       visit accounts_path
       click_link "synchronize with real account"
@@ -19,7 +19,7 @@ class SynchronizeTest < ActionController::IntegrationTest
       click_button "create"
 
       transaction = Transaction.last
-      assert_equal -amount, transaction.dollars
+      assert_equal -10, transaction.dollars
     end
   end
 end
