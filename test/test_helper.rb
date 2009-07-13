@@ -57,14 +57,13 @@ require "webrat"
 
 Webrat.configure do |config|
   config.mode = :rails
+  config.open_error_files = false
 end
-
 
 def login
   @user ||= Factory(:user)
   UserSession.create(@user)
-  
-assert_not_nil UserSession.find
+  assert_not_nil UserSession.find
 end
 
 def integration_login
