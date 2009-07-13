@@ -4,4 +4,9 @@ module DepositsHelper
     options = [ '' ] + options
     options_for_select(options)
   end
+
+  def accounts(transaction)
+    names = transaction.account_transactions.used.map { |a| a.account.name }
+    return names.sort.join(", ")
+  end
 end

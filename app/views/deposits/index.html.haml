@@ -10,6 +10,7 @@
       %th Date
       %th Amount
       %th User
+      %th Accounts
       %th.last
 
     - @deposits.each do |deposit|
@@ -17,5 +18,6 @@
         %td= deposit.created_at.to_formatted_s(:long)
         %td= currency(deposit.allocated_dollars)
         %td= deposit.user
+        %td= accounts(deposit)
         %td.last= link_to("Show", deposit)
 

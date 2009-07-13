@@ -23,6 +23,8 @@
         %ul
           %li= link_to "Accounts", "/"
           %li= link_to "Transactions", deposits_path
+          %li= link_to "Deposit Money", new_deposit_path
+          %li= link_to "Withdraw Money", new_withdrawal_path
           %li= link_to "Deposit Templates", deposit_types_path
         .clear  
     #wrapper
@@ -40,8 +42,6 @@
         .block
           %h3 Actions
           %ul.navigation
-            %li= link_to "Deposit money", new_deposit_path
-            %li= link_to "Withdraw money", new_withdrawal_path
             = yield :sidebar
 
       .clear
