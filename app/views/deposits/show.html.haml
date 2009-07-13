@@ -6,7 +6,7 @@
     %b Date:
     =h @deposit.created_at.to_formatted_s(:long)
 
-  - @deposit.deposit_accounts.each do |da|
+  - @deposit.account_transactions.each do |da|
     %p
       %b=h da.account.name
       =h currency(da.dollars)

@@ -1,6 +1,6 @@
 class Account < ActiveRecord::Base
   validates_presence_of :name
-  has_many :deposit_accounts
+  has_many :account_transactions
 
   include DollarMethods
 
@@ -12,8 +12,8 @@ class Account < ActiveRecord::Base
   def balance
     res = dollars
 
-    deposit_accounts.each do |dep|
-      res += dep.dollars
+    account_transactions.each do |tran|
+      res += tran.dollars
     end
 
     return res

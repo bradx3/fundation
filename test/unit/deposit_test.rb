@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class DepositTest < ActiveSupport::TestCase
-  should_have_many :deposit_accounts
+  should_have_many :account_transactions
   should_belong_to :user
 
   should "convert dollars to cents" do
@@ -32,12 +32,12 @@ class DepositTest < ActiveSupport::TestCase
     should "validate allocations add to total" do
       d = Deposit.new
       d.dollars = 100
-      d.deposit_accounts.build(:account => @acc1, :dollars => 5)
-      d.deposit_accounts.build(:account => @acc2, :dollars => 10)
+      d.account_transactions.build(:account => @acc1, :dollars => 5)
+      d.account_transactions.build(:account => @acc2, :dollars => 10)
       assert !d.valid?
       assert d.errors.on_base
 
-      d.deposit_accounts.first.dollars = 90
+      d.account_transactions.first.dollars = 90
       assert d.valid?
     end
 

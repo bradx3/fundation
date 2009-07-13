@@ -11,18 +11,18 @@
 
 ActiveRecord::Schema.define(:version => 20090713041746) do
 
-  create_table "accounts", :force => true do |t|
-    t.string   "name"
-    t.integer  "initial_balance_in_cents"
+  create_table "account_transactions", :force => true do |t|
+    t.integer  "transaction_id"
+    t.integer  "account_id"
+    t.integer  "percentage"
+    t.integer  "amount_in_cents"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "deposit_accounts", :force => true do |t|
-    t.integer  "deposit_id"
-    t.integer  "account_id"
-    t.integer  "percentage"
-    t.integer  "amount_in_cents"
+  create_table "accounts", :force => true do |t|
+    t.string   "name"
+    t.integer  "initial_balance_in_cents"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

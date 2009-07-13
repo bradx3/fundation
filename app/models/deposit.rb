@@ -1,15 +1,9 @@
-class Deposit < ActiveRecord::Base
-  has_many :deposit_accounts
-  accepts_nested_attributes_for :deposit_accounts
-  belongs_to :user
-  
-  include DollarMethods
-
+class Deposit < Transaction
   validate :allocations_add_to_total
   validate :amount_greater_than_zero
 
   def allocated_dollars
-    deposit_accounts.inject(0) { |total, da| total += da.dollars }    
+    account_transactions.inject(0) { |total, da| total += da.dollars }    
   end
 
   private

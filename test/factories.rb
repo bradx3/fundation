@@ -14,14 +14,14 @@ Factory.define :deposit_type do |o|
   o.sequence(:name) { |n| "deposit_type #{ n }" }
 end
 
-Factory.define :deposit_account do |o|
+Factory.define :account_transaction do |o|
   o.association :account
 end
 
 Factory.define :deposit do |d|
   d.dollars 100
-  d.deposit_accounts do |da| 
-    [ da.association(:deposit_account, :dollars => 50), 
-      da.association(:deposit_account, :dollars => 50) ]
+  d.account_transactions do |da| 
+    [ da.association(:account_transaction, :dollars => 50), 
+      da.association(:account_transaction, :dollars => 50) ]
   end
 end

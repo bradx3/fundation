@@ -1,5 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :deposits, :collection => { :accounts => :any }
+  map.resources :withdrawals
+
+  map.resources(:deposits, 
+                :collection => { :accounts => :any })
+
 
   map.resources :deposit_types, :as => "deposit_templates"
   map.resources :accounts
