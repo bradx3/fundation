@@ -27,9 +27,9 @@ class DepositTemplatePercentagesTest < ActionController::IntegrationTest
       assert_equal 75, @deposit_template.deposit_template_account_percentages[1].percentage
     end
 
-    should "be able to create deposit types" do
+    should "be able to create deposit templates" do
       visit deposit_templates_path
-      click_link "create new deposit type"
+      click_link "create new deposit template"
 
       fill_in "Name", :with => "new name"
       fill_in @acc1.name, :with => "50"
