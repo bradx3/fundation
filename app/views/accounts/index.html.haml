@@ -1,7 +1,7 @@
 %h2.title 
   %span
     Balance:
-    = number_to_currency(Account.sum(:balance_in_cents) / 100.0)
+    = currency(Account.total_balance)
   All Accounts
 
 .inner

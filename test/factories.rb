@@ -7,7 +7,7 @@ end
 
 Factory.define :account do |o|
   o.sequence(:name) { |n| "account #{ n }" }
-  o.balance_in_cents { rand(100000) }
+  o.initial_balance_in_cents { rand(100000) }
 end
 
 Factory.define :deposit_type do |o|

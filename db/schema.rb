@@ -13,7 +13,7 @@ ActiveRecord::Schema.define(:version => 20090711044915) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
-    t.integer  "balance_in_cents"
+    t.integer  "initial_balance_in_cents"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
