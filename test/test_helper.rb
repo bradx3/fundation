@@ -36,3 +36,15 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
+
+def login
+  @user ||= Factory(:user)
+
+  get "/login"
+  fill_in "login", :with => @user.login
+  fill_in "password", :with => @user.password
+  check "remember me"
+  click_button "Login"
+
+  assert_not_nil UserSession.find
+end
