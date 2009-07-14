@@ -12,6 +12,6 @@ module DollarMethods
   end
 
   def dollars
-    return self.send(dollar_method).to_i / 100.0
+    return self.send(dollar_method).to_f / 100.0
   end
 end

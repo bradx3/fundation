@@ -35,14 +35,14 @@ ActiveRecord::Schema.define(:version => 20090714003716) do
     t.integer  "transaction_id"
     t.integer  "fund_id"
     t.integer  "percentage"
-    t.integer  "amount_in_cents"
+    t.float    "amount_in_cents"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "funds", :force => true do |t|
     t.string   "name"
-    t.integer  "initial_balance_in_cents", :default => 0
+    t.float    "initial_balance_in_cents", :default => 0.0
     t.boolean  "default_synchronize_fund", :default => false
     t.integer  "user_id"
     t.datetime "created_at"

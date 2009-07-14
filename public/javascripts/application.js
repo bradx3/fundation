@@ -122,12 +122,36 @@ function updatePercentageFromFundAmount(amountElem) {
     updateUnallocated();
 }
 
-function updateUnallocated() {
+function fixRoundingErrors() {
     var amount = floatVal("deposit_dollars");
+    var diff = amount - amountTotal();
+
+    if (percentageTotal() == 100.0 && diff != 0.0) {
+	var toUpdate = $$(".amount")[0];
+	toUpdate.value = (floatVal(toUpdate) + diff).toFixed(2);
+    }
+}
+
+function percentageTotal() {
+    var total = 0;
+    $$(".percentage").each(function(e) {
+	total += floatVal(e);
+    });
+    return total;
+}
+
+function amountTotal() {
     var total = 0;
     $$(".amount").each(function(elem) {
 	total += floatVal(elem);
     });
+    return total;
+}
+function updateUnallocated() {
+    fixRoundingErrors();
+
+    var amount = floatVal("deposit_dollars");
+    var total = amountTotal();
 
     var unallocated = $("unallocated");
     unallocated.update("$" + total.toFixed(2));

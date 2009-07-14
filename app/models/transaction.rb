@@ -8,7 +8,8 @@ class Transaction < ActiveRecord::Base
   include DollarMethods
 
   def allocated_dollars
-    fund_transactions.inject(0) { |total, da| total += da.dollars }    
+    cents = fund_transactions.inject(0) { |total, da| total += da.amount_in_cents.to_f }    
+    return cents.to_f / 100.00
   end
 
   def init_all_deposit_funds

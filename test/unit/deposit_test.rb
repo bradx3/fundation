@@ -3,8 +3,9 @@ require 'test_helper'
 class DepositTest < ActiveSupport::TestCase
   context "with a few funds" do
     setup do 
-      @acc1 = Factory.create(:fund)
-      @acc2 = Factory.create(:fund)
+      @user = Factory(:user)
+      @funds = []
+      6.times { @funds << Factory(:fund, :user => @user) }
     end
 
     should "validate allocations add to total" do
@@ -12,8 +13,8 @@ class DepositTest < ActiveSupport::TestCase
       d.fund_transactions.clear
 
       d.dollars = 100
-      d.fund_transactions.build(:fund => @acc1, :dollars => 5)
-      d.fund_transactions.build(:fund => @acc2, :dollars => 10)
+      d.fund_transactions.build(:fund => @funds[0], :dollars => 5)
+      d.fund_transactions.build(:fund => @funds[1], :dollars => 10)
       assert !d.valid?
       assert d.errors.on_base
 
@@ -26,6 +27,20 @@ class DepositTest < ActiveSupport::TestCase
       d.dollars = 0
       assert !d.valid?
       assert d.errors.on_base
+    end
+
+    should "handle allocations with fractions of cents" do
+      d = Factory.build(:deposit)
+      d.fund_transactions.clear
+
+      d.dollars = 3333.21
+
+      amounts = [ 999.97, 999.96, 1166.62, 100.00, 33.33, 33.33 ]
+      amounts.each_with_index do |amt, i|
+        d.fund_transactions.build(:fund => @funds[i], :dollars => amt)
+      end
+
+      assert d.valid?
     end
   end
 end

@@ -4,7 +4,7 @@ class CreateFundTransactions < ActiveRecord::Migration
       t.integer :transaction_id
       t.integer :fund_id
       t.integer :percentage
-      t.integer :amount_in_cents
+      t.float :amount_in_cents
 
       t.timestamps
     end
