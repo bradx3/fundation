@@ -6,7 +6,7 @@
     %b Date:
     =h @withdrawal.created_at.to_formatted_s(:long)
 
-  - @withdrawal.account_transactions.used.each do |da|
+  - @withdrawal.fund_transactions.used.each do |da|
     %p
-      %b=h da.account.name
+      %b=h da.fund.name
       =h currency(da.dollars)

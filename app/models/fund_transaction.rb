@@ -1,6 +1,6 @@
-class AccountTransaction < ActiveRecord::Base
+class FundTransaction < ActiveRecord::Base
   belongs_to :transaction
-  belongs_to :account
+  belongs_to :fund
 
   include DollarMethods
 

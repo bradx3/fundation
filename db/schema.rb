@@ -11,26 +11,9 @@
 
 ActiveRecord::Schema.define(:version => 20090711044915) do
 
-  create_table "account_transactions", :force => true do |t|
-    t.integer  "transaction_id"
-    t.integer  "account_id"
-    t.integer  "percentage"
-    t.integer  "amount_in_cents"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "accounts", :force => true do |t|
-    t.string   "name"
-    t.integer  "initial_balance_in_cents", :default => 0
-    t.boolean  "default_synchronize_fund", :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "deposit_template_account_percentages", :force => true do |t|
+  create_table "deposit_template_fund_percentages", :force => true do |t|
     t.integer  "deposit_template_id"
-    t.integer  "account_id"
+    t.integer  "fund_id"
     t.integer  "percentage"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -38,6 +21,23 @@ ActiveRecord::Schema.define(:version => 20090711044915) do
 
   create_table "deposit_templates", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fund_transactions", :force => true do |t|
+    t.integer  "transaction_id"
+    t.integer  "fund_id"
+    t.integer  "percentage"
+    t.integer  "amount_in_cents"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "funds", :force => true do |t|
+    t.string   "name"
+    t.integer  "initial_balance_in_cents", :default => 0
+    t.boolean  "default_synchronize_fund", :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

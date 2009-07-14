@@ -5,8 +5,8 @@ class DepositIntegrationTest < ActionController::IntegrationTest
     setup do
       integration_login
 
-      @acc1 = Factory.create(:account)
-      @acc2 = Factory.create(:account)
+      @acc1 = Factory.create(:fund)
+      @acc2 = Factory.create(:fund)
     end
 
     should "be able to create a deposit" do
@@ -14,8 +14,8 @@ class DepositIntegrationTest < ActionController::IntegrationTest
 
       visit new_deposit_path
       fill_in "amount", :with => 1000
-      fill_in "deposit[account_transactions_attributes][0][dollars]", :with => 750
-      fill_in "deposit[account_transactions_attributes][1][dollars]", :with => 250
+      fill_in "deposit[fund_transactions_attributes][0][dollars]", :with => 750
+      fill_in "deposit[fund_transactions_attributes][1][dollars]", :with => 250
       click_button "create"
 
       assert_equal count + 1, Deposit.count

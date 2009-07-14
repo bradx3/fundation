@@ -8,7 +8,7 @@
     %b Name:
     =h @deposit_template.name
 
-  - @deposit_template.deposit_template_account_percentages.each do |percentage|
+  - @deposit_template.deposit_template_fund_percentages.each do |percentage|
     %p
-      %b=h percentage.account.name
+      %b=h percentage.fund.name
       =h "#{ percentage.percentage }%"

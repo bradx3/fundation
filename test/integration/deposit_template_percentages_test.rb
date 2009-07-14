@@ -5,8 +5,8 @@ class DepositTemplatePercentagesTest < ActionController::IntegrationTest
     setup do
       integration_login
 
-      @acc1 = Factory.create(:account)
-      @acc2 = Factory.create(:account)
+      @acc1 = Factory.create(:fund)
+      @acc2 = Factory.create(:fund)
       @deposit_template = Factory.create(:deposit_template)
     end
 
@@ -23,8 +23,8 @@ class DepositTemplatePercentagesTest < ActionController::IntegrationTest
 
       @deposit_template.reload
       assert_equal "new name", @deposit_template.name
-      assert_equal 25, @deposit_template.deposit_template_account_percentages.first.percentage
-      assert_equal 75, @deposit_template.deposit_template_account_percentages[1].percentage
+      assert_equal 25, @deposit_template.deposit_template_fund_percentages.first.percentage
+      assert_equal 75, @deposit_template.deposit_template_fund_percentages[1].percentage
     end
 
     should "be able to create deposit templates" do
@@ -41,8 +41,8 @@ class DepositTemplatePercentagesTest < ActionController::IntegrationTest
       @deposit_template.reload
 
       assert_equal "new name", @deposit_template.name
-      assert_equal 50, @deposit_template.deposit_template_account_percentages.first.percentage
-      assert_equal 50, @deposit_template.deposit_template_account_percentages[1].percentage
+      assert_equal 50, @deposit_template.deposit_template_fund_percentages.first.percentage
+      assert_equal 50, @deposit_template.deposit_template_fund_percentages[1].percentage
     end
   end
 end

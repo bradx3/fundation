@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DepositTemplateAccountPercentageTest < ActiveSupport::TestCase
+class DepositTemplateFundPercentageTest < ActiveSupport::TestCase
   should_belong_to :deposit_template
-  should_belong_to :account
+  should_belong_to :fund
 end

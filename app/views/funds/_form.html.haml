@@ -1,4 +1,4 @@
-- form_for(@account, :html => { :class => "form" }) do |f|
+- form_for(@fund, :html => { :class => "form" }) do |f|
   .group
     = f.label :name, nil, :class => "label"
     = f.text_field :name, :class => "text_field"
@@ -8,4 +8,4 @@
     = f.text_field :dollars, :class => "text_field amount"
 
   .group.navform
-    = f.submit(@account.new_record? ? "Create" : "Update")
+    = f.submit(@fund.new_record? ? "Create" : "Update")

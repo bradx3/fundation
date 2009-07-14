@@ -48,17 +48,17 @@ class DepositsControllerTest < ActionController::TestCase
       assert_redirected_to deposits_path
     end
 
-    context "render for accounts" do
+    context "render for funds" do
       setup do
-        @acc1 = Factory.create(:account)
-        @acc2 = Factory.create(:account)
+        @acc1 = Factory.create(:fund)
+        @acc2 = Factory.create(:fund)
         @type = Factory.create(:deposit_template)
-        @type.deposit_template_account_percentages.build(:account => @acc1, :percentage => 25).save!
-        @type.deposit_template_account_percentages.build(:account => @acc2, :percentage => 75).save!
+        @type.deposit_template_fund_percentages.build(:fund => @acc1, :percentage => 25).save!
+        @type.deposit_template_fund_percentages.build(:fund => @acc2, :percentage => 75).save!
       end
       
       should "return values with amount empty" do
-        get :accounts, :type_id => @type.id
+        get :funds, :type_id => @type.id
         result = assigns["result"]
 
         assert_equal 0, result[@acc1.id][:amount]
@@ -68,7 +68,7 @@ class DepositsControllerTest < ActionController::TestCase
       end
 
       should "return values with amount non empty" do
-        get :accounts, :type_id => @type.id, :amount => 100
+        get :funds, :type_id => @type.id, :amount => 100
         result = assigns["result"]
 
         assert_equal 25, result[@acc1.id][:amount]

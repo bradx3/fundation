@@ -1,11 +1,11 @@
 require 'test_helper'
 
-class AccountTransactionTest < ActiveSupport::TestCase
+class FundTransactionTest < ActiveSupport::TestCase
   should_belong_to :transaction
-  should_belong_to :account
+  should_belong_to :fund
 
   should "convert dollars to cents" do
-    d = AccountTransaction.new
+    d = FundTransaction.new
     d.dollars = 1
     assert_equal 100, d.amount_in_cents
 
@@ -14,7 +14,7 @@ class AccountTransactionTest < ActiveSupport::TestCase
   end
 
   should "convert cents to dollars" do
-    d = AccountTransaction.new
+    d = FundTransaction.new
 
     d.amount_in_cents = 100
     assert_equal 1, d.dollars

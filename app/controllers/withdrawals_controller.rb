@@ -3,7 +3,7 @@ class WithdrawalsController < ApplicationController
   # GET /withdrawals/new.xml
   def new
     @withdrawal = Withdrawal.new
-    @withdrawal.init_all_deposit_accounts
+    @withdrawal.init_all_deposit_funds
 
     respond_to do |format|
       format.html # new.html.erb
@@ -16,7 +16,7 @@ class WithdrawalsController < ApplicationController
   def create
     @withdrawal = Withdrawal.new(params[:withdrawal])
     @withdrawal.user = current_user
-    @withdrawal.account_transactions.each { |da| da.dollars = (0 - da.dollars) }
+    @withdrawal.fund_transactions.each { |da| da.dollars = (0 - da.dollars) }
 
     respond_to do |format|
       if @withdrawal.save

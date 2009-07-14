@@ -25,7 +25,7 @@ class DepositTemplatesController < ApplicationController
   # GET /deposit_templates/new.xml
   def new
     @deposit_template = DepositTemplate.new
-    @deposit_template.init_all_account_percentages
+    @deposit_template.init_all_fund_percentages
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,7 +36,7 @@ class DepositTemplatesController < ApplicationController
   # GET /deposit_templates/1/edit
   def edit
     @deposit_template = DepositTemplate.find(params[:id])
-    @deposit_template.init_all_account_percentages
+    @deposit_template.init_all_fund_percentages
   end
 
   # POST /deposit_templates

@@ -3,7 +3,7 @@ class SynchronizeController < ApplicationController
   end
 
   def create
-    local_balance = Account.total_balance
+    local_balance = Fund.total_balance
     actual_balance = params[:actual_balance].to_f
 
     difference = actual_balance - local_balance
@@ -12,9 +12,9 @@ class SynchronizeController < ApplicationController
       redirect_to new_deposit_path
     else
       @withdrawal = Withdrawal.new(:dollars => difference)
-      @withdrawal.init_all_deposit_accounts
+      @withdrawal.init_all_deposit_funds
 
-      default = @withdrawal.account_transactions.detect { |at| at.account.default_synchronize_fund? }
+      default = @withdrawal.fund_transactions.detect { |at| at.fund.default_synchronize_fund? }
       default.dollars = difference.abs if default
 
       render :template => "/withdrawals/new"

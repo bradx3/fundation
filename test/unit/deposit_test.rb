@@ -1,21 +1,21 @@
 require 'test_helper'
 
 class DepositTest < ActiveSupport::TestCase
-  context "with a few accounts" do
+  context "with a few funds" do
     setup do 
-      @acc1 = Factory.create(:account)
-      @acc2 = Factory.create(:account)
+      @acc1 = Factory.create(:fund)
+      @acc2 = Factory.create(:fund)
     end
 
     should "validate allocations add to total" do
       d = Deposit.new
       d.dollars = 100
-      d.account_transactions.build(:account => @acc1, :dollars => 5)
-      d.account_transactions.build(:account => @acc2, :dollars => 10)
+      d.fund_transactions.build(:fund => @acc1, :dollars => 5)
+      d.fund_transactions.build(:fund => @acc2, :dollars => 10)
       assert !d.valid?
       assert d.errors.on_base
 
-      d.account_transactions.first.dollars = 90
+      d.fund_transactions.first.dollars = 90
       assert d.valid?
     end
 

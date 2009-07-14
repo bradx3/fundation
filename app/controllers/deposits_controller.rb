@@ -26,7 +26,7 @@ class DepositsController < ApplicationController
   # GET /deposits/new.xml
   def new
     @deposit = Deposit.new
-    @deposit.init_all_deposit_accounts
+    @deposit.init_all_deposit_funds
 
     respond_to do |format|
       format.html # new.html.erb
@@ -86,18 +86,18 @@ class DepositsController < ApplicationController
     end
   end
 
-  def accounts
+  def funds
     @deposit_template = DepositTemplate.find(params[:type_id])
-    @deposit_template.init_all_account_percentages
+    @deposit_template.init_all_fund_percentages
     amount = params[:amount].to_i
     
     @result = {}
-    @deposit_template.deposit_template_account_percentages.each do |dtap|
+    @deposit_template.deposit_template_fund_percentages.each do |dtap|
       values = {
         :percentage => dtap.percentage,
         :amount => (amount.to_f * (dtap.percentage / 100.0))
       }
-      @result[dtap.account_id] = values
+      @result[dtap.fund_id] = values
     end
 
     render :json => @result.to_json

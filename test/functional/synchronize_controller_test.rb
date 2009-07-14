@@ -6,7 +6,7 @@ class SynchronizeControllerTest < ActionController::TestCase
   context "with a logged in user" do
     setup do
       login
-      @acc1 = Factory(:account)
+      @acc1 = Factory(:fund)
     end
 
     should "get new" do

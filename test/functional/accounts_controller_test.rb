@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AccountsControllerTest < ActionController::TestCase
+class FundsControllerTest < ActionController::TestCase
   should_require_user_for_all_methods
 
   context "with a logged in user" do
@@ -11,7 +11,7 @@ class AccountsControllerTest < ActionController::TestCase
     should "get index" do
       get :index
       assert_response :success
-      assert_not_nil assigns(:accounts)
+      assert_not_nil assigns(:funds)
     end
 
     should "get new" do
@@ -19,40 +19,40 @@ class AccountsControllerTest < ActionController::TestCase
       assert_response :success
     end
 
-    should "create account" do
-      assert_difference('Account.count') do
-        post :create, :account => Factory.build(:account).attributes
+    should "create fund" do
+      assert_difference('Fund.count') do
+        post :create, :fund => Factory.build(:fund).attributes
       end
 
-      assert_redirected_to account_path(assigns(:account))
+      assert_redirected_to fund_path(assigns(:fund))
     end
 
-    should "show account" do
-      account = Factory.create(:account)
-      get :show, :id => account.to_param
+    should "show fund" do
+      fund = Factory.create(:fund)
+      get :show, :id => fund.to_param
       assert_response :success
     end
 
     should "get edit" do
-      account = Factory.create(:account)
-      get :edit, :id => account.to_param
+      fund = Factory.create(:fund)
+      get :edit, :id => fund.to_param
       assert_response :success
     end
 
-    should "update account" do
-      account = Factory.create(:account)
-      put :update, :id => account.to_param, :account => { }
-      assert_redirected_to account_path(assigns(:account))
+    should "update fund" do
+      fund = Factory.create(:fund)
+      put :update, :id => fund.to_param, :fund => { }
+      assert_redirected_to fund_path(assigns(:fund))
     end
 
-    should "destroy account" do
-      account = Factory.create(:account)
+    should "destroy fund" do
+      fund = Factory.create(:fund)
 
-      assert_difference('Account.count', -1) do
-        delete :destroy, :id => account.to_param
+      assert_difference('Fund.count', -1) do
+        delete :destroy, :id => fund.to_param
       end
 
-      assert_redirected_to accounts_path
+      assert_redirected_to funds_path
     end
 
   end

@@ -3,7 +3,7 @@ document.observe("dom:loaded", function() {
 
     addDepositAmountListener();
     addDepositPercentageListener();
-    addDepositAccountAmountListener();
+    addDepositFundAmountListener();
 });
 
 function addDepositTemplateListener() {
@@ -14,7 +14,7 @@ function addDepositTemplateListener() {
 	var selected = $F(depositType);
 	var amount = $F("deposit_dollars");
 
-	new Ajax.Request("/deposits/accounts.json", {
+	new Ajax.Request("/deposits/funds.json", {
 	    parameters: { type_id: selected, amount: amount },
 	    method: "get",
 	    onSuccess: function(transport) {
@@ -29,9 +29,9 @@ function addDepositTemplateListener() {
 }
 
 function updateDepositValues(id, values) {
-    var account = $("account_" + id).up(".account");
-    var amount = account.down(".amount");
-    var percentage = account.down(".percentage");
+    var fund = $("fund_" + id).up(".fund");
+    var amount = fund.down(".amount");
+    var percentage = fund.down(".percentage");
 
     amount.value = values["amount"].toFixed(2);
     percentage.value = values["percentage"].toFixed(2);
@@ -47,9 +47,9 @@ function addDepositAmountListener() {
 	    var dollars = floatVal(amount);
 
 	    $$(".percentage").each(function(percentageElem) {
-		var account = percentageElem.up(".account");
+		var fund = percentageElem.up(".fund");
 		var percentage = floatVal(percentageElem) / 100.0;
-		var acctAmmount = account.down(".amount");
+		var acctAmmount = fund.down(".amount");
 		
 		acctAmmount.value = (percentage * dollars).toFixed(2);
 		updateUnallocated();
@@ -79,35 +79,35 @@ function addDepositPercentageListener() {
     $$(".percentage").each(function(elem) {
 	elem.observe("keyup", function(event) {
 	    if (isNumberKey(event)) {
-		updateAccountAmountFromPercentage(elem);
+		updateFundAmountFromPercentage(elem);
 	    }
 	});
     });
 }
-function updateAccountAmountFromPercentage(percentageElem) {
+function updateFundAmountFromPercentage(percentageElem) {
     var amount = floatVal("deposit_dollars");
     var percentage = floatVal(percentageElem) / 100.0;
-    var account = percentageElem.up(".account");
-    var acctAmount = account.down(".amount");
+    var fund = percentageElem.up(".fund");
+    var acctAmount = fund.down(".amount");
     
     acctAmount.value = (percentage * amount).toFixed(2);
     updateUnallocated();
 }
 
-function addDepositAccountAmountListener() {
+function addDepositFundAmountListener() {
     $$(".amount").each(function(elem) {
 	elem.observe("keyup", function(event) {
 	    if (isNumberKey(event)) {
-		updatePercentageFromAccountAmount(elem);
+		updatePercentageFromFundAmount(elem);
 	    }
 	});
     });
 }
-function updatePercentageFromAccountAmount(amountElem) {
+function updatePercentageFromFundAmount(amountElem) {
     var amount = floatVal("deposit_dollars");
     var acctAmount = floatVal(amountElem);
-    var account = amountElem.up(".account");
-    var percentage = account.down(".percentage");
+    var fund = amountElem.up(".fund");
+    var percentage = fund.down(".percentage");
 
     percentage.value = (acctAmount * 100.0 / amount).toFixed(2);
     updateUnallocated();

@@ -4,16 +4,16 @@ class SynchronizeTest < ActionController::IntegrationTest
   context "a normal user" do
     setup do
       integration_login
-      @acc1 = Factory(:account, :default_synchronize_fund => true)
-      @acc2 = Factory(:account)
+      @acc1 = Factory(:fund, :default_synchronize_fund => true)
+      @acc2 = Factory(:fund)
     end
 
-    should "be able to synchronize accounts" do
-      balance = Account.total_balance
+    should "be able to synchronize funds" do
+      balance = Fund.total_balance
       amount = (balance - 10)
 
-      visit accounts_path
-      click_link "synchronize with real account"
+      visit funds_path
+      click_link "synchronize with real fund"
       fill_in "actual balance", :with => amount
       click_button "synchronize"
       click_button "create"
