@@ -1,6 +1,8 @@
 class DepositTemplate < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name
+  belongs_to :user
+  validates_presence_of :user
 
   has_many :deposit_template_fund_percentages
   accepts_nested_attributes_for :deposit_template_fund_percentages

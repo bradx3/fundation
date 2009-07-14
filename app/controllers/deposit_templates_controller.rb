@@ -13,7 +13,7 @@ class DepositTemplatesController < ApplicationController
   # GET /deposit_templates/1
   # GET /deposit_templates/1.xml
   def show
-    @deposit_template = DepositTemplate.find(params[:id])
+    @deposit_template = current_user.family.deposit_templates.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -35,7 +35,7 @@ class DepositTemplatesController < ApplicationController
 
   # GET /deposit_templates/1/edit
   def edit
-    @deposit_template = DepositTemplate.find(params[:id])
+    @deposit_template = current_user.family.deposit_templates.find(params[:id])
     @deposit_template.init_all_fund_percentages
   end
 
@@ -43,6 +43,7 @@ class DepositTemplatesController < ApplicationController
   # POST /deposit_templates.xml
   def create
     @deposit_template = DepositTemplate.new(params[:deposit_template])
+    @deposit_template.user = current_user
 
     respond_to do |format|
       if @deposit_template.save
@@ -59,7 +60,8 @@ class DepositTemplatesController < ApplicationController
   # PUT /deposit_templates/1
   # PUT /deposit_templates/1.xml
   def update
-    @deposit_template = DepositTemplate.find(params[:id])
+    @deposit_template = current_user.family.deposit_templates.find(params[:id])
+    @deposit_template.user = current_user
 
     respond_to do |format|
       if @deposit_template.update_attributes(params[:deposit_template])
@@ -76,7 +78,7 @@ class DepositTemplatesController < ApplicationController
   # DELETE /deposit_templates/1
   # DELETE /deposit_templates/1.xml
   def destroy
-    @deposit_template = DepositTemplate.find(params[:id])
+    @deposit_template = current_user.family.deposit_templates.find(params[:id])
     @deposit_template.destroy
 
     respond_to do |format|

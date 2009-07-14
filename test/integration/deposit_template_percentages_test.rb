@@ -5,9 +5,9 @@ class DepositTemplatePercentagesTest < ActionController::IntegrationTest
     setup do
       integration_login
 
-      @acc1 = Factory.create(:fund)
-      @acc2 = Factory.create(:fund)
-      @deposit_template = Factory.create(:deposit_template)
+      @acc1 = Factory(:fund, :user => @user)
+      @acc2 = Factory(:fund, :user => @user)
+      @deposit_template = Factory(:deposit_template, :user => @user)
     end
 
     should "be able to edit deposit types" do

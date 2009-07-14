@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
 
   belongs_to :family
   validates_presence_of :family
+
   has_many :funds
+  has_many :deposit_templates
 
   def to_s
     login
