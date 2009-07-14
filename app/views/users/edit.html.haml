@@ -1,0 +1,29 @@
+%h2.title 
+  Editing
+  = @user.login
+  
+.inner
+  - form_for(@user, :html => { :class => "form" }) do |f|
+    = f.error_messages
+
+    .group
+      = f.label :login, nil, :class => "label"
+      = f.text_field :login, :class => "text_field"
+
+    .group
+      = f.label :email, nil, :class => "label"
+      = f.text_field :email, :class => "text_field"
+
+    .group
+      = f.label :password, nil, :class => "label"
+      = f.password_field :password, :class => "text_field"
+      .description Leave blank to keep current password
+
+    .group
+      = f.label :password_confirmation, nil, :class => "label"
+      = f.password_field :password_confirmation, :class => "text_field"
+
+    .group.navform
+      = submit_button_for(f)
+      or 
+      = link_to "back", :back
