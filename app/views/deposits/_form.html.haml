@@ -11,6 +11,9 @@
     $
     = f.text_field :dollars, :class => "text_field total"
 
+  .group
+    %hr/
+
   /
     - # This field is here so tests can still pass without having to use
     - # selenium. 
@@ -33,6 +36,9 @@
             = fields.text_field :percentage, :class => "percentage text_field"
             \%
       .clear
+
+  .group
+    %hr/
 
   .group
     = label_tag(:unallocated, "Total allocated", :class => "label")

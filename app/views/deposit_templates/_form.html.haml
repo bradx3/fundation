@@ -1,4 +1,4 @@
-- form_for(@deposit_template, :html => { :class => "form" }) do |f|
+- form_for(@deposit_template, :html => { :id => "deposit_template", :class => "form" }) do |f|
   .group
     = f.label :name, nil, :class => "label"
     = f.text_field :name, :class => "text_field"
@@ -9,6 +9,15 @@
       = percentage_fields.hidden_field :fund_id, :value => dtap.fund.id
       = percentage_fields.label :percentage, dtap.fund.name, :class => "label"
       = percentage_fields.text_field :percentage, :class => "text_field percentage"
+      \%
+
+  .group
+    %hr/
+
+  .group
+    = label_tag(:unallocated, "Percent Allocated", :class => "label")
+    #unallocated.incorrect
+      = @deposit_template.allocated_percentage
       \%
 
   .group.navform

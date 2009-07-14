@@ -6,8 +6,12 @@ document.observe("dom:loaded", function() {
 	addDepositFundAmountListener();
 	
 	updateAmountsFromPercentages();
+	updateUnallocated();
     }
-    updateUnallocated();
+    else if ($("deposit_template") != null) {
+	addDepositTemplatePercentageListener();
+	updateDepositTemplateAllocated();
+    }
 });
 
 function addDepositTemplateListener() {
@@ -158,6 +162,32 @@ function updateUnallocated() {
     var unallocated = $("unallocated");
     unallocated.update("$" + total.toFixed(2));
     if (total.toFixed(2) != amount.toFixed(2)) {
+	unallocated.addClassName("incorrect");
+    }
+    else {
+	unallocated.removeClassName("incorrect");
+    }
+}
+
+
+function addDepositTemplatePercentageListener() {
+    $$(".percentage").each(function(elem) {
+	elem.observe("keyup", function(event) {
+	    if (isNumberKey(event)) {
+		updateDepositTemplateAllocated();
+	    }
+	});
+    });
+}
+function updateDepositTemplateAllocated() {
+    var total = 0;
+    $$(".percentage").each(function(elem) {
+	total += floatVal(elem);
+    });
+
+    var unallocated = $("unallocated");
+    unallocated.update(total.toFixed(2) + "%");
+    if (total.toFixed(2) != 100.00) {
 	unallocated.addClassName("incorrect");
     }
     else {

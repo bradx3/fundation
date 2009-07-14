@@ -5,8 +5,8 @@ class DepositIntegrationTest < ActionController::IntegrationTest
     setup do
       integration_login
 
-      @acc1 = Factory.create(:fund)
-      @acc2 = Factory.create(:fund)
+      @acc1 = Factory.create(:fund, :user => @user)
+      @acc2 = Factory.create(:fund, :user => @user)
     end
 
     should "be able to create a deposit" do

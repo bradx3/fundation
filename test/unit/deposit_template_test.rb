@@ -13,4 +13,21 @@ class DepositTemplateTest < ActiveSupport::TestCase
     should_validate_uniqueness_of :name
   end
 
+  context "a normal deposit template" do
+    should "ensure allocations add to 100%" do
+      dt = Factory.build(:deposit_template)
+      dt.deposit_template_fund_percentages.clear
+
+      f1 = Factory(:fund)
+      f2 = Factory(:fund)
+      
+      dt.deposit_template_fund_percentages.build(:percentage => 25, :fund => f1)
+      dt.deposit_template_fund_percentages.build(:percentage => 25, :fund => f2)
+      assert !dt.valid?
+
+      dt.deposit_template_fund_percentages.last.percentage = 75
+      assert dt.valid?
+    end
+  end
+
 end

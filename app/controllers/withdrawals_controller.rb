@@ -2,7 +2,7 @@ class WithdrawalsController < ApplicationController
   # GET /withdrawals/new
   # GET /withdrawals/new.xml
   def new
-    @withdrawal = Withdrawal.new
+    @withdrawal = Withdrawal.new(:user => current_user)
     @withdrawal.init_all_deposit_funds
 
     respond_to do |format|

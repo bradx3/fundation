@@ -13,7 +13,7 @@ class Transaction < ActiveRecord::Base
   end
 
   def init_all_deposit_funds
-    funds = Fund.all
+    funds = user.family.funds
     fts = self.fund_transactions
     set_funds = fts.map { |d| d.fund }
 

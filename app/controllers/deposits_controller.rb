@@ -14,7 +14,7 @@ class DepositsController < ApplicationController
   # GET /deposits/new
   # GET /deposits/new.xml
   def new
-    @deposit = Deposit.new
+    @deposit = Deposit.new(:user => current_user)
     @deposit.init_all_deposit_funds
 
     respond_to do |format|

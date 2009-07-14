@@ -18,6 +18,7 @@ end
 Factory.define :deposit_template do |o|
   o.sequence(:name) { |n| "deposit_template #{ n }" }
   o.association :user
+  o.deposit_template_fund_percentages { |a| [] }
 end
 
 Factory.define :fund_transaction do |o|
