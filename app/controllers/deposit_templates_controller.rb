@@ -24,7 +24,7 @@ class DepositTemplatesController < ApplicationController
   # GET /deposit_templates/new
   # GET /deposit_templates/new.xml
   def new
-    @deposit_template = DepositTemplate.new
+    @deposit_template = DepositTemplate.new(:user => current_user)
     @deposit_template.init_all_fund_percentages
 
     respond_to do |format|
