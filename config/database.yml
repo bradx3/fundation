@@ -21,4 +21,4 @@ production:
   username: root
   socket: /var/run/mysqld/mysqld.sock  
   database: budgeto
-  password: root
+  password: ppp
