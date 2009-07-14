@@ -41,7 +41,7 @@
 
       #sidebar
         .block
-          %h3 Actions
+          %h3= @sidebar_title || "Actions"
           %ul.navigation
             = yield :sidebar
 

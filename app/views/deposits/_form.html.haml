@@ -1,3 +1,8 @@
+- content_for :sidebar do
+  - @sidebar_title = "Deposit Templates"
+  - current_user.family.deposit_templates.each do |dt|
+    %li= link_to_function "Use #{ dt.name.titlecase }", "useDepositTemplate(#{ dt.id })"
+
 - form_for(@deposit, :html => { :class => "form" }) do |f|
   = f.error_messages
 
@@ -6,9 +11,12 @@
     $
     = f.text_field :dollars, :class => "text_field total"
 
-  .group
-    = label_tag(:deposit_template, nil, :class => "label")
-    = select_tag :deposit_template, deposit_template_options, :id => "deposit_template"
+  /
+    - # This field is here so tests can still pass without having to use
+    - # selenium. 
+    .group
+      = label_tag(:deposit_template, nil, :class => "label")
+      = select_tag :deposit_template, deposit_template_options, :id => "deposit_template"
 
   .deposit_funds
     - f.fields_for(:fund_transactions) do |fields|
@@ -35,4 +43,3 @@
     = submit_button_for(f)
     or 
     = link_to "back", :back
-      

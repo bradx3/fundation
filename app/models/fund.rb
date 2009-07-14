@@ -19,4 +19,15 @@ class Fund < ActiveRecord::Base
   end
 
 
+  def unset_any_other_default_sync_funds
+    funds = user.family.funds - [ self ]
+    user.family.funds.each do |f|
+      next if f == self
+
+      if f.default_synchronize_fund?
+        f.update_attributes(:default_synchronize_fund => false)
+      end
+    end
+  end
+
 end

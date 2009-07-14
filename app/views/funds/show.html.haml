@@ -1,4 +1,6 @@
-%h2.title=h @fund.name
+%h2.title
+  %span= link_to "Edit", edit_fund_path(@fund)
+  =h @fund.name
 
 .inner
   %p

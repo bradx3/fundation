@@ -12,19 +12,22 @@ function addDepositTemplateListener() {
 
     depositType.observe("change", function() {
 	var selected = $F(depositType);
-	var amount = $F("deposit_dollars");
+	useDepositTemplate(selected);
+    });
+}
+function useDepositTemplate(selected) {
+    var amount = $F("deposit_dollars");
 
-	new Ajax.Request("/deposits/funds.json", {
-	    parameters: { type_id: selected, amount: amount },
-	    method: "get",
-	    onSuccess: function(transport) {
-		var json = transport.responseText.evalJSON();
-		for (var id in json) {
-		    var values = json[id];
-		    updateDepositValues(id, values);
-		}
+    new Ajax.Request("/deposits/funds.json", {
+	parameters: { type_id: selected, amount: amount },
+	method: "get",
+	onSuccess: function(transport) {
+	    var json = transport.responseText.evalJSON();
+	    for (var id in json) {
+		var values = json[id];
+		updateDepositValues(id, values);
 	    }
-	});
+	}
     });
 }
 

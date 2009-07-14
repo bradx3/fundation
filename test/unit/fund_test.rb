@@ -15,4 +15,26 @@ class FundTest < ActiveSupport::TestCase
     fund.fund_transactions.build(:amount_in_cents => 550)
     assert_equal 5.53, fund.balance
   end
+
+  should "unset any existing default sync funds if set" do
+    user = Factory(:user)
+    f1 = Factory(:fund, :user => user)
+    f2 = Factory(:fund, :user => user)
+
+    f1.default_synchronize_fund = true
+    f1.save!
+    f1.unset_any_other_default_sync_funds
+
+    f2.reload
+    assert f1.default_synchronize_fund?
+    assert !f2.default_synchronize_fund?
+
+    f2.default_synchronize_fund = true
+    f2.save!
+    f2.unset_any_other_default_sync_funds
+
+    f1.reload
+    assert !f1.default_synchronize_fund?
+    assert f2.default_synchronize_fund?
+  end
 end

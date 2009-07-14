@@ -6,8 +6,16 @@
     = f.text_field :name, :class => "text_field"
 
   .group
-    = f.label :dollars, "Initial balance", :class => "label"
-    = f.text_field :dollars, :class => "text_field amount"
+    = f.label :default_synchronize_fund, nil, :class => "label"
+    = f.check_box :default_synchronize_fund, :class => ""
+    .description
+      If checked, this fund will be the default account used when synchronizing with your bank account.<br/> Think of it as your expenses account.
+
+
+  - if @fund.new_record?
+    .group
+      = f.label :dollars, "Initial balance", :class => "label"
+      = f.text_field :dollars, :class => "text_field amount"
 
   .group.navform
     = f.submit(@fund.new_record? ? "Create" : "Update")

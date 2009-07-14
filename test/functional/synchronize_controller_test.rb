@@ -6,7 +6,8 @@ class SynchronizeControllerTest < ActionController::TestCase
   context "with a logged in user" do
     setup do
       login
-      @acc1 = Factory(:fund, :user => @user)
+      5.times { Factory(:fund, :user => @user) }
+      @user.family.funds.reload
     end
 
     should "get new" do

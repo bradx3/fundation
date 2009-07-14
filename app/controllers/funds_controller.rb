@@ -45,6 +45,7 @@ class FundsController < ApplicationController
 
     respond_to do |format|
       if @fund.save
+        @fund.unset_any_other_default_sync_funds
         flash[:notice] = 'Fund was successfully created.'
         format.html { redirect_to(@fund) }
         format.xml  { render :xml => @fund, :status => :created, :location => @fund }
@@ -62,6 +63,7 @@ class FundsController < ApplicationController
 
     respond_to do |format|
       if @fund.update_attributes(params[:fund])
+        @fund.unset_any_other_default_sync_funds
         flash[:notice] = 'Fund was successfully updated.'
         format.html { redirect_to(@fund) }
         format.xml  { head :ok }

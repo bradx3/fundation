@@ -17,5 +17,22 @@ class FundsTest < ActionController::IntegrationTest
       assert_equal count + 1, Fund.count
     end
 
+    should "be able to edit a fund" do
+      fund = Factory(:fund, :user => @user)
+      visit funds_path
+
+      click_link "show"
+      click_link "edit"
+
+      fill_in "name", :with => "an edited fund"
+      check "default synchronize fund"
+
+      click_button "update"
+
+      fund.reload
+      assert_equal "an edited fund", fund.name
+      assert fund.default_synchronize_fund?
+    end
+
   end
 end
