@@ -1,7 +1,9 @@
 class Transaction < ActiveRecord::Base
   has_many :fund_transactions, :dependent => :destroy
   accepts_nested_attributes_for :fund_transactions
+
   belongs_to :user
+  validates_presence_of :user
   
   include DollarMethods
 

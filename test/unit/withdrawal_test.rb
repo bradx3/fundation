@@ -6,7 +6,7 @@ class WithdrawalTest < ActiveSupport::TestCase
   end
 
   should "update fund_transactions after_save" do
-    w = Withdrawal.new
+    w = Factory.build(:withdrawal)
     w.fund_transactions.build(:fund => @acc1, :dollars => 44)
     assert w.save!
 
@@ -15,7 +15,7 @@ class WithdrawalTest < ActiveSupport::TestCase
   end
 
   should "update amount_in_cents from fund_transactions before save" do
-    w = Withdrawal.new
+    w = Factory.build(:withdrawal)
 
     w.fund_transactions.build(:fund => @acc1, :dollars => 44)
     assert w.save!

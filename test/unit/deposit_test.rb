@@ -8,7 +8,9 @@ class DepositTest < ActiveSupport::TestCase
     end
 
     should "validate allocations add to total" do
-      d = Deposit.new
+      d = Factory.build(:deposit)
+      d.fund_transactions.clear
+
       d.dollars = 100
       d.fund_transactions.build(:fund => @acc1, :dollars => 5)
       d.fund_transactions.build(:fund => @acc2, :dollars => 10)
@@ -20,7 +22,7 @@ class DepositTest < ActiveSupport::TestCase
     end
 
     should "validate amount is greater than zero" do
-      d = Deposit.new
+      d = Factory.build(:deposit)
       d.dollars = 0
       assert !d.valid?
       assert d.errors.on_base

@@ -4,6 +4,9 @@ class FundTest < ActiveSupport::TestCase
   should_validate_presence_of :name
   should_have_many :fund_transactions
 
+  should_belong_to :user
+  should_validate_presence_of :user
+
   should "return initial plus any deposits for balance" do
     fund = Factory(:fund, :initial_balance_in_cents => 3)
     fund.fund_transactions.clear

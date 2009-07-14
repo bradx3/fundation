@@ -41,6 +41,7 @@ class FundsController < ApplicationController
   # POST /funds.xml
   def create
     @fund = Fund.new(params[:fund])
+    @fund.user = current_user
 
     respond_to do |format|
       if @fund.save

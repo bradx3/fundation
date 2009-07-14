@@ -1,10 +1,11 @@
-User.new(:login => "brad", :password => "password", :password_confirmation => "password", :email => "brad@test.com").save!
+u = User.new(:login => "brad", :password => "password", :password_confirmation => "password", :email => "brad@test.com")
+u.save!
 
-expenses = Fund.new(:name => "Expenses", :default_synchronize_fund => true)
+expenses = Fund.new(:name => "Expenses", :user => u, :default_synchronize_fund => true)
 expenses.save!
-home_loan = Fund.new(:name => "Home Loan", :dollars => 50000)
+home_loan = Fund.new(:name => "Home Loan", :user => u, :dollars => 50000)
 home_loan.save!
-tax = Fund.new(:name => "Tax", :dollars => 8000)
+tax = Fund.new(:name => "Tax", :user => u, :dollars => 8000)
 tax.save!
 
 dt = DepositTemplate.new(:name => "Tax to pay")

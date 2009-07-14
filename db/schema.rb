@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20090711044915) do
     t.string   "name"
     t.integer  "initial_balance_in_cents", :default => 0
     t.boolean  "default_synchronize_fund", :default => false
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
