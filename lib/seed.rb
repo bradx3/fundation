@@ -1,4 +1,7 @@
-u = User.new(:login => "brad", :password => "password", :password_confirmation => "password", :email => "brad@test.com")
+f = Family.new
+f.save!
+
+u = f.users.build(:login => "brad", :password => "password", :password_confirmation => "password", :email => "brad@test.com")
 u.save!
 
 expenses = Fund.new(:name => "Expenses", :user => u, :default_synchronize_fund => true)

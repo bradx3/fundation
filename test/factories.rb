@@ -1,6 +1,10 @@
+Factory.define :family do |f|
+end
+
 Factory.define :user do |o|
   o.sequence(:login) { |n| "person#{ n }" }
   o.password "password"
+  o.association :family
   o.password_confirmation { |a| a.password }
   o.sequence(:email) { |n| "email_#{ n }@test.com" }
 end
