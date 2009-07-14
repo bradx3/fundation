@@ -11,7 +11,7 @@ home_loan.save!
 tax = Fund.new(:name => "Tax", :user => u, :dollars => 8000)
 tax.save!
 
-dt = DepositTemplate.new(:name => "Tax to pay")
+dt = DepositTemplate.new(:name => "Tax to pay", :user => u)
 dt.save!
 dt.deposit_template_fund_percentages.new(:fund => tax, :percentage => 35).save!
 dt.deposit_template_fund_percentages.new(:fund => home_loan, :percentage => 30).save!
