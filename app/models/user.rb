@@ -11,4 +11,13 @@ class User < ActiveRecord::Base
   def to_s
     login
   end
+
+  def generate_random_password
+    # from http://snippets.dzone.com/posts/show/491
+    chars = ("a".."z").to_a + ("1".."9").to_a 
+    newpass = Array.new(8, '').collect{chars[rand(chars.size)]}.join
+
+    self.password = newpass
+    self.password_confirmation = newpass
+  end
 end

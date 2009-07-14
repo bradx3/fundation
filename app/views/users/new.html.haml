@@ -1,8 +1,12 @@
 %h2.title Create A New User
 
 .inner
-  - form_for(@user) do |f|
+  - form_for(@user, :html => { :class => "form" }) do |f|
     = f.error_messages
+    
+    .group
+      = f.label :email, nil, :class => "label"
+      = f.text_field :email, :class => "text_field"
 
     .group.navform
       = submit_button_for(f)

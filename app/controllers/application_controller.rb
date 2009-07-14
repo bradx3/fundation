@@ -9,8 +9,15 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_session, :current_user
 
   before_filter :require_user
+  before_filter :setup_host_for_mail
 
   private
+
+  # ActionMailer views don't have access to the request, so we need
+  # to set these variables manually.
+  def setup_host_for_mail
+    ActionMailer::Base.default_url_options[:host] = request.host_with_port
+  end
 
   def current_user_session
     return @current_user_session if defined?(@current_user_session)

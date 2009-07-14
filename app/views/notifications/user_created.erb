@@ -1,0 +1,5 @@
+<%= @creator.email %> has signed you up to <%= $SITE_NAME %>.
+
+Please click the link below to confirm your signup and setup your account.
+<%= url_for(:controller => "users", :action => "confirm", 
+            :token => @user.perishable_token, :only_path => false) %>

@@ -1,7 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :transactions
 
-  map.resources :users
+  map.resources(:users, 
+                :collection => { :confirm => :get, :confirm_password => :put })
 
   map.resources :withdrawals
   map.resources :synchronize

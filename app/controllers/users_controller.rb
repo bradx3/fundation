@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_filter :require_user, :only => [ :confirm, :confirm_password ]
+
   # GET /users
   # GET /users.xml
   def index
@@ -41,11 +43,15 @@ class UsersController < ApplicationController
   # POST /user.xml
   def create
     @user = User.new(params[:user])
+    @user.login = @user.email
+    @user.generate_random_password
     @user.family = current_user.family
 
     respond_to do |format|
-      if @user.save!
-        flash[:notice] = 'User was successfully created.'
+      if @user.save
+        Notifications.deliver_user_created(@user, current_user)
+
+        flash[:notice] = "User was successfully created. They will receive an email with their user details"
         format.html { redirect_to(@user) }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
@@ -82,6 +88,36 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(users_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  def confirm
+    @user = User.find_using_perishable_token(params[:token], 7.days.ago)
+
+    if @user
+      @user.update_attribute(:crypted_password, "")
+      @user.login = ""
+      UserSession.create(@user)
+    else
+      flash[:notice] = "Incorrect confirmation URL"
+      logout
+      redirect_to login_path
+    end
+  end
+
+ def confirm_password
+    @user = current_user
+    
+    if @user.update_attributes(params[:user])
+      # may need to log them back in 
+      if UserSession.find.nil?
+        UserSession.create(@user)
+      end
+      
+      flash[:notice] = "Signup confirmed."
+      redirect_to "/"
+    else
+      render :action => :confirm
     end
   end
 end
