@@ -3,7 +3,7 @@ class CreateDepositTemplateFundPercentages < ActiveRecord::Migration
     create_table :deposit_template_fund_percentages do |t|
       t.integer :deposit_template_id
       t.integer :fund_id
-      t.integer :percentage
+      t.float :percentage
 
       t.timestamps
     end

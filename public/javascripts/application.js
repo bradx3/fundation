@@ -1,10 +1,12 @@
 document.observe("dom:loaded", function() {
-    addDepositTemplateListener();
-    addDepositAmountListener();
-    addDepositPercentageListener();
-    addDepositFundAmountListener();
-
-    updateAmountsFromPercentages();
+    if ($("deposit") != null) {
+	addDepositTemplateListener();
+	addDepositAmountListener();
+	addDepositPercentageListener();
+	addDepositFundAmountListener();
+	
+	updateAmountsFromPercentages();
+    }
     updateUnallocated();
 });
 

@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(:version => 20090714003716) do
   create_table "deposit_template_fund_percentages", :force => true do |t|
     t.integer  "deposit_template_id"
     t.integer  "fund_id"
-    t.integer  "percentage"
+    t.float    "percentage"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(:version => 20090714003716) do
   create_table "fund_transactions", :force => true do |t|
     t.integer  "transaction_id"
     t.integer  "fund_id"
-    t.integer  "percentage"
+    t.float    "percentage"
     t.float    "amount_in_cents"
     t.datetime "created_at"
     t.datetime "updated_at"
