@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :funds
   has_many :deposit_templates
+  has_many :transactions
 
   def to_s
     login

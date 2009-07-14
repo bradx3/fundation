@@ -1,0 +1,23 @@
+%h2.title
+  %span
+    Total:
+    = currency(@total)
+  All Transactions
+
+.inner
+  %table.table
+    %tr
+      %th Date
+      %th Amount
+      %th User
+      %th Funds
+      %th.last
+
+    - @transactions.each do |transaction|
+      %tr{ :class => cycle("odd", "") }
+        %td= transaction.created_at.to_formatted_s(:long)
+        %td= currency(transaction.allocated_dollars)
+        %td= transaction.user
+        %td= funds(transaction)
+        %td.last= link_to("Show", transaction)
+

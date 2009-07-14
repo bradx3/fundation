@@ -58,26 +58,34 @@ class ActiveSupport::TestCase
         other_family ||= @other.user.family
         assert @user.family != other_family
       end
-
+      
       should "not be able to show" do
+        return if !controller.respond_to?(:show)
+
         assert_raise ActiveRecord::RecordNotFound do
           get :show, :id => @other.id
         end
       end
 
       should "not be able to edit" do
+        return if !controller.respond_to?(:edit)
+
         assert_raise ActiveRecord::RecordNotFound do
           get :edit, :id => @other.id
         end
       end
 
       should "not be able to update" do
+        return if !controller.respond_to?(:update)
+
         assert_raise ActiveRecord::RecordNotFound do
           put :update, :id => @other.id
         end
       end
 
       should "not be able to delete" do
+        return if !controller.respond_to?(:destroy)
+
         assert_raise ActiveRecord::RecordNotFound do
           delete :destroy, :id => @other.id
         end

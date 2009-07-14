@@ -8,15 +8,6 @@ class DepositsControllerTest < ActionController::TestCase
       login
     end
 
-    should "get index" do
-      # create  couple so everythings gets rendered
-      2.times { Factory.create(:deposit) }
-
-      get :index
-      assert_response :success
-      assert_not_nil assigns(:deposits)
-    end
-
     should "get new" do
       get :new
       assert_response :success

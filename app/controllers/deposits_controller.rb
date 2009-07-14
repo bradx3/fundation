@@ -1,15 +1,4 @@
 class DepositsController < ApplicationController
-  # GET /deposits
-  # GET /deposits.xml
-  def index
-    @deposits = Deposit.all(:order => "created_at desc")
-    @total = @deposits.inject(0) { |total, dep| total += dep.dollars }
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @deposits }
-    end
-  end
 
   # GET /deposits/1
   # GET /deposits/1.xml
