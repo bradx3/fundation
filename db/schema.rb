@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20090714003716) do
   end
 
   create_table "transactions", :force => true do |t|
+    t.string   "type"
     t.integer  "amount_in_cents"
     t.integer  "user_id"
     t.datetime "created_at"

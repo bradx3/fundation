@@ -2,6 +2,7 @@ require 'test_helper'
 
 class DepositsControllerTest < ActionController::TestCase
   should_require_user_for_all_methods
+  should_keep_it_in_the_family(:deposit)
 
   context "a logged in user" do
     setup do
@@ -14,23 +15,23 @@ class DepositsControllerTest < ActionController::TestCase
     end
 
     should "show deposit" do
-      get :show, :id => Factory(:deposit).to_param
+      get :show, :id => Factory(:deposit, :user => @user).to_param
       assert_response :success
     end
 
     should "get edit" do
-      get :edit, :id => Factory(:deposit).to_param
+      get :edit, :id => Factory(:deposit, :user => @user).to_param
       assert_response :success
     end
 
     should "update deposit" do
-      deposit = Factory(:deposit)
+      deposit = Factory(:deposit, :user => @user)
       put :update, :id => deposit.to_param, :deposit => deposit.attributes
       assert_redirected_to deposit_path(assigns(:deposit))
     end
 
     should "destroy deposit" do
-      Factory(:deposit)
+      Factory(:deposit, :user => @user)
 
       assert_difference('Deposit.count', -1) do
         delete :destroy, :id => Deposit.first.to_param
@@ -43,7 +44,7 @@ class DepositsControllerTest < ActionController::TestCase
       setup do
         @acc1 = Factory.create(:fund)
         @acc2 = Factory.create(:fund)
-        @type = Factory.create(:deposit_template)
+        @type = Factory.create(:deposit_template, :user => @user)
         @type.deposit_template_fund_percentages.build(:fund => @acc1, :percentage => 25).save!
         @type.deposit_template_fund_percentages.build(:fund => @acc2, :percentage => 75).save!
       end
@@ -67,4 +68,18 @@ class DepositsControllerTest < ActionController::TestCase
       end
     end
   end
+
+  context "a deposit deposit template from another family" do
+    setup do
+      login
+      @other = Factory(:deposit_template)
+      assert @user.family != @other.user.family
+    end
+
+    should "should throw a record not found" do
+      assert_raise ActiveRecord::RecordNotFound do
+        get :funds, :type_id => @other.id
+      end
+    end
+  end 
 end
