@@ -26,7 +26,7 @@
           %li= link_to "Deposit Money", new_deposit_path
           %li= link_to "Withdraw Money", new_withdrawal_path
           %li.config= link_to "Deposit Templates", deposit_templates_path
-          %li.config= link_to "Users"
+          %li.config= link_to "Users", users_path
         .clear  
     #wrapper
       - if flash[:notice]

@@ -1,0 +1,10 @@
+%h2.title Create A New User
+
+.inner
+  - form_for(@user) do |f|
+    = f.error_messages
+
+    .group.navform
+      = submit_button_for(f)
+      or 
+      = link_to "back", :back

@@ -1,0 +1,17 @@
+%h2.title
+  All Users
+
+.inner
+  %table.table
+    %tr
+      %th Login
+      %th.last
+
+    - @users.each do |user|
+      %tr{ :class => cycle("odd", "") }
+        %td= user.login
+        %td.last= link_to("Show", user)
+
+- content_for :sidebar do
+  %li= link_to "Create A New User", new_user_path
+
