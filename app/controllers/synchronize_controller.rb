@@ -3,7 +3,7 @@ class SynchronizeController < ApplicationController
   end
 
   def create
-    local_balance = Fund.total_balance
+    local_balance = current_user.family.total_balance
     actual_balance = params[:actual_balance].to_f
 
     difference = actual_balance - local_balance

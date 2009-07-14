@@ -7,10 +7,6 @@ class Fund < ActiveRecord::Base
 
   include DollarMethods
 
-  def self.total_balance
-    Fund.all.inject(0) { |total, acc| total += acc.balance }
-  end
-
   # Returns the balance of this fund in dollars
   def balance
     res = dollars

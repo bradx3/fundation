@@ -2,7 +2,7 @@ class FundsController < ApplicationController
   # GET /funds
   # GET /funds.xml
   def index
-    @funds = Fund.all
+    @funds = current_user.family.funds
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class FundsController < ApplicationController
   # GET /funds/1
   # GET /funds/1.xml
   def show
-    @fund = Fund.find(params[:id])
+    @fund = current_user.family.funds.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +34,7 @@ class FundsController < ApplicationController
 
   # GET /funds/1/edit
   def edit
-    @fund = Fund.find(params[:id])
+    @fund = current_user.family.funds.find(params[:id])
   end
 
   # POST /funds
@@ -58,7 +58,7 @@ class FundsController < ApplicationController
   # PUT /funds/1
   # PUT /funds/1.xml
   def update
-    @fund = Fund.find(params[:id])
+    @fund = current_user.family.funds.find(params[:id])
 
     respond_to do |format|
       if @fund.update_attributes(params[:fund])
@@ -75,7 +75,7 @@ class FundsController < ApplicationController
   # DELETE /funds/1
   # DELETE /funds/1.xml
   def destroy
-    @fund = Fund.find(params[:id])
+    @fund = current_user.family.funds.find(params[:id])
     @fund.destroy
 
     respond_to do |format|

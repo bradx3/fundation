@@ -9,7 +9,7 @@ class SynchronizeTest < ActionController::IntegrationTest
     end
 
     should "be able to synchronize funds" do
-      balance = Fund.total_balance
+      balance = @user.family.total_balance
       amount = (balance - 10)
 
       visit funds_path

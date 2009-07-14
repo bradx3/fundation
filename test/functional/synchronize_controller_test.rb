@@ -6,7 +6,7 @@ class SynchronizeControllerTest < ActionController::TestCase
   context "with a logged in user" do
     setup do
       login
-      @acc1 = Factory(:fund)
+      @acc1 = Factory(:fund, :user => @user)
     end
 
     should "get new" do
@@ -15,8 +15,9 @@ class SynchronizeControllerTest < ActionController::TestCase
     end
 
     should "redirect from create" do
-      
-      post :create, :actual_balance => 10
+      new_balance = @user.family.total_balance - 1
+      assert new_balance > 0
+      post :create, :actual_balance => new_balance
       assert_template "withdrawals/new"
       assert_response :success
     end
