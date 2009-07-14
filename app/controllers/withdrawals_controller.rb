@@ -31,7 +31,7 @@ class WithdrawalsController < ApplicationController
   end
 
   def show
-    @withdrawal = Transaction.find(params[:id])
+    @withdrawal = current_user.family.transactions.find(params[:id])
   end
 
 end
