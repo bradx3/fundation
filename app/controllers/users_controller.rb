@@ -114,7 +114,7 @@ class UsersController < ApplicationController
         UserSession.create(@user)
       end
       
-      flash[:notice] = "Signup confirmed."
+      flash[:notice] = "Signup confirmed. Thanks for joining #{ $SITE_NAME }."
       redirect_to "/"
     else
       render :action => :confirm
