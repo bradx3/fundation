@@ -1,9 +1,11 @@
 document.observe("dom:loaded", function() {
     addDepositTemplateListener();
-
     addDepositAmountListener();
     addDepositPercentageListener();
     addDepositFundAmountListener();
+
+    updateAmountsFromPercentages();
+    updateUnallocated();
 });
 
 function addDepositTemplateListener() {
@@ -27,6 +29,8 @@ function useDepositTemplate(selected) {
 		var values = json[id];
 		updateDepositValues(id, values);
 	    }
+	    updateAmountsFromPercentages();
+	    updateUnallocated();
 	}
     });
 }
@@ -36,9 +40,7 @@ function updateDepositValues(id, values) {
     var amount = fund.down(".amount");
     var percentage = fund.down(".percentage");
 
-    amount.value = values["amount"].toFixed(2);
     percentage.value = values["percentage"].toFixed(2);
-    updateUnallocated();
 }
 
 function addDepositAmountListener() {
@@ -47,17 +49,20 @@ function addDepositAmountListener() {
 
     amount.observe("keyup", function(event) {
 	if (isNumberKey(event)) {
-	    var dollars = floatVal(amount);
-
-	    $$(".percentage").each(function(percentageElem) {
-		var fund = percentageElem.up(".fund");
-		var percentage = floatVal(percentageElem) / 100.0;
-		var acctAmmount = fund.down(".amount");
-		
-		acctAmmount.value = (percentage * dollars).toFixed(2);
-		updateUnallocated();
-	    });
+	    updateAmountsFromPercentages();
+	    updateUnallocated();
 	}
+    });
+}
+function updateAmountsFromPercentages() {
+    var dollars = floatVal("deposit_dollars");
+
+    $$(".percentage").each(function(percentageElem) {
+	var fund = percentageElem.up(".fund");
+	var percentage = floatVal(percentageElem) / 100.0;
+	var acctAmmount = fund.down(".amount");
+	
+	acctAmmount.value = (percentage * dollars).toFixed(2);
     });
 }
 
@@ -76,6 +81,7 @@ function floatVal(element) {
 function isNumberKey(event) {
     var code = event.keyCode;
     var res = (code >= 48 && code <= 57);
+    res = res || (code == 8)
     return res;
 }
 function addDepositPercentageListener() {
@@ -125,7 +131,7 @@ function updateUnallocated() {
 
     var unallocated = $("unallocated");
     unallocated.update("$" + total.toFixed(2));
-    if (total != amount) {
+    if (total.toFixed(2) != amount.toFixed(2)) {
 	unallocated.addClassName("incorrect");
     }
     else {

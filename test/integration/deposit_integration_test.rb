@@ -13,14 +13,16 @@ class DepositIntegrationTest < ActionController::IntegrationTest
       count = Deposit.count
 
       visit new_deposit_path
-      fill_in "amount", :with => 1000
-      fill_in "deposit[fund_transactions_attributes][0][dollars]", :with => 750
-      fill_in "deposit[fund_transactions_attributes][1][dollars]", :with => 250
+      amount = 4321.to_f
+      fill_in "amount", :with => amount
+      fill_in "deposit[fund_transactions_attributes][0][dollars]", :with => (amount * 0.66)
+      fill_in "deposit[fund_transactions_attributes][1][dollars]", :with => (amount * 0.34)
       click_button "create"
+      assigns(:deposit).errors.each { |e| puts e }
 
       assert_equal count + 1, Deposit.count
       deposit = assigns(:deposit)
-      assert_equal 1000, deposit.dollars
+      assert_equal 4321, deposit.dollars
       assert_equal UserSession.find.user, deposit.user
     end
 

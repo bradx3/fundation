@@ -6,3 +6,6 @@
   %p
     Current balance:
     = currency(@fund.balance)
+
+- content_for :sidebar do
+  %li= link_to "Create New Fund", new_fund_path
