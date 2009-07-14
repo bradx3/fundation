@@ -2,6 +2,7 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
   should_require_user_for_all_methods
+  should_keep_it_in_the_family(:user)
 
   context "a logged in user" do
     setup do
@@ -52,39 +53,6 @@ class UsersControllerTest < ActionController::TestCase
       end
 
       assert_redirected_to users_path
-    end
-  end
-
-  context "a user trying to access users from other families" do
-    setup do
-      login
-      
-      @other = Factory(:user)
-      assert @user.family != @other.family
-    end
-
-    should "not be able to show users" do
-      assert_raise ActiveRecord::RecordNotFound do
-        get :show, :id => @other.id
-      end
-    end
-
-    should "not be able to edit users" do
-      assert_raise ActiveRecord::RecordNotFound do
-        get :edit, :id => @other.id
-      end
-    end
-
-    should "not be able to update users" do
-      assert_raise ActiveRecord::RecordNotFound do
-        put :update, :id => @other.id
-      end
-    end
-
-    should "not be able to delete users" do
-      assert_raise ActiveRecord::RecordNotFound do
-        delete :destroy, :id => @other.id
-      end
     end
   end
 end

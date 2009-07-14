@@ -2,6 +2,7 @@ require 'test_helper'
 
 class DepositTemplatesControllerTest < ActionController::TestCase
   should_require_user_for_all_methods
+  should_keep_it_in_the_family(:deposit_template)
 
   context "a logged in user" do
     setup do
@@ -56,36 +57,4 @@ class DepositTemplatesControllerTest < ActionController::TestCase
     end
   end
 
- context "a user trying to access deposit templates from other families" do
-    setup do
-      login
-      
-      @other = Factory(:deposit_template)
-      assert @user.family != @other.user.family
-    end
-
-    should "not be able to show" do
-      assert_raise ActiveRecord::RecordNotFound do
-        get :show, :id => @other.id
-      end
-    end
-
-    should "not be able to edit" do
-      assert_raise ActiveRecord::RecordNotFound do
-        get :edit, :id => @other.id
-      end
-    end
-
-    should "not be able to update" do
-      assert_raise ActiveRecord::RecordNotFound do
-        put :update, :id => @other.id
-      end
-    end
-
-    should "not be able to delete" do
-      assert_raise ActiveRecord::RecordNotFound do
-        delete :destroy, :id => @other.id
-      end
-    end
-  end
 end

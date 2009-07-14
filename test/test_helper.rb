@@ -47,6 +47,43 @@ class ActiveSupport::TestCase
       assert_not_nil filter, "No before filter found to require user"
     end
   end
+
+  def self.should_keep_it_in_the_family(association)
+    context "restricting #{ association } to family" do
+      setup do
+        login
+        
+        @other = Factory(association)
+        other_family = @other.family if @other.respond_to?(:family)
+        other_family ||= @other.user.family
+        assert @user.family != other_family
+      end
+
+      should "not be able to show" do
+        assert_raise ActiveRecord::RecordNotFound do
+          get :show, :id => @other.id
+        end
+      end
+
+      should "not be able to edit" do
+        assert_raise ActiveRecord::RecordNotFound do
+          get :edit, :id => @other.id
+        end
+      end
+
+      should "not be able to update" do
+        assert_raise ActiveRecord::RecordNotFound do
+          put :update, :id => @other.id
+        end
+      end
+
+      should "not be able to delete" do
+        assert_raise ActiveRecord::RecordNotFound do
+          delete :destroy, :id => @other.id
+        end
+      end
+    end
+  end
 end
 
 class ActionController::TestCase
@@ -75,7 +112,7 @@ def integration_login
   check "remember me"
   click_button "Login"
 
-   assert_not_nil UserSession.find
+  assert_not_nil UserSession.find
 end
 
 
