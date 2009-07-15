@@ -9,13 +9,11 @@
     %tr
       %th Name
       %th Balance
-      %th.last
 
     - @funds.each do |fund|
       %tr{ :class => cycle("odd", "") }
-        %td=h fund.name
+        %td= link_to fund.name, fund
         %td=h currency(fund.balance)
-        %td.last= link_to "Show", fund
 
 
 - content_for :sidebar do

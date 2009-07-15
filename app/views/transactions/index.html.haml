@@ -12,16 +12,14 @@
       %th Type
       %th Description
       %th User
-      %th Funds
-      %th.last
+      %th.last Funds
 
     - @transactions.each do |transaction|
       %tr{ :class => cycle("odd", "") }
         %td= transaction.created_at.to_formatted_s(:long)
-        %td= currency(transaction.allocated_dollars)
+        %td= link_to(currency(transaction.allocated_dollars), transaction)
         %td= transaction.type
         %td= transaction.description
         %td= transaction.user
         %td= funds(transaction)
-        %td.last= link_to("Show", transaction)
 

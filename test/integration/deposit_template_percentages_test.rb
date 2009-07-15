@@ -12,7 +12,7 @@ class DepositTemplatePercentagesTest < ActionController::IntegrationTest
 
     should "be able to edit deposit types" do
       visit deposit_templates_path
-      click_link "Show"
+      click_link @deposit_template.name
       click_link "Edit"
 
       fill_in "Name", :with => "new name"

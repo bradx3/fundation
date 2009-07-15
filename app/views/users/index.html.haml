@@ -5,12 +5,12 @@
   %table.table
     %tr
       %th Login
-      %th.last
+      %th Email
 
     - @users.each do |user|
       %tr{ :class => cycle("odd", "") }
-        %td= user.login
-        %td.last= link_to("Show", user)
+        %td= link_to user.login, user
+        %td=h user.email
 
 - content_for :sidebar do
   %li= link_to "Create A New User", new_user_path

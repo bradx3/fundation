@@ -5,12 +5,10 @@
   %table.table
     %tr
       %th Name
-      %th.last
 
     - @deposit_templates.each do |deposit_template|
       %tr{ :class => cycle("odd", "") }
-        %td=h deposit_template.name
-        %td.last= link_to("Show", deposit_template)
+        %td= link_to deposit_template.name, deposit_template
 
 - content_for :sidebar do
   %li= link_to "Create New Deposit Template", new_deposit_template_path

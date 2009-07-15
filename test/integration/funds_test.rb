@@ -21,7 +21,7 @@ class FundsTest < ActionController::IntegrationTest
       fund = Factory(:fund, :user => @user)
       visit funds_path
 
-      click_link "show"
+      click_link fund.name
       click_link "edit"
 
       fill_in "name", :with => "an edited fund"
