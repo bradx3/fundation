@@ -30,16 +30,6 @@ class DepositsControllerTest < ActionController::TestCase
       assert_redirected_to deposit_path(assigns(:deposit))
     end
 
-    should "destroy deposit" do
-      Factory(:deposit, :user => @user)
-
-      assert_difference('Deposit.count', -1) do
-        delete :destroy, :id => Deposit.first.to_param
-      end
-
-      assert_redirected_to deposits_path
-    end
-
     context "render for funds" do
       setup do
         @acc1 = Factory.create(:fund)

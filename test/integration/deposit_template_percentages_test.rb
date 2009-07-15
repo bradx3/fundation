@@ -23,8 +23,10 @@ class DepositTemplatePercentagesTest < ActionController::IntegrationTest
 
       @deposit_template.reload
       assert_equal "new name", @deposit_template.name
-      assert_equal 25, @deposit_template.deposit_template_fund_percentages.first.percentage
-      assert_equal 75, @deposit_template.deposit_template_fund_percentages[1].percentage
+      dtfps = @deposit_template.deposit_template_fund_percentages
+      dtfps = dtfps.sort_by { |d| d.percentage }
+      assert_equal 25, dtfps[0].percentage
+      assert_equal 75, dtfps[1].percentage
     end
 
     should "be able to create deposit templates" do

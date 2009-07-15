@@ -4,7 +4,7 @@ class DepositTemplate < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :user
 
-  has_many :deposit_template_fund_percentages
+  has_many :deposit_template_fund_percentages, :order => "id asc"
   accepts_nested_attributes_for :deposit_template_fund_percentages
 
   validate :percentages_add_up

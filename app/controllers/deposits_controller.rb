@@ -64,18 +64,6 @@ class DepositsController < ApplicationController
     end
   end
 
-  # DELETE /deposits/1
-  # DELETE /deposits/1.xml
-  def destroy
-    @deposit = current_user.family.transactions.find(params[:id])
-    @deposit.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(deposits_url) }
-      format.xml  { head :ok }
-    end
-  end
-
   def funds
     @deposit_template = current_user.family.deposit_templates.find(params[:type_id])
     @deposit_template.init_all_fund_percentages

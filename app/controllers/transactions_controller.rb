@@ -15,6 +15,7 @@ class TransactionsController < ApplicationController
   # DELETE /transactions/1.xml
   def destroy
     @transaction = current_user.family.transactions.find(params[:id])
+    flash[:notice] = "#{ @transaction.type } deleted"
     @transaction.destroy
 
     respond_to do |format|

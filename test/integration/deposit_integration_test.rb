@@ -27,5 +27,15 @@ class DepositIntegrationTest < ActionController::IntegrationTest
       assert_equal UserSession.find.user, deposit.user
     end
 
+    should "be able to delete a deposit" do
+      deposit = Factory(:deposit, :user => @user)
+      count = Deposit.count
+
+      visit deposit_path(deposit)
+      click_link "Delete this deposit"
+
+      assert_equal count - 1, Deposit.count
+    end
+
   end
 end
