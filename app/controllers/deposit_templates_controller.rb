@@ -2,7 +2,7 @@ class DepositTemplatesController < ApplicationController
   # GET /deposit_templates
   # GET /deposit_templates.xml
   def index
-    @deposit_templates = DepositTemplate.all
+    @deposit_templates = current_user.family.deposit_templates.all
 
     respond_to do |format|
       format.html # index.html.erb
