@@ -133,8 +133,15 @@ function fixRoundingErrors() {
     var diff = amount - amountTotal();
 
     if (percentageTotal() == 100.0 && diff != 0.0) {
-	var toUpdate = $$(".amount")[0];
-	toUpdate.value = (floatVal(toUpdate) + diff).toFixed(2);
+	var amounts = $$(".amount");
+
+	for (var i = 0; i < amounts.length; i++) {
+	    var toUpdate = amounts[i];
+	    if (floatVal(toUpdate) != 0) {
+		toUpdate.value = (floatVal(toUpdate) + diff).toFixed(2);
+		break;
+	    }
+	}
     }
 }
 
