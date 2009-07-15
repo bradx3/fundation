@@ -42,7 +42,7 @@ class UsersTest < ActionController::IntegrationTest
       click_button "create"
 
       assert_sent_email
-      new_user = assigns(:user)
+      new_user = User.last
       assert_equal count + 1, @user.family.users.count
 
       UserSession.find.destroy

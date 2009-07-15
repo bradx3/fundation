@@ -15,6 +15,10 @@
       = f.text_field :email, :class => "text_field"
 
     .group
+      = f.label :time_zone, nil, :class => "label"
+      = f.time_zone_select :time_zone, /Australia/, {}, :class => "select"
+
+    .group
       = f.label :password, nil, :class => "label"
       = f.password_field :password, :class => "text_field"
       .description Leave blank to keep current password

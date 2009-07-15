@@ -25,7 +25,7 @@ class UsersControllerTest < ActionController::TestCase
         post :create, :user => Factory.attributes_for(:user)
       end
 
-      assert_redirected_to user_path(assigns(:user))
+      assert_redirected_to users_path
     end
 
     should "show user" do
@@ -43,7 +43,7 @@ class UsersControllerTest < ActionController::TestCase
     should "update user" do
       user = Factory(:user, :family => @user.family)
       put :update, :id => user.to_param, :user => user.attributes
-      assert_redirected_to assigns(:user)
+      assert_redirected_to users_path
     end
 
     should "destroy user" do

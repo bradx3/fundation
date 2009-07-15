@@ -10,8 +10,13 @@ class ApplicationController < ActionController::Base
 
   before_filter :require_user
   before_filter :setup_host_for_mail
+  before_filter :set_user_time_zone
 
   private
+
+  def set_user_time_zone
+    Time.zone = current_user.time_zone if current_user
+  end
 
   # ActionMailer views don't have access to the request, so we need
   # to set these variables manually.

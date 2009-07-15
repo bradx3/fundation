@@ -9,7 +9,7 @@
 
     - @users.each do |user|
       %tr{ :class => cycle("odd", "") }
-        %td= link_to user.login, user
+        %td=h user.login
         %td=h user.email
 
 - content_for :sidebar do

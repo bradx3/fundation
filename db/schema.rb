@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20090714003716) do
     t.string   "current_login_ip"
     t.string   "last_login_ip"
     t.integer  "family_id"
+    t.string   "time_zone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

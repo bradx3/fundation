@@ -52,7 +52,7 @@ class UsersController < ApplicationController
         Notifications.deliver_user_created(@user, current_user)
 
         flash[:notice] = "User was successfully created. They will receive an email with their user details"
-        format.html { redirect_to(@user) }
+        format.html { redirect_to(users_path) }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
@@ -70,7 +70,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update_attributes(params[:user])
         flash[:notice] = 'User was successfully updated.'
-        format.html { redirect_to(@user) }
+        format.html { redirect_to(users_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

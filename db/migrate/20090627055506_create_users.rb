@@ -19,6 +19,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string    :last_login_ip                                      # optional, see Authlogic::Session::MagicColumns
 
       t.integer :family_id
+      t.string  :time_zone
 
       t.timestamps
     end
