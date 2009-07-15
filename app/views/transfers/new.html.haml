@@ -1,0 +1,20 @@
+%h2.title Transfer Between Funds
+
+.inner
+  - form_tag({ :action => "create" }, :class => "form") do
+    .group
+      = label_tag :amount, nil, :class => "label"
+      $
+      = text_field_tag :amount, params[:amount] || "0.00", :class => "text_field amount"
+
+    .group
+      = label_tag :from, nil, :class => "label"
+      = select_tag :from, options_for_funds_select(params[:from])
+
+    .group
+      = label_tag :to, nil, :class => "label"
+      = select_tag :to, options_for_funds_select(params[:to])
+      
+    .group.navform
+      = submit_tag "Transfer", :class => "button"
+      

@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :transactions
+  map.resources :transfers
 
   map.resources(:users, 
                 :collection => { :confirm => :get, :confirm_password => :put })

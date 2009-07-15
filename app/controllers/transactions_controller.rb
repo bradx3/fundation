@@ -2,7 +2,7 @@ class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.xml
   def index
-    @transactions = current_user.family.transactions.all(:order => "created_at desc")
+    @transactions = current_user.family.transactions.all(:order => "id desc")
     @total = @transactions.inject(0) { |total, t| total += t.dollars }
 
     respond_to do |format|
