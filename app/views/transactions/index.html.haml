@@ -9,6 +9,8 @@
     %tr
       %th Date
       %th Amount
+      %th Type
+      %th Description
       %th User
       %th Funds
       %th.last
@@ -17,6 +19,8 @@
       %tr{ :class => cycle("odd", "") }
         %td= transaction.created_at.to_formatted_s(:long)
         %td= currency(transaction.allocated_dollars)
+        %td= transaction.type
+        %td= transaction.description
         %td= transaction.user
         %td= funds(transaction)
         %td.last= link_to("Show", transaction)

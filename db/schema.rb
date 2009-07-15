@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20090714003716) do
     t.string   "type"
     t.integer  "amount_in_cents"
     t.integer  "user_id"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

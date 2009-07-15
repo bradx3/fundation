@@ -15,6 +15,7 @@ class DepositIntegrationTest < ActionController::IntegrationTest
       visit new_deposit_path
       amount = 4321.to_f
       fill_in "amount", :with => amount
+      fill_in "description", :with => "a test deposit"
       fill_in "deposit[fund_transactions_attributes][0][dollars]", :with => (amount * 0.66)
       fill_in "deposit[fund_transactions_attributes][1][dollars]", :with => (amount * 0.34)
       click_button "create"
