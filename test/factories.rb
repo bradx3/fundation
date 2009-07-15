@@ -37,4 +37,8 @@ end
 Factory.define :withdrawal do |w|
   w.dollars 100
   w.association :user
+  w.fund_transactions do |da| 
+    [ da.association(:fund_transaction, :dollars => 50), 
+      da.association(:fund_transaction, :dollars => 50) ]
+  end
 end

@@ -14,13 +14,5 @@ class WithdrawalsControllerTest < ActionController::TestCase
       assert_response :success
     end
 
-    should "create withdrawal" do
-      assert_difference('Withdrawal.count') do
-        post :create, :withdrawal => { }
-      end
-
-      assert_redirected_to withdrawal_path(assigns(:withdrawal))
-    end
-
   end
 end
