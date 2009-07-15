@@ -1,6 +1,13 @@
 - form_for(@withdrawal, :html => { :class => "form" }) do |f|
   = f.error_messages
 
+  .group
+    = f.label :description, nil, :class => "label"
+    = f.text_field :description, :class => "text_field"
+
+  .group
+    %hr/
+
   - f.fields_for(:fund_transactions) do |fields|
     .fund
       - da = fields.object

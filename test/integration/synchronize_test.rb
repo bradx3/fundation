@@ -20,6 +20,7 @@ class SynchronizeTest < ActionController::IntegrationTest
 
       transaction = Transaction.last
       assert_equal -10, transaction.dollars
+      assert_equal "Synchronize", transaction.description
     end
   end
 end

@@ -11,7 +11,9 @@ class SynchronizeController < ApplicationController
       flash[:notice] = "You can't synchronize to a greater balance. Just use a deposit"
       redirect_to new_deposit_path
     else
-      @withdrawal = Withdrawal.new(:dollars => difference, :user => current_user)
+      @withdrawal = Withdrawal.new(:dollars => difference, 
+                                   :user => current_user,
+                                   :description => "Synchronize")
       @withdrawal.init_all_deposit_funds
 
       default = @withdrawal.fund_transactions.detect { |at| at.fund.default_synchronize_fund? }
