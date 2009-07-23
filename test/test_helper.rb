@@ -99,7 +99,6 @@ class ActionController::TestCase
 end
 
 require "webrat"
-
 Webrat.configure do |config|
   config.mode = :rails
   config.open_error_files = false

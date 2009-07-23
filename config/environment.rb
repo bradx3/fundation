@@ -48,10 +48,4 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 end
 
-require "webrat"
-
-Webrat.configure do |config|
-  config.mode = :rails
-end
-
 $SITE_NAME = "Fundation"
