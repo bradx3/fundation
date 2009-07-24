@@ -1,25 +1,26 @@
 class Withdrawal < Transaction
-  before_save :update_amount_from_fund_transactions
+  SYNCHRONIZE = "Synchronize"
+
+  before_validation :update_amount_from_fund_transactions, :if => Proc.new { |w| !w.synchronize? }
   after_save :ensure_amounts_are_negative
   validate :amount_greater_than_zero
+  validate :allocations_add_to_total, :if => Proc.new { |w| w.synchronize? }
+
+  # Returns true if this a synchronization withdrawal
+  def synchronize?
+    description == SYNCHRONIZE
+  end
 
   private
 
   def amount_greater_than_zero
-    update_amount_from_fund_transactions
-
     if dollars.to_f == 0.0
       self.errors.add_to_base("Can't withdraw no money")
     end
   end
 
   def update_amount_from_fund_transactions
-    res = 0
-    fund_transactions.each do |at|
-      res += at.dollars.abs
-    end
-
-    self.dollars = (0 - res)
+    self.dollars = (0 - allocated_dollars.abs)
   end
 
   def ensure_amounts_are_negative

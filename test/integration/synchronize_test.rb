@@ -12,8 +12,8 @@ class SynchronizeTest < ActionController::IntegrationTest
       balance = @user.family.total_balance
       amount = (balance - 10)
 
-      visit funds_path
-      click_link "synchronize with real fund"
+      visit "/"
+      click_link "synchronize"
       fill_in "actual balance", :with => amount
       click_button "synchronize"
       click_button "create"

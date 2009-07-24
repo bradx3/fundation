@@ -15,11 +15,10 @@ class SynchronizeControllerTest < ActionController::TestCase
       assert_response :success
     end
 
-    should "redirect from create" do
+    should "post start" do
       new_balance = @user.family.total_balance - 1
       assert new_balance > 0
-      post :create, :actual_balance => new_balance
-      assert_template "withdrawals/new"
+      post :start, :actual_balance => new_balance
       assert_response :success
     end
   end  

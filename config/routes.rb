@@ -6,7 +6,8 @@ ActionController::Routing::Routes.draw do |map|
                 :collection => { :confirm => :get, :confirm_password => :put })
 
   map.resources :withdrawals
-  map.resources :synchronize
+  map.resources(:synchronize, 
+                :collection => { :start => :post })
   map.resources(:deposits, 
                 :collection => { :funds => :any })
   map.resources :deposit_templates

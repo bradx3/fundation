@@ -2,12 +2,11 @@
 
 .inner
   %p 
-    Enter the actual balance of your offset fund below and choose
-    a fund to withdraw from to easily keep
+    Enter the actual balance of your savings account below to match the
     = $SITE_NAME
-    in sync with your real account.
+    balance with your savings account.
 
-  - form_tag({ :action => "create" }, :class => "form") do
+  - form_tag({ :action => "start" }, :class => "form") do
     .group
       = label_tag :budgeto_balance, nil, :class => "label"
       = "#{ currency(current_user.family.total_balance) }"

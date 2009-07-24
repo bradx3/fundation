@@ -21,4 +21,19 @@ class Transaction < ActiveRecord::Base
       fts.build(:percentage => 0, :fund => f)
     end
   end
+  
+  protected
+
+  include ApplicationHelper
+  include ActionView::Helpers::NumberHelper
+
+  def allocations_add_to_total
+    diff = allocated_dollars.abs.round(2) - dollars.abs.round(2)
+
+    if diff != 0
+      error = "#{ currency(diff.abs) } still has to be allocated."
+      self.errors.add_to_base(error)
+    end
+  end
+
 end

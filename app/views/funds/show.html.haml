@@ -7,5 +7,10 @@
     Current balance:
     = currency(@fund.balance)
 
+  - if @fund.default_synchronize_fund?
+    %p
+      This fund is set up to be your default fund to use
+      for synchronizing with your real account.
+
 - content_for :sidebar do
   %li= link_to "Create New Fund", new_fund_path

@@ -8,4 +8,8 @@ class Family < ActiveRecord::Base
     funds.inject(0) { |total, acc| total += acc.balance }
   end
 
+  def synchronize_fund
+    @sync_fund ||= funds.detect { |f| f.default_synchronize_fund? }
+  end
+
 end
