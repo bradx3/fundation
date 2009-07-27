@@ -1,0 +1,19 @@
+- transactions = transaction_table
+
+%table.table
+  %tr
+    %th Date
+    %th Amount
+    %th Type
+    %th Description
+    %th User
+    %th.last Funds
+  - transactions.each do |transaction|
+    %tr{ :class => cycle("odd", "") }
+      %td= transaction.created_at.to_formatted_s(:long)
+      %td= link_to(currency(transaction.allocated_dollars), transaction)
+      %td= transaction.type
+      %td= transaction.description
+      %td= transaction.user
+      %td= funds(transaction)
+

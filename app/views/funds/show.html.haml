@@ -12,5 +12,10 @@
       This fund is set up to be your default fund to use
       for synchronizing with your real account.
 
+  %br/
+  %p
+    %h4 Recent Transactions
+    = render :partial => "/transactions/transaction_table", :object => @fund.recent_transactions
+
 - content_for :sidebar do
   %li= link_to "Create New Fund", new_fund_path
