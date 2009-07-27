@@ -1,5 +1,5 @@
 set :application, "budgeto"
-set :repository,  "git@github.com:bradx3/offset.git"
+set :repository,  "git@github.com:bradx3/fundation.git"
 set :deploy_to, "/var/www/#{application}"
 set :scm, :git
 set :use_sudo, false
