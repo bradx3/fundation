@@ -1,0 +1,18 @@
+- content_for :sidebar do
+  - form_tag(transactions_path, :method => :get) do
+    .block
+      %h3 Users
+      %ul.navigation.filter
+        = check_box_filters_for("transactions.user_id", current_user.family.users)
+        
+    .block
+      %h3 Funds
+      %ul.navigation.filter
+        = check_box_filters_for("fund_transactions.fund_id", current_user.family.funds)
+
+    .block
+      %h3 Created
+      %ul.navigation.filter
+        = date_filter_for(:created_at)
+
+    = submit_tag "Update List", :class => "button"

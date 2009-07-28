@@ -1,3 +1,6 @@
+- simple_sidebar do
+  %li= link_to "Create New Fund", new_fund_path
+
 %h2.title
   %span= link_to "Edit", edit_fund_path(@fund)
   =h @fund.name
@@ -16,6 +19,5 @@
   %p
     %h4 Recent Transactions
     = render :partial => "/transactions/transaction_table", :object => @fund.recent_transactions
+    = link_to "Show more transactions", transactions_path
 
-- content_for :sidebar do
-  %li= link_to "Create New Fund", new_fund_path

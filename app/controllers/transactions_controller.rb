@@ -1,8 +1,13 @@
 class TransactionsController < ApplicationController
+  helper_method :filter_params
+
   # GET /transactions
   # GET /transactions.xml
   def index
-    @transactions = current_user.family.transactions.all(:order => "id desc")
+    conds = filter_params
+    @transactions = current_user.family.transactions.all(:conditions => conds,
+                                                         :include => :fund_transactions,
+                                                         :order => "transactions.id desc")
     @total = @transactions.inject(0) { |total, t| total += t.dollars }
 
     respond_to do |format|
@@ -22,5 +27,15 @@ class TransactionsController < ApplicationController
       format.html { redirect_to(transactions_url) }
       format.xml  { head :ok }
     end
+  end
+
+  private
+  
+  # Returns all the filter params for the current request
+  def filter_params
+    res = params[:f] || {}
+    res = res.delete_if { |column, values| values.nil? or values.empty? } 
+
+    return res
   end
 end

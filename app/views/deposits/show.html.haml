@@ -1,4 +1,4 @@
-- content_for :sidebar do
+- simple_sidebar do
   %li= link_to "Delete This Deposit", "/transactions/#{ @deposit.id }", :method => :delete, :confirm => "Are you sure?"
 
 %h2.title

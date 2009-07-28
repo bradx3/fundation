@@ -18,6 +18,10 @@ class Fund < ActiveRecord::Base
     return res
   end
 
+  def to_s
+    name
+  end
+
   # Returns a list of recent transactions involving this fund
   def recent_transactions
     fts = self.fund_transactions.all(:order => "created_at desc", :limit => 5)

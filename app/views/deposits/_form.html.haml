@@ -1,5 +1,4 @@
-- content_for :sidebar do
-  - @sidebar_title = "Deposit Templates"
+- simple_sidebar("Deposit Templates") do
   - current_user.family.deposit_templates.each do |dt|
     %li= link_to_function "Use #{ dt.name.titlecase }", "useDepositTemplate(#{ dt.id });"
 

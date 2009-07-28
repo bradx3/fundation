@@ -15,6 +15,16 @@ h2.title span {
 #main-navigation ul li.config {
   float: right; }
 
+#sidebar .filter li {
+  padding: 5px 3px; }
+  #sidebar .filter li .checkbox {
+    margin-right: 3px; }
+  #sidebar .filter li label.label {
+    float: left;
+    width: 20%; }
+  #sidebar .filter li input.text_field {
+    width: 60%; }
+
 #unallocated {
   font-size: 1.2em; }
 

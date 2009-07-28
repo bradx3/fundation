@@ -4,6 +4,7 @@ class Transaction < ActiveRecord::Base
 
   belongs_to :user
   validates_presence_of :user
+  before_save :remove_unused_fund_transactions
   
   include DollarMethods
 
@@ -36,4 +37,8 @@ class Transaction < ActiveRecord::Base
     end
   end
 
+  def remove_unused_fund_transactions
+    unused = fund_transactions.select { |ft| ft.amount_in_cents.nil? or ft.amount_in_cents == 0 }
+    fund_transactions.delete(unused)
+  end
 end

@@ -10,5 +10,5 @@
       %tr{ :class => cycle("odd", "") }
         %td= link_to deposit_template.name, deposit_template
 
-- content_for :sidebar do
+- simple_sidebar do
   %li= link_to "Create New Deposit Template", new_deposit_template_path

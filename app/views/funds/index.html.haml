@@ -1,3 +1,6 @@
+- simple_sidebar do
+  %li= link_to "Create New Fund", new_fund_path
+
 %h2.title 
   %span
     Total Balance:
@@ -16,5 +19,3 @@
         %td=h currency(fund.balance)
 
 
-- content_for :sidebar do
-  %li= link_to "Create New Fund", new_fund_path

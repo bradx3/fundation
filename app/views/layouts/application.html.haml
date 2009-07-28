@@ -46,10 +46,7 @@
             = yield
 
       #sidebar
-        .block
-          %h3= @sidebar_title || "Actions"
-          %ul.navigation
-            = yield :sidebar
+        = yield :sidebar
 
       .clear
 
