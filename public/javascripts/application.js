@@ -12,6 +12,9 @@ document.observe("dom:loaded", function() {
 	addDepositTemplatePercentageListener();
 	updateDepositTemplateAllocated();
     }
+    else if ($("created_at_after") != null) {
+	addDateListeners();
+    }
 });
 
 function addDepositTemplateListener() {
@@ -200,4 +203,54 @@ function updateDepositTemplateAllocated() {
     else {
 	unallocated.removeClassName("incorrect");
     }
+}
+
+function addDateListeners() {
+    var opts = {
+        // The ID of the associated form element
+        id:"created_at_after",
+        // The date format to use
+        format:"d-sl-m-sl-Y",
+        // Days to highlight (starts on Monday)
+        highlightDays:[0,0,0,0,0,1,1],
+        // Days of the week to disable (starts on Monday)
+        disabledDays:[0,0,0,0,0,0,0],
+        // Dates to disable (YYYYMMDD format, "*" wildcards excepted)
+        disabledDates:{
+                "20090601":"20090612", // Range of dates
+                "20090622":"1",        // Single date
+                "****1225":"1"         // Wildcard example 
+                },
+        // Date to always enable
+        enabledDates:{},
+        // Don't fade in the datepicker
+        // NOTE: Only relevant if "staticPos" is set to false
+        noFadeEffect:false,
+        // Is it inline or popup
+        staticPos:false,
+        // Do we hide the associated form element on create
+        hideInput:false,
+        // Do we hide the today button
+        noToday:true,
+        // Do we show weeks along the left hand side
+        showWeeks:true,
+        // Is it drag disabled
+        // NOTE: Only relevant if "staticPos" is set to false
+        dragDisabled:true,
+        // Positioned the datepicker within a wrapper div of your choice (requires the ID of the wrapper element)
+        // NOTE: Only relevant if "staticPos" is set to true
+        positioned:"",
+        // Do we fill the entire grid with dates
+        fillGrid:true,
+        // Do we constrain dates not within the current month so that they cannot be selected
+        constrainSelection:true,
+        // Callback Object
+        callbacks:{"create":[createSpanElement], "dateselect":[showEnglishDate]},
+        // Do we create the button within a wrapper element of your choice (requires the ID of the wrapper element)
+        // NOTE: Only relevant if staticPos is set to false
+        buttonWrapper:"",
+        // Do we start the cursor on a specific date (YYYYMMDD format string)
+        cursorDate:""      
+      };
+      datePickerController.createDatePicker(opts);
 }

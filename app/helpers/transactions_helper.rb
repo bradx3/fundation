@@ -40,16 +40,16 @@ module TransactionsHelper
   def date_filter_for(field)
     res = ""
     res += content_tag(:li) do
-      fields_for(field) do |f|
-        f.label(:after, nil, :class => "label") +
-        f.text_field(:after, :class => "text_field")
-      end
+      name = "f[created_after]"
+      id = "f_created_after"
+      res = label_tag(id, "After", :class => "label")
+      res += calendar_date_select_tag(name, filter_params[:created_after], :id => id)
     end
     res += content_tag(:li) do
-      fields_for(field) do |f|
-        f.label(:before, nil, :class => "label") +
-        f.text_field(:before, :class => "text_field")
-      end
+      name = "f[created_before]"
+      id = "f_created_before"
+      res = label_tag(id, "Before", :class => "label")
+      res += calendar_date_select_tag(name, filter_params[:created_before], :id => id)
     end
 
     return res

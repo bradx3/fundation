@@ -21,6 +21,7 @@ Rails::Initializer.run do |config|
   config.gem "fastercsv"
   config.gem "nokogiri"
   config.gem "webrat"
+  config.gem "calendar_date_select"
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"
@@ -50,3 +51,5 @@ Rails::Initializer.run do |config|
 end
 
 $SITE_NAME = "Fundation"
+
+CalendarDateSelect.format = :italian
