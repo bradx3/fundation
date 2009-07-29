@@ -9,6 +9,28 @@
       that should be in each account by default.
 
     - form_for(@deposit_template, :url => { :action => "setup_default_deposit_template" }, :method => :post, :html => { :class => "form login"}) do |f|
+      = f.error_messages
+
+      .group
+        = f.label :name, nil, :class => "label"
+        = f.text_field :name, :class => "text_field"
+
+      - f.fields_for(:deposit_template_fund_percentages) do |percentage_fields|
+        .group
+          - dtap = percentage_fields.object
+          = percentage_fields.hidden_field :fund_id, :value => dtap.fund.id
+          = percentage_fields.label :percentage, dtap.fund.name, :class => "label"
+          = percentage_fields.text_field :percentage, :class => "text_field percentage"
+          \%
+
+      .group
+        %hr/
+
+      .group
+        = label_tag(:unallocated, "Percent Allocated", :class => "label")
+        #unallocated.incorrect
+          = @deposit_template.allocated_percentage
+          \%
 
       .group.navform
         = submit_tag("Continue", :class => "button")

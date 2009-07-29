@@ -39,7 +39,20 @@ class RegistrationController < ApplicationController
   end
 
   def step3
-    @deposit_template = current_user.deposit_templates.build
+    @deposit_template = current_user.deposit_templates.build(:name => "Default")
+    @deposit_template.init_all_fund_percentages
+  end
+
+  def setup_default_deposit_template
+    @deposit_template = current_user.deposit_templates.build(params[:deposit_template])
+    if @deposit_template.save
+      redirect_to :action => "complete"    
+    else
+      render :action => "step3"
+    end
+  end
+
+  def complete
   end
 end
 
