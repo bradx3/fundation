@@ -53,3 +53,11 @@ end
 $SITE_NAME = "Fundation"
 
 CalendarDateSelect.format = :italian
+
+ExceptionNotifier.exception_recipients = [ "brad@lucky-dip.net" ]
+ExceptionNotifier.email_prefix = "[FUNDATION] "
+
+ActionMailer::Base.sendmail_settings = {
+  :location       => '/usr/sbin/sendmail',
+  :arguments      => '-i -t -f brad@lucky-dip.net' 
+}
