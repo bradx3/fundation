@@ -1,0 +1,15 @@
+#block-signup.block
+  %h2 Setup Default Deposit Template
+  .content
+    %p 
+      Deposit Templates let you automatically split up deposits so parts of
+      it go into different funds.
+    %p
+      Enter some percentages below to setup the percentages of your deposits
+      that should be in each account by default.
+
+    - form_for(@deposit_template, :url => { :action => "setup_default_deposit_template" }, :method => :post, :html => { :class => "form login"}) do |f|
+
+      .group.navform
+        = submit_tag("Continue", :class => "button")
+        .clear

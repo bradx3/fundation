@@ -201,3 +201,14 @@ function updateDepositTemplateAllocated() {
 	unallocated.removeClassName("incorrect");
     }
 }
+
+function deleteObject(sender) {
+    var group = $(sender).up(".group");
+    if (group) {
+	var del = group.down(".delete");
+	if (del) {
+	    del.value = "1";
+	    group.hide();
+	}
+    }
+}

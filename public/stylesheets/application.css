@@ -15,6 +15,9 @@ h2.title span {
 #main-navigation ul li.config {
   float: right; }
 
+#box {
+  width: 640px; }
+
 #unallocated {
   font-size: 1.2em; }
 
