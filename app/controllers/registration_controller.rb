@@ -55,6 +55,7 @@ class RegistrationController < ApplicationController
   end
 
   def complete
+    flash[:notice] = nil
   end
 end
 
