@@ -4,8 +4,22 @@ class Transaction < ActiveRecord::Base
 
   belongs_to :user
   validates_presence_of :user
+  before_save :remove_unused_fund_transactions
   
   include DollarMethods
+
+  # Returns the given transactions with any fund_transactions not
+  # in fund_ids removed (but unsaved). 
+  def self.trim_filtered_funds(transactions, fund_ids)
+    if fund_ids and fund_ids.any?
+      # trim out filtered fund transactions
+      transactions.each do |t|
+        t.fund_transactions.delete_if { |ft| !fund_ids.include?(ft.fund_id.to_s) }
+      end
+    end
+
+    return transactions
+  end
 
   def allocated_dollars
     cents = fund_transactions.inject(0) { |total, da| total += da.amount_in_cents.to_f }    
@@ -36,4 +50,8 @@ class Transaction < ActiveRecord::Base
     end
   end
 
+  def remove_unused_fund_transactions
+    unused = fund_transactions.select { |ft| ft.amount_in_cents.nil? or ft.amount_in_cents == 0 }
+    fund_transactions.delete(unused)
+  end
 end

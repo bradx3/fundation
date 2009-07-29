@@ -18,10 +18,16 @@ class Fund < ActiveRecord::Base
     return res
   end
 
+  def to_s
+    name
+  end
+
   # Returns a list of recent transactions involving this fund
   def recent_transactions
     fts = self.fund_transactions.all(:order => "created_at desc", :limit => 5)
-    return fts.map { |ft| ft.transaction }
+    transactions = fts.map { |ft| ft.transaction }
+
+    return Transaction.trim_filtered_funds(transactions, [ id.to_s ])
   end
 
   def unset_any_other_default_sync_funds

@@ -12,5 +12,5 @@
         %td= link_to deposit_template.name, deposit_template
         %td= "Yes" if deposit_template.default?
 
-- content_for :sidebar do
+- simple_sidebar do
   %li= link_to "Create New Deposit Template", new_deposit_template_path

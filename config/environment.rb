@@ -21,6 +21,7 @@ Rails::Initializer.run do |config|
   config.gem "fastercsv"
   config.gem "nokogiri"
   config.gem "webrat"
+  config.gem "calendar_date_select"
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"
@@ -31,6 +32,7 @@ Rails::Initializer.run do |config|
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
+  config.reload_plugins = true if RAILS_ENV == "development"
 
   # Skip frameworks you're not going to use. To use Rails without a database,
   # you must remove the Active Record framework.
@@ -49,3 +51,5 @@ Rails::Initializer.run do |config|
 end
 
 $SITE_NAME = "Fundation"
+
+CalendarDateSelect.format = :italian

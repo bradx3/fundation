@@ -22,4 +22,14 @@ class TransactionTest < ActiveSupport::TestCase
     d.amount_in_cents = 356
     assert_equal 3.56, d.dollars
   end
+
+  should "remove unused fund_transactions before save" do
+    t = Transaction.new
+    t.fund_transactions.clear
+    t.fund_transactions.build
+
+    assert t.fund_transactions.any?
+    t.save(false) # don't need validations here, just the callback
+    assert t.fund_transactions.empty?
+  end
 end

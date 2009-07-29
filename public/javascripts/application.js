@@ -12,6 +12,9 @@ document.observe("dom:loaded", function() {
 	addDepositTemplatePercentageListener();
 	updateDepositTemplateAllocated();
     }
+    else if ($("created_at_after") != null) {
+	addDateListeners();
+    }
 });
 
 function addDepositTemplateListener() {

@@ -16,6 +16,11 @@ class FundTest < ActiveSupport::TestCase
     assert_equal 5.53, fund.balance
   end
 
+  should "return name for to_s" do
+    f = Factory(:fund)
+    assert_equal f.name, f.to_s
+  end
+
   should "unset any existing default sync funds if set" do
     user = Factory(:user)
     f1 = Factory(:fund, :user => user)

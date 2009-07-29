@@ -6,7 +6,7 @@ module DepositsHelper
   end
 
   def funds(transaction)
-    names = transaction.fund_transactions.used.map { |a| a.fund.name }
+    names = transaction.fund_transactions.map { |a| a.fund.name }
     return names.sort.join(", ")
   end
 end
