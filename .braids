@@ -6,3 +6,10 @@ vendor/plugins/web-app-theme:
   type: git
   revision: a237b73196ff03d9d5493c6f4690a60be5601825
   remote: braid/vendor/plugins/web-app-theme
+vendor/plugins/exception_notification: 
+  squashed: true
+  url: git://github.com/rails/exception_notification.git
+  branch: master
+  type: git
+  revision: e8b603e523c14f145da7b3a1729f5cc06eba2dd1
+  remote: braid/vendor/plugins/exception-notification
