@@ -11,6 +11,17 @@ class FamilyTest < ActiveSupport::TestCase
       @family = @user.family
     end
 
+    context "with a number of deposit templates" do
+      setup do
+      @default = Factory(:deposit_template, :user => @user, :default => true)
+      Factory(:deposit_template, :user => @user, :default => false)
+      end
+
+      should "return the default template" do
+        assert_equal @default, @family.default_deposit_template
+      end
+    end
+
     context "with a number of funds" do
       setup do
         4.times { Factory(:fund, :user => @user) }

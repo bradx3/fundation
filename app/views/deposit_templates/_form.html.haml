@@ -3,6 +3,12 @@
     = f.label :name, nil, :class => "label"
     = f.text_field :name, :class => "text_field"
 
+  .group
+    = f.label :default, nil, :class => "label"
+    = f.check_box :default, :class => ""
+    .description
+      If checked, deposits will use this deposit template by default.
+
   - f.fields_for(:deposit_template_fund_percentages) do |percentage_fields|
     .group
       - dtap = percentage_fields.object

@@ -5,10 +5,12 @@
   %table.table
     %tr
       %th Name
+      %th Default?
 
     - @deposit_templates.each do |deposit_template|
       %tr{ :class => cycle("odd", "") }
         %td= link_to deposit_template.name, deposit_template
+        %td= "Yes" if deposit_template.default?
 
 - content_for :sidebar do
   %li= link_to "Create New Deposit Template", new_deposit_template_path

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090714003716) do
+ActiveRecord::Schema.define(:version => 20090729021028) do
 
   create_table "deposit_template_fund_percentages", :force => true do |t|
     t.integer  "deposit_template_id"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20090714003716) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "default"
   end
 
   create_table "families", :force => true do |t|

@@ -30,6 +30,21 @@ class DepositsControllerTest < ActionController::TestCase
       assert_redirected_to deposit_path(assigns(:deposit))
     end
 
+    context "with a default deposit template" do
+      setup do
+        @fund1 = Factory(:fund, :user => @user)
+        dt = Factory(:deposit_template, :user => @user, :default => true)
+        dt.deposit_template_fund_percentages.build(:fund => @fund1, :percentage => 100)
+        dt.save!
+      end
+
+      should "set percentages for new" do
+        get :new
+        deposit = assigns("deposit")
+        assert_equal 100, deposit.fund_transactions[0].percentage
+      end
+    end
+
     context "render for funds" do
       setup do
         @acc1 = Factory.create(:fund)

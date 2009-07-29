@@ -10,7 +10,13 @@ class DepositTemplateTest < ActiveSupport::TestCase
       Factory.create(:deposit_template)
     end
 
-    should_validate_uniqueness_of :name
+    should "validate uniqueness of name for user" do
+      existing = DepositTemplate.first
+      new = Factory.build(:deposit_template, :user => existing.user, 
+                          :name => existing.name)
+      new.valid?
+      assert new.errors.on(:name)
+    end
   end
 
   context "a normal deposit template" do

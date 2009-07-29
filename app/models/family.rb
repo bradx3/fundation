@@ -13,4 +13,8 @@ class Family < ActiveRecord::Base
     @sync_fund ||= funds.detect { |f| f.default_synchronize_fund? }
   end
 
+  def default_deposit_template
+    @default_dt ||= deposit_templates.detect { |dt| dt.default? }
+  end
+
 end

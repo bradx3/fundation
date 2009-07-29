@@ -45,6 +45,8 @@ class RegistrationController < ApplicationController
 
   def setup_default_deposit_template
     @deposit_template = current_user.deposit_templates.build(params[:deposit_template])
+    @deposit_template.default = true
+
     if @deposit_template.save
       redirect_to :action => "complete"    
     else
