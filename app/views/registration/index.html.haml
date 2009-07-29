@@ -1,0 +1,31 @@
+#block-signup.block
+  %h2 Sign up
+  .content
+    - form_for(@user, :url => { :action => "create" } , :html => { :class => "form login" }) do |f|
+      = f.error_messages
+
+      .group
+        .left= f.label(:login, nil, :class => "label")
+        .right= f.text_field(:login, :class => "text_field")
+        .clear  
+
+      .group
+        .left= f.label(:email, nil, :class => "label")
+        .right= f.text_field(:email, :class => "text_field")
+        .clear  
+        
+      .group
+        .left= f.label(:password, nil, :class => "label")
+        .right= f.password_field(:password, :class => "text_field")
+        .clear 
+
+      .group
+        .left= f.label(:password_confirmation, nil, :class => "label")
+        .right= f.password_field(:password_confirmation, :class => "text_field")
+        .clear 
+                 
+      .group.navform
+        = f.submit("Sign Up", :class => "button")
+        or 
+        = link_to "Login", "/login"
+        .clear

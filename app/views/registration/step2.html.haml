@@ -1,0 +1,32 @@
+#block-signup.block
+  %h2 Setup Funds
+  .content
+    %p 
+      Funds are used in 
+      = $SITE_NAME
+      to manage your savings. 
+    %p 
+      Think about what you are saving for,
+      and set up some funds to help you. We've included a few sample
+      ones to get you started. 
+
+    %p 
+      Leave any unused names blank and click Continue when you've created
+      all the funds you need.
+
+    - form_for(current_user, :url => { :action => "setup_funds" }, :method => :post, :html => { :class => "form login"}) do |f|
+      %table.table#funds
+        %tr
+          %th Name
+          %th Initial Amount
+        - f.fields_for(:funds) do |ff|
+          %tr{ :class => "group #{ cycle('odd', 'even') }" }
+            %td
+              = ff.text_field :name, :class => "text_field"
+            %td
+              $
+              = ff.text_field :dollars, :class => "text_field amount"
+
+      .group.navform
+        = submit_tag("Continue", :class => "button")
+        .clear

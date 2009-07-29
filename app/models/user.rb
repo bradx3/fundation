@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   validates_presence_of :family
 
   has_many :funds
+  accepts_nested_attributes_for(:funds, :allow_destroy => true,
+                                :reject_if => proc { |attributes| attributes["name"].blank? })
   has_many :deposit_templates
   has_many :transactions
 
