@@ -28,7 +28,7 @@ class TransfersTest < ActionController::IntegrationTest
       assert_equal @fund2, deposit.fund_transactions.first.fund
 
       @user.family.reload
-      assert_equal original_balance, @user.family.total_balance
+      assert_equal original_balance.to_i, @user.family.total_balance.to_i
     end
   end
 end

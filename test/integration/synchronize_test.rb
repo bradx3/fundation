@@ -5,7 +5,7 @@ class SynchronizeTest < ActionController::IntegrationTest
     setup do
       integration_login
       @acc1 = Factory(:fund, :default_synchronize_fund => true, :user => @user)
-      @acc2 = Factory(:fund, :user => @user)
+      @acc2 = Factory(:fund, :user => @user, :dollars => 20)
     end
 
     should "be able to synchronize funds" do
