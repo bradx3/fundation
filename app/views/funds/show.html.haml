@@ -19,5 +19,5 @@
   %p
     %h4 Recent Transactions
     = render :partial => "/transactions/transaction_table", :object => @fund.recent_transactions
-    = link_to "Show more transactions", transactions_path
+    = link_to "Show more transactions", transactions_path(:f => { "fund_transactions.fund_id" => @fund.id })
 

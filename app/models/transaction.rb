@@ -8,6 +8,19 @@ class Transaction < ActiveRecord::Base
   
   include DollarMethods
 
+  # Returns the given transactions with any fund_transactions not
+  # in fund_ids removed (but unsaved). 
+  def self.trim_filtered_funds(transactions, fund_ids)
+    if fund_ids and fund_ids.any?
+      # trim out filtered fund transactions
+      transactions.each do |t|
+        t.fund_transactions.delete_if { |ft| !fund_ids.include?(ft.fund_id.to_s) }
+      end
+    end
+
+    return transactions
+  end
+
   def allocated_dollars
     cents = fund_transactions.inject(0) { |total, da| total += da.amount_in_cents.to_f }    
     return cents.to_f / 100.00

@@ -8,7 +8,8 @@ class TransactionsController < ApplicationController
     @transactions = current_user.family.transactions.all(:conditions => conds,
                                                          :include => :fund_transactions,
                                                          :order => "transactions.id desc")
-    @total = @transactions.inject(0) { |total, t| total += t.dollars }
+    @transactions = Transaction.trim_filtered_funds(@transactions, filter_params["fund_transactions.fund_id"])
+    @total = @transactions.inject(0) { |total, t| total += t.allocated_dollars }
 
     respond_to do |format|
       format.html # index.html.erb
@@ -38,4 +39,5 @@ class TransactionsController < ApplicationController
 
     return res
   end
+
 end
