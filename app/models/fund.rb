@@ -1,6 +1,6 @@
 class Fund < ActiveRecord::Base
   validates_presence_of :name
-  has_many :fund_transactions
+  has_many :fund_transactions, :dependent => :destroy
   
   belongs_to :user
   validates_presence_of :user

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class FundTest < ActiveSupport::TestCase
   should_validate_presence_of :name
-  should_have_many :fund_transactions
+  should_have_many :fund_transactions, :dependent => :destroy
 
   should_belong_to :user
   should_validate_presence_of :user

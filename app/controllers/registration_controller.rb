@@ -22,16 +22,20 @@ class RegistrationController < ApplicationController
   end
 
   def step2
-    if current_user.funds.empty?
-      current_user.funds.build(:name => "Expenses")
-      current_user.funds.build(:name => "Holiday Fund")
-      current_user.funds.build(:name => "Car Fund")
+    current_user.funds.clear
+    current_user.deposit_templates.clear
 
-      7.times { current_user.funds.build }
-    end
+    current_user.funds.build(:name => "Expenses")
+    current_user.funds.build(:name => "Holiday Fund")
+    current_user.funds.build(:name => "Car Fund")
+
+    7.times { current_user.funds.build }
   end
 
   def setup_funds
+    current_user.funds.clear
+    current_user.deposit_templates.clear
+
     current_user.attributes = params[:user]
     current_user.save!
 
