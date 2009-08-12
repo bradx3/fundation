@@ -21,14 +21,14 @@
         .clear    
       #main-navigation
         %ul
-          %li= link_to "Funds", "/"
-          %li= link_to "Transactions", transactions_path
-          %li= link_to "Deposit Money", new_deposit_path
-          %li= link_to "Withdraw Money", new_withdrawal_path
-          %li= link_to "Transfer Money", new_transfer_path
-          %li= link_to "Synchronize", new_synchronize_path
-          %li.config= link_to "Deposit Templates", deposit_templates_path
-          %li.config= link_to "Users", users_path
+          %li{ :class => link_class("funds") }= link_to "Funds", "/"
+          %li{ :class => link_class("transactions") }= link_to "Transactions", transactions_path
+          %li{ :class => link_class("deposits") }= link_to "Deposit Money", new_deposit_path
+          %li{ :class => link_class("withdrawals") }= link_to "Withdraw Money", new_withdrawal_path
+          %li{ :class => link_class("transfers") }= link_to "Transfer Money", new_transfer_path
+          %li{ :class => link_class("synchronize") }= link_to "Synchronize", new_synchronize_path
+          %li.config{ :class => link_class("deposit_templates") }= link_to "Deposit Templates", deposit_templates_path
+          %li.config{ :class => link_class("users") }= link_to "Users", users_path
         .clear  
     #wrapper
       - if flash[:notice]

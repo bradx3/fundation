@@ -98,13 +98,13 @@ hr {
   cursor: pointer;
   padding-left: 15px; }
   #main-navigation ul li a {
-    padding: 8px 0; }
+    padding: 8px; }
   #main-navigation ul li.active {
     padding: 0;
     margin-left: 15px;
     margin-left: 15px; }
     #main-navigation ul li.active a {
-      padding: 8px 15px; }
+      padding: 8px; }
 
 #sidebar ul li a:link, #sidebar ul li a:visited {
   background: #FFF;
