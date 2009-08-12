@@ -1,6 +1,16 @@
 .flash .message.notice {
   width: 100%; }
 
+h1 a {
+  background-image: url(/images/fundation.png);
+  background-repeat: no-repeat;
+  display: block;
+  height: 70px;
+  width: 300px; }
+h1 span {
+  left: -500px;
+  position: absolute; }
+
 h2.title span {
   float: right; }
 
@@ -13,7 +23,9 @@ h2.title span {
   width: 5.0em; }
 
 #main-navigation ul li.config {
-  float: right; }
+  float: right;
+  padding-left: 0px;
+  padding-right: 15px; }
 
 #box {
   width: 640px; }

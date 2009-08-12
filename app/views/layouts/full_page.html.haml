@@ -3,11 +3,11 @@
 %head
   %meta{:'http-equiv'=>"Content-Type", :content=>"text/html; charset=utf-8"}
   %title= $SITE_NAME
-  = stylesheet_link_tag 'web_app_theme', "themes/bec/style", "application"
+  = stylesheet_link_tag 'web_app_theme', "theme", "application"
 %body
   #container
     #header
-      %h1=link_to $SITE_NAME, '/'
+      %h1=link_to "<span>#{ $SITE_NAME }</span>", '/'
     #box
       = yield
 
