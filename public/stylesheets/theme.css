@@ -132,9 +132,9 @@ hr {
 
 #user-navigation ul li a:link, #user-navigation ul li a:visited, #user-navigation ul li a:hover, #user-navigation ul li a:active {
   text-decoration: none;
-  color: #FFF; }
+  color: black; }
 #user-navigation ul li a:hover {
-  color: #ae87a1; }
+  text-decoration: underline; }
 
 .secondary-navigation li a:hover {
   background: #666666; }

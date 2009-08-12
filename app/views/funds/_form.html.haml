@@ -17,4 +17,4 @@
       If checked, this fund will be the default account used when synchronizing with your bank account.<br/> Think of it as your expenses account.
 
   .group.navform
-    = f.submit(@fund.new_record? ? "Create" : "Update")
+    = f.submit(@fund.new_record? ? "Create" : "Update", :class => "button")

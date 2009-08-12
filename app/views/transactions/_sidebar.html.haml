@@ -1,5 +1,5 @@
 - content_for :sidebar do
-  - form_tag(transactions_path, :method => :get) do
+  - form_tag(transactions_path, :method => :get, :class => "form") do
     - if current_user.family.users.count > 1
       .block
         %h3 Users
@@ -16,7 +16,7 @@
       %ul.navigation.filter
         = date_filter_for(:created_at)
 
-    = submit_tag "Update List", :class => "button"
-    or
-    = link_to "Reset List"
+        = submit_tag "Update List", :class => "button"
+        or
+        = link_to "Reset List"
 
