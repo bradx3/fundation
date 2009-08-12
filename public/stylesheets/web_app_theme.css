@@ -137,7 +137,7 @@ body {
 }
 
 #main-navigation ul li a {
-  font-size: 15px;
+  font-size: 13px;
   display: block;
   padding: 8px 15px;
 }
@@ -185,7 +185,7 @@ body {
 
 .table th {
   padding: 10px;
-  font-weight: bold;
+  font-weight: normal;
   text-align: left;
 }
 
