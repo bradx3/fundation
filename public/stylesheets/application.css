@@ -30,15 +30,29 @@ h2.title span {
 #box {
   width: 640px; }
 
-#sidebar .filter li {
-  padding: 5px 3px; }
-  #sidebar .filter li .checkbox {
-    margin-right: 3px; }
-  #sidebar .filter li label.label {
-    float: left;
-    width: 20%; }
-  #sidebar .filter li input.text_field {
-    width: 60%; }
+#sidebar ul.filter {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+  #sidebar ul.filter li a {
+    border: none;
+    color: black;
+    text-decoration: none; }
+  #sidebar ul.filter li a:hover {
+    background-color: white;
+    text-decoration: underline; }
+  #sidebar ul.filter li {
+    padding: 10px 15px; }
+    #sidebar ul.filter li .checkbox {
+      margin-right: 3px; }
+    #sidebar ul.filter li label {
+      cursor: pointer; }
+    #sidebar ul.filter li label.date {
+      float: left;
+      padding-top: 7px;
+      width: 20%; }
+    #sidebar ul.filter li input.text_field {
+      width: 60%; }
 
 #unallocated {
   font-size: 1.2em; }

@@ -42,13 +42,13 @@ module TransactionsHelper
     res += content_tag(:li) do
       name = "f[created_after]"
       id = "f_created_after"
-      res = label_tag(id, "After", :class => "label")
+      res = label_tag(id, "After", :class => "date")
       res += calendar_date_select_tag(name, filter_params[:created_after], :id => id)
     end
     res += content_tag(:li) do
       name = "f[created_before]"
       id = "f_created_before"
-      res = label_tag(id, "Before", :class => "label")
+      res = label_tag(id, "Before", :class => "date")
       res += calendar_date_select_tag(name, filter_params[:created_before], :id => id)
     end
 

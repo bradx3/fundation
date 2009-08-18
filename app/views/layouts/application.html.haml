@@ -15,6 +15,7 @@
               - link_to edit_user_path(current_user), :id => "profile" do
                 Logged in as: 
                 = current_user.login
+            %li= link_to "View profile", edit_user_path(current_user)
             %li= link_to 'Logout', user_session_path, :method => "delete"
           - else
             %li= link_to "Login", "/login"

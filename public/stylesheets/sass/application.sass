@@ -33,18 +33,37 @@ h2.title span
 #box
   width: 640px
 
-#sidebar .filter li
-  padding: 5px 3px
+#sidebar ul.filter
+  list-style-type: none
+  margin: 0
+  padding: 0
 
-  .checkbox
-    margin-right: 3px
+  li 
+    a
+      border: none
+      color: black
+      text-decoration: none
+    
+    a:hover
+      background-color: white
+      text-decoration: underline
 
-  label.label
-    float: left
-    width: 20%
+  li
+    padding: 10px 15px
 
-  input.text_field
-    width: 60%
+    .checkbox
+      margin-right: 3px
+    
+    label
+      cursor: pointer
+
+    label.date
+      float: left
+      padding-top: 7px
+      width: 20%
+
+    input.text_field
+      width: 60%
 
 #unallocated
   font-size: 1.2em
