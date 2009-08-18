@@ -15,6 +15,8 @@ document.observe("dom:loaded", function() {
     else if ($("created_at_after") != null) {
 	addDateListeners();
     }
+
+    addTableRowListeners();
 });
 
 function addDepositTemplateListener() {
@@ -214,4 +216,16 @@ function deleteObject(sender) {
 	    group.hide();
 	}
     }
+}
+
+function addTableRowListeners() {
+    var rows = $$("table.table tr");
+    rows.each(function(row) {
+	row.observe("click", function(e) {
+	    var link = row.down("a");
+	    if (link) {
+		document.location = link.href;
+	    }
+	});
+    });
 }

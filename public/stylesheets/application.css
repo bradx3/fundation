@@ -45,3 +45,6 @@ h2.title span {
 
 #unallocated.incorrect {
   color: red  color: red; }
+
+table.table tr {
+  cursor: pointer; }
