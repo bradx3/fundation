@@ -17,6 +17,8 @@ document.observe("dom:loaded", function() {
     }
 
     addTableRowListeners();
+    addSidebarCheckboxLiListeners();
+    addSidebarCheckboxListeners();
 });
 
 function addDepositTemplateListener() {
@@ -228,4 +230,26 @@ function addTableRowListeners() {
 	    }
 	});
     });
+}
+
+function addSidebarCheckboxLiListeners() {
+    var lis = $$("#sidebar li.checkbox");
+    lis.each(function(li) {
+	li.observe("click", function(e) {
+	    var checkBox = li.down(".checkbox");
+	    checkBox.checked = !checkBox.checked;
+	    submitFilterForm();
+	});
+    });
+}
+
+function addSidebarCheckboxListeners() {
+    var checkboxes = $$("#sidebar li.checkbox .checkbox");
+    checkboxes.each(function(checkBox) {
+	checkBox.observe("click", submitFilterForm);
+    });
+}
+
+function submitFilterForm() {
+    $("sidebar").down("form").submit();
 }

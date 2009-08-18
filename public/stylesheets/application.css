@@ -37,10 +37,9 @@ h2.title span {
   #sidebar ul.filter li a {
     border: none;
     color: black;
-    text-decoration: none; }
-  #sidebar ul.filter li a:hover {
-    background-color: white;
     text-decoration: underline; }
+  #sidebar ul.filter li a:hover {
+    background-color: white; }
   #sidebar ul.filter li {
     padding: 10px 15px; }
     #sidebar ul.filter li .checkbox {

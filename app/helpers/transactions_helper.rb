@@ -24,13 +24,13 @@ module TransactionsHelper
   
   # Returns a check box and label for use in filtering
   def check_box_filter_for(column, object)
-    content_tag :li do
+    content_tag :li, :class => "checkbox" do
       name = "f[#{ column }][]"
       id = "f_#{ column }_#{ object.id }"
 
       res = check_box_tag(name, object.id, filter_checked?(column, object), 
                           :id => id, :class => "checkbox")
-      res += label_tag(id, object.to_s, :class => "checkbox")
+      res += content_tag(:span, object.to_s)
 
       res
     end

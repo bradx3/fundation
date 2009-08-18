@@ -113,6 +113,10 @@ hr {
 #sidebar ul li a:hover, #sidebar ul li a:active {
   background: #98b9d0; }
 
+#sidebar ul.filter li.checkbox:hover, #sidebar ul.filter li.checkbox:active {
+  background: #98b9d0;
+  cursor: pointer; }
+
 #main-navigation {
   background: #16316f; }
   #main-navigation ul li {
