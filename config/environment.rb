@@ -18,11 +18,13 @@ Rails::Initializer.run do |config|
   config.gem "authlogic"
   config.gem "calendar_date_select"
 
-  # config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
-  # config.gem "thoughtbot-shoulda", :lib => "shoulda", :source => "http://gems.github.com"
-  # config.gem "fastercsv"
-  # config.gem "nokogiri"
-  # config.gem "webrat"
+  if RAILS_ENV == "test"
+    config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
+    config.gem "thoughtbot-shoulda", :lib => "shoulda", :source => "http://gems.github.com"
+    config.gem "fastercsv"
+    config.gem "nokogiri"
+    config.gem "webrat"
+  end
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"
@@ -54,11 +56,3 @@ end
 $SITE_NAME = "Fundation"
 
 CalendarDateSelect.format = :italian
-
-ExceptionNotifier.exception_recipients = [ "brad@lucky-dip.net" ]
-ExceptionNotifier.email_prefix = "[FUNDATION] "
-
-ActionMailer::Base.sendmail_settings = {
-  :location       => '/usr/sbin/sendmail',
-  :arguments      => '-i -t -f brad@lucky-dip.net' 
-}
