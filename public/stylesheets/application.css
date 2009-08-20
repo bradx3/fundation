@@ -50,7 +50,7 @@ h2.title span {
       float: left;
       padding-top: 7px;
       width: 18%; }
-    #sidebar ul.filter li input.text_field {
+    #sidebar ul.filter li input.text {
       width: 60%; }
 
 #unallocated {
