@@ -53,7 +53,7 @@ hr {
       color: #FFF; }
 
 #user-navigation {
-  right: 25px; }
+  right: 0px; }
   #user-navigation a.logout {
     background: #cc0000;
     padding: 1px 4px;
@@ -125,7 +125,7 @@ hr {
     background: !title_background;
     margin-right: 0; }
     #main-navigation ul li.active {
-      background: #f0f0ee; }
+      background: #CFCFCF; }
     #main-navigation ul li a:link, #main-navigation ul li a:visited, #main-navigation ul li a:hover, #main-navigation ul li a:active {
       text-decoration: none;
       color: #FFF; }
@@ -246,7 +246,7 @@ ul.list li {
 #box .block {
   background: #FFF; }
   #box .block h2 {
-    background: #36393d;
+    background-color: #16316f;
     color: #FFF; }
 
 #main {
@@ -333,3 +333,6 @@ ul.list li, #footer .block, .form input.button {
   margin-right: auto;
   max-width: 1500px;
   position: relative; }
+
+table#funds tr {
+  cursor: auto; }
