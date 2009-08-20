@@ -29,7 +29,9 @@ class DepositTemplate < ActiveRecord::Base
   def apply(deposit)
     deposit.fund_transactions.each do |ft|
       template_value = deposit_template_fund_percentages.detect { |dtfp| dtfp.fund == ft.fund }
-      ft.percentage = template_value.percentage
+      if template_value
+        ft.percentage = template_value.percentage
+      end
     end
   end
 

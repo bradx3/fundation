@@ -43,6 +43,12 @@ class DepositsControllerTest < ActionController::TestCase
         deposit = assigns("deposit")
         assert_equal 100, deposit.fund_transactions[0].percentage
       end
+
+      should "render new ok after adding a new fund" do
+        Factory(:fund, :user => @user)
+        get :new
+        assert_response :success
+      end
     end
 
     context "render for funds" do
