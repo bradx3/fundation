@@ -42,5 +42,19 @@ class DepositTest < ActiveSupport::TestCase
 
       assert d.valid?
     end
+
+    should "handle allocations that didn't work on 20/08/09" do
+      d = Factory.build(:deposit)
+      d.fund_transactions.clear
+
+      d.dollars = 149.23
+
+      amounts = [ 0, 0, 0, 0, 149.23, 0, 0, 0 ]
+      amounts.each_with_index do |amt, i|
+        d.fund_transactions.build(:fund => @funds[i], :dollars => amt)
+      end
+
+      assert d.valid?
+    end
   end
 end

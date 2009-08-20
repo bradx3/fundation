@@ -8,7 +8,7 @@ module DollarMethods
   end
 
   def dollars=(amount)
-    self.send("#{ dollar_method }=", amount.to_f * 100.0)
+    self.send("#{ dollar_method }=", (amount.to_f * 100.0).round)
   end
 
   def dollars
