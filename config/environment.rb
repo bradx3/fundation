@@ -16,12 +16,13 @@ Rails::Initializer.run do |config|
 
   config.gem "haml"
   config.gem "authlogic"
-  config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
-  config.gem "thoughtbot-shoulda", :lib => "shoulda", :source => "http://gems.github.com"
-  config.gem "fastercsv"
-  config.gem "nokogiri"
-  config.gem "webrat"
   config.gem "calendar_date_select"
+
+  # config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
+  # config.gem "thoughtbot-shoulda", :lib => "shoulda", :source => "http://gems.github.com"
+  # config.gem "fastercsv"
+  # config.gem "nokogiri"
+  # config.gem "webrat"
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"
