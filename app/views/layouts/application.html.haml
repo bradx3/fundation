@@ -48,6 +48,6 @@
 
       .clear
 
-  = javascript_include_tag :all
+  = javascript_include_tag :all, :cache => true
   = calendar_date_select_includes
   = render :partial => "/layouts/tracking"
