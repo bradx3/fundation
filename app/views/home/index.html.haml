@@ -1,0 +1,36 @@
+.block
+  %h2 
+    Welcome to 
+    = $SITE_NAME
+
+  .content.home
+    %p
+      %h4 Savings step-by-step
+      = $SITE_NAME
+      helps you put aside a little bit of money every time you get paid to 
+      save for things you really want.
+
+    %h3 Screenshots  
+    %ul.images
+      %li= link_to(image_tag("screenshot1t.png"), "/images/screenshot1.png", :rel => "lightbox[screenshots]")
+      %li= link_to(image_tag("screenshot2t.png"), "/images/screenshot2.png", :rel => "lightbox[screenshots]")
+      %li= link_to(image_tag("screenshot3t.png"), "/images/screenshot3.png", :rel => "lightbox[screenshots]")
+      %li= link_to(image_tag("screenshot4t.png"), "/images/screenshot4.png", :rel => "lightbox[screenshots]")
+      %li= link_to(image_tag("screenshot5t.png"), "/images/screenshot5.png", :rel => "lightbox[screenshots]")
+
+    .clear
+
+    .signup
+      %h3 Sign up
+      = link_to "Sign up to #{ $SITE_NAME }", "/registration"
+
+    .login
+      %h3 Existing user?
+      = link_to "Login", "/login"
+
+    .clear
+
+= stylesheet_link_tag "lightbox"
+= javascript_include_tag "lightbox/prototype"
+= javascript_include_tag "lightbox/scriptaculous.js?load=effects,builder"
+= javascript_include_tag "lightbox/lightbox"

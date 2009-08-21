@@ -27,6 +27,9 @@ a:link, a:visited, a:hover, a:active {
 h1, h2, h3 {
   color: #36393d; }
 
+h3 {
+  padding-top: 1em; }
+
 a {
   -moz-outline: none; }
 

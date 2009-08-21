@@ -4,6 +4,13 @@ class FundsControllerTest < ActionController::TestCase
   should_require_user_for_all_methods
   should_keep_it_in_the_family(:fund)
 
+  context "without a logged in user" do
+    should "render home/index" do
+      get :index
+      assert_template "home/index"
+    end
+  end
+
   context "with a logged in user" do
     setup do
       login
