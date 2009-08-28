@@ -37,8 +37,7 @@ class ApplicationController < ActionController::Base
   def require_user
     unless current_user
       store_location
-      flash[:notice] = "You must be logged in to access this page"
-#      redirect_to new_user_session_url
+      flash[:notice] ||= "You must be logged in to access this page"
       render :template => "/home/index", :layout => "full_page"
       return false
     end

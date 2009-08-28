@@ -1,0 +1,20 @@
+#block.block
+  %h2 Reset Password
+  .content
+    - form_tag(password_resets_path, :class => "form") do
+      - if flash[:notice].present?
+        .flash
+          .message.error
+            %p= flash[:notice]
+
+      .group
+        .left= label_tag(:login, "Login or Email", :class => "label")
+        .right= text_field_tag(:login, nil, :class => "text_field")
+        .clear  
+        
+      .group.navform
+        .right
+          = submit_tag("Reset Password", :class => "button")
+          or
+          = link_to "Login", "/login"
+        .clear

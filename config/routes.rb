@@ -13,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :deposit_templates
   map.resources :funds
   map.resource :user_session
+  map.resource :password_resets
 
   map.connect "login", :controller => "user_sessions", :action => "new"
 

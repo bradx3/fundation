@@ -4,6 +4,11 @@
     = $SITE_NAME
 
   .content.home
+    - if flash[:notice].present?
+      .flash
+        .message.error
+          %p= flash[:notice]
+    
     %p
       %h4 Savings step-by-step
       = $SITE_NAME
