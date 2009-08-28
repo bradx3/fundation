@@ -51,8 +51,19 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
+
+  config.action_mailer.delivery_method = :smtp
 end
 
 $SITE_NAME = "Fundation"
 
 CalendarDateSelect.format = :italian
+
+ActionMailer::Base.smtp_settings = {
+  :address  => "mail.lucky-dip.net",
+  :port  => 25,
+  :domain => "fundation.lucky-dip.net",
+  :user_name  => "fundation",
+  :password  => "light8.Aswan",
+  :authentication  => :login
+}
