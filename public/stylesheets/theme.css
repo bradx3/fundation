@@ -345,6 +345,10 @@ table#funds tr {
   cursor: auto; }
 
 #footer a {
-  color: white; }
+  color: white;
+  text-decoration: none; }
 #footer .errors {
   float: right; }
+
+#box #footer .block {
+  background: #1A1A1A; }
