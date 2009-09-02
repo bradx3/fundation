@@ -21,8 +21,12 @@
           - else
             %li= link_to "Login", "/login"
           .clear    
-    #box
-      = yield
+
+    #main
+      #box
+        = yield
+
+      = render :partial => "/layouts/footer"
 
   = javascript_include_tag :all, :cache => true
   = render :partial => "/layouts/tracking"
