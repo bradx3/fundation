@@ -1,4 +1,6 @@
 class Transaction < ActiveRecord::Base
+  SYNCHRONIZE = "Synchronize"
+
   has_many :fund_transactions, :dependent => :destroy
   accepts_nested_attributes_for :fund_transactions
 
@@ -19,6 +21,10 @@ class Transaction < ActiveRecord::Base
     end
 
     return transactions
+  end
+
+  def synchronize?
+    description == SYNCHRONIZE
   end
 
   def allocated_dollars

@@ -1,15 +1,9 @@
 class Withdrawal < Transaction
-  SYNCHRONIZE = "Synchronize"
 
   before_validation :update_amount_from_fund_transactions, :if => Proc.new { |w| !w.synchronize? }
   after_save :ensure_amounts_are_negative
   validate :amount_greater_than_zero
   validate :allocations_add_to_total, :if => Proc.new { |w| w.synchronize? }
-
-  # Returns true if this a synchronization withdrawal
-  def synchronize?
-    description == SYNCHRONIZE
-  end
 
   private
 

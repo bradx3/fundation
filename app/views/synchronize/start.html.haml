@@ -1,28 +1,24 @@
 %h2.title Synchronize With Real Account
 
 .inner
-  %p
-    Your 
-    = $SITE_NAME
-    balance is 
-    = currency(@withdrawal.dollars.abs)
-    ahead of your real account.
+  %p= sync_desc
+
   %p
     - sync_fund = current_user.family.synchronize_fund
     - if sync_fund
-      That money will be withdrawn from your 
-      = link_to sync_fund.name, sync_fund
-      fund, but change the values in the fund below of you need to.
+      = "That money will be #{ sync_verb } from your "
+      = "#{ link_to sync_fund.name, sync_fund } fund, but change the values in the fund below of you need to."
 
     - else
-      You'll have to withdraw some money from 
-      = "#{ $SITE_NAME }."
-      Choose the fund(s) to withdraw money from below.
+      = "You'll have to #{ sync_verb } some money from #{ $SITE_NAME }."
+      = "Choose the fund(s) to #{ sync_verb } money"
+      = "#{ wd ? "from" : "into" } below."
 
-  - form_for(@withdrawal, :url => synchronize_index_path, :html => { :class => "form" }) do |f|
+  - form_for(@transaction, :url => synchronize_index_path, :html => { :class => "form" }) do |f|
     = f.error_messages
     = f.hidden_field :description
     = f.hidden_field :dollars
+    = hidden_field_tag :type, @transaction.class.name
 
     .group
       %hr/

@@ -37,7 +37,7 @@ class WithdrawalTest < ActiveSupport::TestCase
   context "a synchronize withdrawal" do
     setup do
       @acc1 = Factory(:fund)
-      @withdrawal = Factory.build(:withdrawal, :description => Withdrawal::SYNCHRONIZE)
+      @withdrawal = Factory.build(:withdrawal, :description => Transaction::SYNCHRONIZE)
       @withdrawal.fund_transactions.clear
     end
 

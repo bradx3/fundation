@@ -122,4 +122,11 @@ def integration_login
   assert_not_nil UserSession.find
 end
 
+def synchronize(amount)
+  visit "/"
+  click_link "synchronize"
+  fill_in "actual balance", :with => amount
+  click_button "synchronize"
+  click_button "create"
+end
 

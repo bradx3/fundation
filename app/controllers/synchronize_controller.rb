@@ -7,32 +7,30 @@ class SynchronizeController < ApplicationController
     actual_balance = params[:actual_balance].to_f
 
     difference = actual_balance - local_balance
-    if difference >= 0
-      flash[:notice] = "You can't synchronize to a greater balance. Just use a deposit"
-      redirect_to new_deposit_path
-    else
-      @withdrawal = Withdrawal.new(:dollars => difference, 
-                                   :user => current_user,
-                                   :description => Withdrawal::SYNCHRONIZE)
-      @withdrawal.init_all_deposit_funds
+    type = difference < 0 ? Withdrawal : Deposit
+    @transaction = type.new(:dollars => difference,
+                            :user => current_user,
+                            :description => Transaction::SYNCHRONIZE)
+    @transaction.description = Transaction::SYNCHRONIZE
+    @transaction.init_all_deposit_funds
 
-      default = @withdrawal.fund_transactions.detect { |at| at.fund.default_synchronize_fund? }
-      default.dollars = difference.abs if default
-    end
+    default = @transaction.fund_transactions.detect { |at| at.fund.default_synchronize_fund? }
+    default.dollars = difference.abs if default
   end
 
   def create
-    @withdrawal = Withdrawal.new(params[:withdrawal])
-    @withdrawal.user = current_user
+    type = params[:type].constantize
+    @transaction = type.new(params[type.name.underscore])
+    @transaction.user = current_user
     
     respond_to do |format|
-      if @withdrawal.save
+      if @transaction.save
         flash[:notice] = "Synchronize complete"
-        format.html { redirect_to(@withdrawal) }
-        format.xml  { render :xml => @withdrawal, :status => :created, :location => @withdrawal }
+        format.html { redirect_to(@transaction) }
+        format.xml  { render :xml => @transaction, :status => :created, :location => @transaction }
       else
         format.html { render :action => "start" }
-        format.xml  { render :xml => @withdrawal.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @transaction.errors, :status => :unprocessable_entity }
       end
     end
   end

@@ -8,7 +8,7 @@
 
   - form_tag({ :action => "start" }, :class => "form") do
     .group
-      = label_tag :budgeto_balance, nil, :class => "label"
+      = label_tag :budgeto_balance, "#{ $SITE_NAME } balance", :class => "label"
       = "#{ currency(current_user.family.total_balance) }"
 
     .group
