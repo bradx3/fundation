@@ -19,8 +19,8 @@ Rails::Initializer.run do |config|
   config.gem "calendar_date_select"
 
   if RAILS_ENV == "test"
-    config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
-    config.gem "thoughtbot-shoulda", :lib => "shoulda", :source => "http://gems.github.com"
+    config.gem "factory_girl", :lib => "factory_girl"
+    config.gem "shoulda", :lib => "shoulda"
     config.gem "fastercsv"
     config.gem "nokogiri"
     config.gem "webrat"
