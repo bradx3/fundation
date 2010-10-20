@@ -1,8 +1,8 @@
 source "http://rubygems.org"
 
-gem "rails", "2.3.3"
+gem "rails", "2.3.10"
 
-gem "haml", "3.0.11"
+gem "haml", "3.0.22"
 gem "authlogic", "2.1.3"
 gem "calendar_date_select", "1.16.1"
 
