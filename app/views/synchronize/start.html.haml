@@ -1,5 +1,7 @@
 %h2.title Synchronize With Real Account
 
+- deposit_template_sidebar if depositing?
+
 .inner
   %p= sync_desc
 
@@ -10,7 +12,7 @@
       = "#{ link_to sync_fund.name, sync_fund } fund, but change the values in the fund below of you need to."
 
     - else
-      = "You'll have to #{ sync_verb } some money from #{ $SITE_NAME }."
+      = "You'll have to #{ sync_verb } some money #{ sync_dir } #{ $SITE_NAME }."
       = "Choose the fund(s) to #{ sync_verb } money"
       = "#{ wd ? "from" : "into" } below."
 
@@ -27,6 +29,7 @@
       .fund
         - da = fields.object
         = fields.hidden_field :fund_id, :value => da.fund_id, :id => "fund_#{ da.fund_id }"
+        = fields.hidden_field :percentage, :value => "", :id => "fund_#{ da.fund_id }", :class => "percentage"
         = fields.label :dollars, da.fund.name, :class => "label"
         .group
           $

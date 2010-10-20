@@ -7,11 +7,20 @@ module SynchronizeHelper
       "your real account." ].join(" ")
   end
   
-  def wd
+  def withdrawing?
     @transaction.is_a?(Withdrawal)
+  end
+  alias_method :wd, :withdrawing?
+  
+  def depositing?
+    !wd
   end
 
   def sync_verb
     wd ? "withdraw" : "deposit"
+  end
+
+  def sync_dir
+    wd ? "from" : "into"
   end
 end
