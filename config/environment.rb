@@ -14,18 +14,6 @@ Rails::Initializer.run do |config|
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
-  config.gem "haml"
-  config.gem "authlogic"
-  config.gem "calendar_date_select"
-
-  if RAILS_ENV == "test"
-    config.gem "factory_girl", :lib => "factory_girl"
-    config.gem "shoulda", :lib => "shoulda"
-    config.gem "fastercsv"
-    config.gem "nokogiri"
-    config.gem "webrat"
-  end
-
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
