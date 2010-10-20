@@ -4,5 +4,5 @@ class FundTransaction < ActiveRecord::Base
 
   include DollarMethods
 
-  named_scope :used, :conditions => [ "amount_in_cents <> 0" ]
+  scope :used, :conditions => [ "amount_in_cents <> 0" ]
 end

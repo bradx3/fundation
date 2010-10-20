@@ -1,7 +1,7 @@
 %h2.title Confirm Signup
 
 .inner
-  - form_for(@user, :url => confirm_password_users_path, :html => { :class => "form" }) do |f|
+  = form_for(@user, :url => confirm_password_users_path, :html => { :class => "form" }) do |f|
     = f.error_messages
 
     .group

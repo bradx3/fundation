@@ -14,11 +14,11 @@ class TransfersTest < ActionController::IntegrationTest
       assert amount > 0
 
       visit "/"
-      click_link "transfer money"
-      fill_in "amount", :with => amount
+      click_link "Transfer Money"
+      fill_in "Amount", :with => amount
       select @fund1.name, :from => "from"
       select @fund2.name, :from => "to"
-      click_button "transfer"
+      click_button "Transfer"
 
       deposit, withdrawal = Transaction.all(:order => "id desc", :limit => 2)
       assert_equal (0 - amount), withdrawal.dollars

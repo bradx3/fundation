@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  should_belong_to :family
-  should_validate_presence_of :family
-  should_have_many :funds
-  should_have_many :deposit_templates
+  should belong_to :family
+  should validate_presence_of :family
+  should have_many :funds
+  should have_many :deposit_templates
 end

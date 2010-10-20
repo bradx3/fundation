@@ -1,7 +1,7 @@
 #block.block
   %h2 Reset Password
   .content
-    - form_tag(password_resets_path, :class => "form") do
+    = form_tag(password_resets_path, :class => "form") do
       - if flash[:notice].present?
         .flash
           .message.error

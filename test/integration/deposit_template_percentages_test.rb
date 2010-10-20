@@ -31,7 +31,7 @@ class DepositTemplatePercentagesTest < ActionController::IntegrationTest
 
     should "be able to create deposit templates" do
       visit deposit_templates_path
-      click_link "create new deposit template"
+      click_link "Create New Deposit Template"
 
       fill_in "Name", :with => "new name"
       fill_in @acc1.name, :with => "50"
@@ -39,7 +39,7 @@ class DepositTemplatePercentagesTest < ActionController::IntegrationTest
 
       click_button "Create"
 
-      @deposit_template = assigns["deposit_template"]
+      @deposit_template = DepositTemplate.last
       @deposit_template.reload
 
       assert_equal "new name", @deposit_template.name

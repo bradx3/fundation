@@ -1,7 +1,7 @@
 #block-signup.block
   %h2 Sign up
   .content
-    - form_for(@user, :url => { :action => "create" } , :html => { :class => "form login" }) do |f|
+    = form_for(@user, :url => { :action => "create" } , :html => { :class => "form login" }) do |f|
       = f.error_messages
 
       .group

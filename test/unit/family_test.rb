@@ -1,9 +1,9 @@
 require 'test_helper'
 
 class FamilyTest < ActiveSupport::TestCase
-  should_have_many :users
-  should_have_many :funds, :through => :users
-  should_have_many :deposit_templates, :through => :users
+  should have_many :users
+  should have_many :funds
+  should have_many :deposit_templates
 
   context "a normal family" do
     setup do

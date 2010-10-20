@@ -15,10 +15,10 @@ class WithdrawalsTest < ActionController::IntegrationTest
       visit new_withdrawal_path
       fill_in @fund1.name, :with => 25
       fill_in @fund2.name, :with => 33
-      click_button "create"
+      click_button "Create"
 
       assert_equal count + 1, Withdrawal.count
-      w = assigns(:withdrawal)
+      w = Withdrawal.last
       assert_equal -58, w.dollars
       assert_equal UserSession.find.user, w.user
     end
@@ -28,7 +28,7 @@ class WithdrawalsTest < ActionController::IntegrationTest
       count = Withdrawal.count
 
       visit withdrawal_path(w)
-      click_link "Delete this withdrawal"
+      click_link "Delete This Withdrawal"
 
       assert_equal count - 1, Withdrawal.count
     end

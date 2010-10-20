@@ -1,7 +1,7 @@
 #block-login.block
   %h2 Login
   .content.login
-    - form_for(@user_session, :url => user_session_path, :html => { :class => "form login" }) do |f|
+    = form_for(@user_session, :url => user_session_path, :html => { :class => "form login" }) do |f|
       - unless @user_session.errors.empty?
         .flash
           .message.error

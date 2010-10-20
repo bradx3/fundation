@@ -10,9 +10,9 @@ class FundsTest < ActionController::IntegrationTest
       count = Fund.count
       visit funds_path
 
-      click_link "create new fund"
-      fill_in "name", :with => "a new fund"
-      click_button "create"
+      click_link "Create New Fund"
+      fill_in "Name", :with => "a new fund"
+      click_button "Create"
 
       assert_equal count + 1, Fund.count
     end
@@ -22,12 +22,12 @@ class FundsTest < ActionController::IntegrationTest
       visit funds_path
 
       click_link fund.name
-      click_link "edit"
+      click_link "Edit"
 
-      fill_in "name", :with => "an edited fund"
-      check "default synchronize fund"
+      fill_in "Name", :with => "an edited fund"
+      check "Default synchronize fund"
 
-      click_button "update"
+      click_button "Update"
 
       fund.reload
       assert_equal "an edited fund", fund.name

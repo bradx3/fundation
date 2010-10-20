@@ -40,7 +40,7 @@ class DepositTemplate < ActiveRecord::Base
   def percentages_add_up
     allocated = allocated_percentage
     if allocated > 0 and allocated != 100.0
-      errors.add_to_base("All money must be allocated in a deposit template")
+      errors.add(:base, "All money must be allocated in a deposit template")
     end
   end
 

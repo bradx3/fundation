@@ -13,7 +13,7 @@ class NotificationsTest < ActionMailer::TestCase
     @expected.from = creator.email
     @expected.to = user.email
 
-    created = Notifications.create_user_created(user, creator)
+    created = Notifications.user_created(user, creator)
     assert_equal @expected.subject, created.subject
     assert_equal @expected.from, created.from
     assert_equal @expected.to, created.to

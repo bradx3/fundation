@@ -1,7 +1,7 @@
 #block.block
   %h2 Reset Password
   .content
-    - form_for(@user, :url => password_resets_path, :method => :put, :html => { :class => "form" }) do |f|
+    = form_for(@user, :url => password_resets_path, :method => :put, :html => { :class => "form" }) do |f|
       = hidden_field_tag(:id, params[:id])
 
       = f.error_messages

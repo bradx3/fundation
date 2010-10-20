@@ -1,6 +1,6 @@
-- deposit_template_sidebar 
+= deposit_template_sidebar 
 
-- form_for(@deposit, :html => { :id => "deposit", :class => "form" }) do |f|
+= form_for(@deposit, :html => { :id => "deposit", :class => "form" }) do |f|
   = f.error_messages
 
   .group
@@ -23,7 +23,7 @@
       = select_tag :deposit_template, deposit_template_options, :id => "deposit_template"
 
   .deposit_funds
-    - f.fields_for(:fund_transactions) do |fields|
+    = f.fields_for(:fund_transactions) do |fields|
       .columns.fund
         - da = fields.object
         = fields.hidden_field :fund_id, :value => da.fund_id, :id => "fund_#{ da.fund_id }"

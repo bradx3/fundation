@@ -1,7 +1,7 @@
 %h2.title Withdraw money
 
 .inner
-  - form_for(@deposit, :url => { :action => "create_withdrawal" }, :html => { :class => "form" }) do |f|
+  = form_for(@deposit, :url => { :action => "create_withdrawal" }, :html => { :class => "form" }) do |f|
     = f.error_messages
 
     .deposit_funds

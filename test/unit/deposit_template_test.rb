@@ -1,9 +1,9 @@
 require 'test_helper'
 
 class DepositTemplateTest < ActiveSupport::TestCase
-  should_validate_presence_of :name
-  should_have_many :deposit_template_fund_percentages, :dependent => :destroy
-  should_belong_to :user
+  should validate_presence_of :name
+  should have_many :deposit_template_fund_percentages
+  should belong_to :user
 
   context "an existing deposit type" do
     setup do 
@@ -15,7 +15,7 @@ class DepositTemplateTest < ActiveSupport::TestCase
       new = Factory.build(:deposit_template, :user => existing.user, 
                           :name => existing.name)
       new.valid?
-      assert new.errors.on(:name)
+      assert new.errors[:name].any?
     end
   end
 

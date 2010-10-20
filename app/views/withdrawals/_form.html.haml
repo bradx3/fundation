@@ -1,4 +1,4 @@
-- form_for(@withdrawal, :html => { :class => "form" }) do |f|
+= form_for(@withdrawal, :html => { :class => "form" }) do |f|
   = f.error_messages
 
   .group
@@ -8,7 +8,7 @@
   .group
     %hr/
 
-  - f.fields_for(:fund_transactions) do |fields|
+  = f.fields_for(:fund_transactions) do |fields|
     .fund
       - da = fields.object
       = fields.hidden_field :fund_id, :value => da.fund_id, :id => "fund_#{ da.fund_id }"

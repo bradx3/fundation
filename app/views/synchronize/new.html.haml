@@ -6,7 +6,7 @@
     = $SITE_NAME
     balance with your savings account.
 
-  - form_tag({ :action => "start" }, :class => "form") do
+  = form_tag({ :action => "start" }, :class => "form") do
     .group
       = label_tag :budgeto_balance, "#{ $SITE_NAME } balance", :class => "label"
       = "#{ currency(current_user.family.total_balance) }"

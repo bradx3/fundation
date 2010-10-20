@@ -1,0 +1,269 @@
+# Logfile created on Thu Oct 21 17:44:40 +1100 2010 by logger.rb
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person1"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /deposits/new with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: POST /deposits with {"commit"=>"Create", "utf8"=>"✓", "deposit"=>{"dollars"=>"4321.0", "description"=>"a test deposit", "fund_transactions_attributes"=>{"0"=>{"dollars"=>"2851.86", "percentage"=>"0.0", "fund_id"=>"1"}, "1"=>{"dollars"=>"1469.14", "percentage"=>"0.0", "fund_id"=>"2"}}}} and HTTP headers {"HTTP_REFERER"=>"/deposits/new"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person2"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /deposits/1 with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /transactions/1 with {} and HTTP headers {"HTTP_REFERER"=>"/deposits/1"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person5"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /deposit_templates with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /deposit_templates/new with {} and HTTP headers {"HTTP_REFERER"=>"/deposit_templates"}
+REQUESTING PAGE: POST /deposit_templates with {"commit"=>"Create", "utf8"=>"✓", "deposit_template"=>{"name"=>"new name", "default"=>"0", "deposit_template_fund_percentages_attributes"=>{"0"=>{"percentage"=>"50", "fund_id"=>"1"}, "1"=>{"percentage"=>"50", "fund_id"=>"2"}}}} and HTTP headers {"HTTP_REFERER"=>"/deposit_templates/new"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person6"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /deposit_templates with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /deposit_templates/1 with {} and HTTP headers {"HTTP_REFERER"=>"/deposit_templates"}
+REQUESTING PAGE: GET /deposit_templates/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/deposit_templates/1"}
+REQUESTING PAGE: POST /deposit_templates/1 with {"commit"=>"Update", "_method"=>"put", "utf8"=>"✓", "deposit_template"=>{"name"=>"new name", "default"=>"0", "deposit_template_fund_percentages_attributes"=>{"0"=>{"percentage"=>"75", "fund_id"=>"2"}, "1"=>{"percentage"=>"25", "fund_id"=>"1"}}}} and HTTP headers {"HTTP_REFERER"=>"/deposit_templates/1/edit"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: GET /password_resets/new with {} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: POST /password_resets with {"commit"=>"Reset Password", "utf8"=>"✓", "login"=>"person7"} and HTTP headers {"HTTP_REFERER"=>"/password_resets/new"}
+REQUESTING PAGE: GET /password_resets/edit?id=TZl6HLtkLjUExwJKUGgN with {} and HTTP headers {"HTTP_REFERER"=>"/password_resets"}
+REQUESTING PAGE: POST /password_resets with {"commit"=>"Update my password and log me in", "_method"=>"put", "utf8"=>"✓", "id"=>"TZl6HLtkLjUExwJKUGgN", "user"=>{"password_confirmation"=>"new password", "password"=>"new password"}} and HTTP headers {"HTTP_REFERER"=>"/password_resets/edit?id=TZl6HLtkLjUExwJKUGgN"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person8"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /funds with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /funds/new with {} and HTTP headers {"HTTP_REFERER"=>"/funds"}
+REQUESTING PAGE: POST /funds with {"commit"=>"Create", "utf8"=>"✓", "fund"=>{"name"=>"a new fund", "dollars"=>"0.0", "default_synchronize_fund"=>"0"}} and HTTP headers {"HTTP_REFERER"=>"/funds/new"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person9"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /funds with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /funds/1 with {} and HTTP headers {"HTTP_REFERER"=>"/funds"}
+REQUESTING PAGE: GET /funds/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/funds/1"}
+REQUESTING PAGE: POST /funds/1 with {"commit"=>"Update", "_method"=>"put", "utf8"=>"✓", "fund"=>{"name"=>"an edited fund", "dollars"=>"419.53", "default_synchronize_fund"=>"1"}} and HTTP headers {"HTTP_REFERER"=>"/funds/1/edit"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET /registration with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: POST /registration/create with {"commit"=>"Sign Up", "utf8"=>"✓", "user"=>{"password_confirmation"=>"password", "password"=>"password", "login"=>"test_login", "email"=>"atest@email.com"}} and HTTP headers {"HTTP_REFERER"=>"/registration"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person10"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person11"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person12"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET / with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /synchronize/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: POST /synchronize/start with {"commit"=>"Synchronize", "actual_balance"=>"970.0", "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/synchronize/new"}
+REQUESTING PAGE: POST /synchronize with {"commit"=>"Create", "withdrawal"=>{"dollars"=>"-10.0", "description"=>"Synchronize", "fund_transactions_attributes"=>{"0"=>{"dollars"=>"10.0", "percentage"=>"", "fund_id"=>"1"}, "1"=>{"dollars"=>"0.0", "percentage"=>"", "fund_id"=>"2"}}}, "utf8"=>"✓", "type"=>"Withdrawal"} and HTTP headers {"HTTP_REFERER"=>"/synchronize/start"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person13"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET / with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /synchronize/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: POST /synchronize/start with {"commit"=>"Synchronize", "actual_balance"=>"337.15", "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/synchronize/new"}
+REQUESTING PAGE: POST /synchronize with {"commit"=>"Create", "utf8"=>"✓", "type"=>"Deposit", "deposit"=>{"dollars"=>"15.0", "description"=>"Synchronize", "fund_transactions_attributes"=>{"0"=>{"dollars"=>"15.0", "percentage"=>"", "fund_id"=>"1"}, "1"=>{"dollars"=>"0.0", "percentage"=>"", "fund_id"=>"2"}}}} and HTTP headers {"HTTP_REFERER"=>"/synchronize/start"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person14"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET / with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /transfers/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: POST /transfers with {"commit"=>"Transfer", "from"=>"1", "amount"=>"33.98", "utf8"=>"✓", "to"=>"2"} and HTTP headers {"HTTP_REFERER"=>"/transfers/new"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person15"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /users with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+REQUESTING PAGE: POST /users with {"commit"=>"Create", "utf8"=>"✓", "user"=>{"email"=>"newuser@email.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+REQUESTING PAGE: GET /users/confirm?token=4kUMs0GKY0ayLbZYneZ2 with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+REQUESTING PAGE: POST /users/confirm_password with {"commit"=>"Confirm", "_method"=>"put", "utf8"=>"✓", "user"=>{"password_confirmation"=>"my new password", "time_zone"=>"Perth", "password"=>"my new password", "login"=>"my new login", "email"=>"newuser@email.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/confirm?token=4kUMs0GKY0ayLbZYneZ2"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person16"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET / with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /users/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: POST /users/1 with {"commit"=>"Update", "_method"=>"put", "utf8"=>"✓", "user"=>{"password_confirmation"=>"", "time_zone"=>"Perth", "password"=>"", "login"=>"a new login", "email"=>"new_email@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/1/edit"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person17"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET / with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /users/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: POST /users/1 with {"commit"=>"Update", "_method"=>"put", "utf8"=>"✓", "user"=>{"password_confirmation"=>"a new password", "time_zone"=>"Perth", "password"=>"a new password", "login"=>"person17", "email"=>"email_17@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/1/edit"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person18"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /withdrawals/new with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: POST /withdrawals with {"commit"=>"Create", "withdrawal"=>{"description"=>"", "fund_transactions_attributes"=>{"0"=>{"dollars"=>"25", "fund_id"=>"1"}, "1"=>{"dollars"=>"33", "fund_id"=>"2"}}}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/withdrawals/new"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person19"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /withdrawals/1 with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /transactions/1 with {} and HTTP headers {"HTTP_REFERER"=>"/withdrawals/1"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person1"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /deposits/new with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: POST /deposits with {"commit"=>"Create", "utf8"=>"✓", "deposit"=>{"dollars"=>"4321.0", "description"=>"a test deposit", "fund_transactions_attributes"=>{"0"=>{"dollars"=>"2851.86", "percentage"=>"0.0", "fund_id"=>"1"}, "1"=>{"dollars"=>"1469.14", "percentage"=>"0.0", "fund_id"=>"2"}}}} and HTTP headers {"HTTP_REFERER"=>"/deposits/new"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person2"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /deposits/1 with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /transactions/1 with {} and HTTP headers {"HTTP_REFERER"=>"/deposits/1"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person5"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /deposit_templates with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /deposit_templates/new with {} and HTTP headers {"HTTP_REFERER"=>"/deposit_templates"}
+REQUESTING PAGE: POST /deposit_templates with {"commit"=>"Create", "utf8"=>"✓", "deposit_template"=>{"name"=>"new name", "default"=>"0", "deposit_template_fund_percentages_attributes"=>{"0"=>{"percentage"=>"50", "fund_id"=>"1"}, "1"=>{"percentage"=>"50", "fund_id"=>"2"}}}} and HTTP headers {"HTTP_REFERER"=>"/deposit_templates/new"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person6"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /deposit_templates with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /deposit_templates/1 with {} and HTTP headers {"HTTP_REFERER"=>"/deposit_templates"}
+REQUESTING PAGE: GET /deposit_templates/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/deposit_templates/1"}
+REQUESTING PAGE: POST /deposit_templates/1 with {"commit"=>"Update", "_method"=>"put", "utf8"=>"✓", "deposit_template"=>{"name"=>"new name", "default"=>"0", "deposit_template_fund_percentages_attributes"=>{"0"=>{"percentage"=>"75", "fund_id"=>"2"}, "1"=>{"percentage"=>"25", "fund_id"=>"1"}}}} and HTTP headers {"HTTP_REFERER"=>"/deposit_templates/1/edit"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: GET /password_resets/new with {} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: POST /password_resets with {"commit"=>"Reset Password", "utf8"=>"✓", "login"=>"person7"} and HTTP headers {"HTTP_REFERER"=>"/password_resets/new"}
+REQUESTING PAGE: GET /password_resets/edit?id=kNXbLXYTHLt2SlMCswjr with {} and HTTP headers {"HTTP_REFERER"=>"/password_resets"}
+REQUESTING PAGE: POST /password_resets with {"commit"=>"Update my password and log me in", "_method"=>"put", "utf8"=>"✓", "id"=>"kNXbLXYTHLt2SlMCswjr", "user"=>{"password_confirmation"=>"new password", "password"=>"new password"}} and HTTP headers {"HTTP_REFERER"=>"/password_resets/edit?id=kNXbLXYTHLt2SlMCswjr"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person8"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /funds with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /funds/new with {} and HTTP headers {"HTTP_REFERER"=>"/funds"}
+REQUESTING PAGE: POST /funds with {"commit"=>"Create", "utf8"=>"✓", "fund"=>{"name"=>"a new fund", "dollars"=>"0.0", "default_synchronize_fund"=>"0"}} and HTTP headers {"HTTP_REFERER"=>"/funds/new"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person9"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /funds with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /funds/1 with {} and HTTP headers {"HTTP_REFERER"=>"/funds"}
+REQUESTING PAGE: GET /funds/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/funds/1"}
+REQUESTING PAGE: POST /funds/1 with {"commit"=>"Update", "_method"=>"put", "utf8"=>"✓", "fund"=>{"name"=>"an edited fund", "dollars"=>"761.72", "default_synchronize_fund"=>"1"}} and HTTP headers {"HTTP_REFERER"=>"/funds/1/edit"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET /registration with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: POST /registration/create with {"commit"=>"Sign Up", "utf8"=>"✓", "user"=>{"password_confirmation"=>"password", "password"=>"password", "login"=>"test_login", "email"=>"atest@email.com"}} and HTTP headers {"HTTP_REFERER"=>"/registration"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person10"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person11"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person12"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET / with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /synchronize/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: POST /synchronize/start with {"commit"=>"Synchronize", "actual_balance"=>"938.1", "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/synchronize/new"}
+REQUESTING PAGE: POST /synchronize with {"commit"=>"Create", "withdrawal"=>{"dollars"=>"-10.0", "description"=>"Synchronize", "fund_transactions_attributes"=>{"0"=>{"dollars"=>"10.0", "percentage"=>"", "fund_id"=>"1"}, "1"=>{"dollars"=>"0.0", "percentage"=>"", "fund_id"=>"2"}}}, "utf8"=>"✓", "type"=>"Withdrawal"} and HTTP headers {"HTTP_REFERER"=>"/synchronize/start"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person13"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET / with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /synchronize/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: POST /synchronize/start with {"commit"=>"Synchronize", "actual_balance"=>"1394.59", "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/synchronize/new"}
+REQUESTING PAGE: POST /synchronize with {"commit"=>"Create", "utf8"=>"✓", "type"=>"Deposit", "deposit"=>{"dollars"=>"15.0", "description"=>"Synchronize", "fund_transactions_attributes"=>{"0"=>{"dollars"=>"15.0", "percentage"=>"", "fund_id"=>"1"}, "1"=>{"dollars"=>"0.0", "percentage"=>"", "fund_id"=>"2"}}}} and HTTP headers {"HTTP_REFERER"=>"/synchronize/start"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person14"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET / with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /transfers/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: POST /transfers with {"commit"=>"Transfer", "from"=>"1", "amount"=>"462.68", "utf8"=>"✓", "to"=>"2"} and HTTP headers {"HTTP_REFERER"=>"/transfers/new"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person15"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /users with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+REQUESTING PAGE: POST /users with {"commit"=>"Create", "utf8"=>"✓", "user"=>{"email"=>"newuser@email.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+REQUESTING PAGE: GET /users/confirm?token=bdA5VG1X351cj0ex_xrm with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+REQUESTING PAGE: POST /users/confirm_password with {"commit"=>"Confirm", "_method"=>"put", "utf8"=>"✓", "user"=>{"password_confirmation"=>"my new password", "time_zone"=>"Perth", "password"=>"my new password", "login"=>"my new login", "email"=>"newuser@email.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/confirm?token=bdA5VG1X351cj0ex_xrm"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person16"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET / with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /users/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: POST /users/1 with {"commit"=>"Update", "_method"=>"put", "utf8"=>"✓", "user"=>{"password_confirmation"=>"", "time_zone"=>"Perth", "password"=>"", "login"=>"a new login", "email"=>"new_email@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/1/edit"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person17"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET / with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /users/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: POST /users/1 with {"commit"=>"Update", "_method"=>"put", "utf8"=>"✓", "user"=>{"password_confirmation"=>"a new password", "time_zone"=>"Perth", "password"=>"a new password", "login"=>"person17", "email"=>"email_17@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/1/edit"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person18"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /withdrawals/new with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: POST /withdrawals with {"commit"=>"Create", "withdrawal"=>{"description"=>"", "fund_transactions_attributes"=>{"0"=>{"dollars"=>"25", "fund_id"=>"1"}, "1"=>{"dollars"=>"33", "fund_id"=>"2"}}}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/withdrawals/new"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person19"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /withdrawals/1 with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /transactions/1 with {} and HTTP headers {"HTTP_REFERER"=>"/withdrawals/1"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person1"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /deposits/new with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: POST /deposits with {"commit"=>"Create", "utf8"=>"✓", "deposit"=>{"dollars"=>"4321.0", "description"=>"a test deposit", "fund_transactions_attributes"=>{"0"=>{"dollars"=>"2851.86", "percentage"=>"0.0", "fund_id"=>"1"}, "1"=>{"dollars"=>"1469.14", "percentage"=>"0.0", "fund_id"=>"2"}}}} and HTTP headers {"HTTP_REFERER"=>"/deposits/new"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person2"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /deposits/1 with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /transactions/1 with {} and HTTP headers {"HTTP_REFERER"=>"/deposits/1"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person5"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /deposit_templates with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /deposit_templates/new with {} and HTTP headers {"HTTP_REFERER"=>"/deposit_templates"}
+REQUESTING PAGE: POST /deposit_templates with {"commit"=>"Create", "utf8"=>"✓", "deposit_template"=>{"name"=>"new name", "default"=>"0", "deposit_template_fund_percentages_attributes"=>{"0"=>{"percentage"=>"50", "fund_id"=>"1"}, "1"=>{"percentage"=>"50", "fund_id"=>"2"}}}} and HTTP headers {"HTTP_REFERER"=>"/deposit_templates/new"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person6"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /deposit_templates with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /deposit_templates/1 with {} and HTTP headers {"HTTP_REFERER"=>"/deposit_templates"}
+REQUESTING PAGE: GET /deposit_templates/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/deposit_templates/1"}
+REQUESTING PAGE: POST /deposit_templates/1 with {"commit"=>"Update", "_method"=>"put", "utf8"=>"✓", "deposit_template"=>{"name"=>"new name", "default"=>"0", "deposit_template_fund_percentages_attributes"=>{"0"=>{"percentage"=>"75", "fund_id"=>"2"}, "1"=>{"percentage"=>"25", "fund_id"=>"1"}}}} and HTTP headers {"HTTP_REFERER"=>"/deposit_templates/1/edit"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: GET /password_resets/new with {} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: POST /password_resets with {"commit"=>"Reset Password", "utf8"=>"✓", "login"=>"person7"} and HTTP headers {"HTTP_REFERER"=>"/password_resets/new"}
+REQUESTING PAGE: GET /password_resets/edit?id=k6KaMVS2qtxADuaLKusk with {} and HTTP headers {"HTTP_REFERER"=>"/password_resets"}
+REQUESTING PAGE: POST /password_resets with {"commit"=>"Update my password and log me in", "_method"=>"put", "utf8"=>"✓", "id"=>"k6KaMVS2qtxADuaLKusk", "user"=>{"password_confirmation"=>"new password", "password"=>"new password"}} and HTTP headers {"HTTP_REFERER"=>"/password_resets/edit?id=k6KaMVS2qtxADuaLKusk"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person8"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /funds with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /funds/new with {} and HTTP headers {"HTTP_REFERER"=>"/funds"}
+REQUESTING PAGE: POST /funds with {"commit"=>"Create", "utf8"=>"✓", "fund"=>{"name"=>"a new fund", "dollars"=>"0.0", "default_synchronize_fund"=>"0"}} and HTTP headers {"HTTP_REFERER"=>"/funds/new"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person9"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /funds with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /funds/1 with {} and HTTP headers {"HTTP_REFERER"=>"/funds"}
+REQUESTING PAGE: GET /funds/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/funds/1"}
+REQUESTING PAGE: POST /funds/1 with {"commit"=>"Update", "_method"=>"put", "utf8"=>"✓", "fund"=>{"name"=>"an edited fund", "dollars"=>"561.38", "default_synchronize_fund"=>"1"}} and HTTP headers {"HTTP_REFERER"=>"/funds/1/edit"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET /registration with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: POST /registration/create with {"commit"=>"Sign Up", "utf8"=>"✓", "user"=>{"password_confirmation"=>"password", "password"=>"password", "login"=>"test_login", "email"=>"atest@email.com"}} and HTTP headers {"HTTP_REFERER"=>"/registration"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person10"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person11"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person12"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET / with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /synchronize/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: POST /synchronize/start with {"commit"=>"Synchronize", "actual_balance"=>"1597.71", "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/synchronize/new"}
+REQUESTING PAGE: POST /synchronize with {"commit"=>"Create", "withdrawal"=>{"dollars"=>"-10.0", "description"=>"Synchronize", "fund_transactions_attributes"=>{"0"=>{"dollars"=>"10.0", "percentage"=>"", "fund_id"=>"1"}, "1"=>{"dollars"=>"0.0", "percentage"=>"", "fund_id"=>"2"}}}, "utf8"=>"✓", "type"=>"Withdrawal"} and HTTP headers {"HTTP_REFERER"=>"/synchronize/start"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person13"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET / with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /synchronize/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: POST /synchronize/start with {"commit"=>"Synchronize", "actual_balance"=>"1379.83", "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/synchronize/new"}
+REQUESTING PAGE: POST /synchronize with {"commit"=>"Create", "utf8"=>"✓", "type"=>"Deposit", "deposit"=>{"dollars"=>"15.0", "description"=>"Synchronize", "fund_transactions_attributes"=>{"0"=>{"dollars"=>"15.0", "percentage"=>"", "fund_id"=>"1"}, "1"=>{"dollars"=>"0.0", "percentage"=>"", "fund_id"=>"2"}}}} and HTTP headers {"HTTP_REFERER"=>"/synchronize/start"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person14"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET / with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /transfers/new with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: POST /transfers with {"commit"=>"Transfer", "from"=>"1", "amount"=>"198.59", "utf8"=>"✓", "to"=>"2"} and HTTP headers {"HTTP_REFERER"=>"/transfers/new"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person15"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /users with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+REQUESTING PAGE: POST /users with {"commit"=>"Create", "utf8"=>"✓", "user"=>{"email"=>"newuser@email.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+REQUESTING PAGE: GET /users/confirm?token=pXU0wNJBuKdNHB0APb-D with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+REQUESTING PAGE: POST /users/confirm_password with {"commit"=>"Confirm", "_method"=>"put", "utf8"=>"✓", "user"=>{"password_confirmation"=>"my new password", "time_zone"=>"Perth", "password"=>"my new password", "login"=>"my new login", "email"=>"newuser@email.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/confirm?token=pXU0wNJBuKdNHB0APb-D"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person16"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET / with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /users/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: POST /users/1 with {"commit"=>"Update", "_method"=>"put", "utf8"=>"✓", "user"=>{"password_confirmation"=>"", "time_zone"=>"Perth", "password"=>"", "login"=>"a new login", "email"=>"new_email@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/1/edit"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person17"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET / with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /users/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: POST /users/1 with {"commit"=>"Update", "_method"=>"put", "utf8"=>"✓", "user"=>{"password_confirmation"=>"a new password", "time_zone"=>"Perth", "password"=>"a new password", "login"=>"person17", "email"=>"email_17@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/1/edit"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person18"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /withdrawals/new with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: POST /withdrawals with {"commit"=>"Create", "withdrawal"=>{"description"=>"", "fund_transactions_attributes"=>{"0"=>{"dollars"=>"25", "fund_id"=>"1"}, "1"=>{"dollars"=>"33", "fund_id"=>"2"}}}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/withdrawals/new"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person19"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /withdrawals/1 with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /transactions/1 with {} and HTTP headers {"HTTP_REFERER"=>"/withdrawals/1"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person1"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /withdrawals/new with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: POST /withdrawals with {"commit"=>"Create", "withdrawal"=>{"description"=>"", "fund_transactions_attributes"=>{"0"=>{"dollars"=>"25", "fund_id"=>"1"}, "1"=>{"dollars"=>"33", "fund_id"=>"2"}}}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/withdrawals/new"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person2"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /withdrawals/1 with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /withdrawals/1 with {} and HTTP headers {"HTTP_REFERER"=>"/withdrawals/1"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person1"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /withdrawals/new with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: POST /withdrawals with {"commit"=>"Create", "withdrawal"=>{"description"=>"", "fund_transactions_attributes"=>{"0"=>{"dollars"=>"25", "fund_id"=>"1"}, "1"=>{"dollars"=>"33", "fund_id"=>"2"}}}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/withdrawals/new"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /user_session with {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"password", "login"=>"person2"}, "utf8"=>"✓"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /withdrawals/1 with {} and HTTP headers {"HTTP_REFERER"=>"/user_session"}
+REQUESTING PAGE: GET /withdrawals/1 with {} and HTTP headers {"HTTP_REFERER"=>"/withdrawals/1"}

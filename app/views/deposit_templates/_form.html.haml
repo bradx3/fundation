@@ -1,4 +1,4 @@
-- form_for(@deposit_template, :html => { :id => "deposit_template", :class => "form" }) do |f|
+= form_for(@deposit_template, :html => { :id => "deposit_template", :class => "form" }) do |f|
   .group
     = f.label :name, nil, :class => "label"
     = f.text_field :name, :class => "text_field"
@@ -9,7 +9,7 @@
     .description
       If checked, deposits will use this deposit template by default.
 
-  - f.fields_for(:deposit_template_fund_percentages) do |percentage_fields|
+  = f.fields_for(:deposit_template_fund_percentages) do |percentage_fields|
     .group
       - dtap = percentage_fields.object
       = percentage_fields.hidden_field :fund_id, :value => dtap.fund.id

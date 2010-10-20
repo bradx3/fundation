@@ -1,11 +1,6 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
 class ApplicationController < ActionController::Base
-  helper :all # include all helpers, all the time
-  protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  protect_from_forgery
 
-  filter_parameter_logging :password, :password_confirmation
   helper_method :current_user_session, :current_user
 
   before_filter :require_user
@@ -56,7 +51,7 @@ class ApplicationController < ActionController::Base
   end
   
   def store_location
-    session[:return_to] = request.request_uri
+    session[:return_to] = request.fullpath
   end
   
   def redirect_back_or_default(default)

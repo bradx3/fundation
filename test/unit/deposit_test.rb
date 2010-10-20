@@ -16,7 +16,7 @@ class DepositTest < ActiveSupport::TestCase
       d.fund_transactions.build(:fund => @funds[0], :dollars => 5)
       d.fund_transactions.build(:fund => @funds[1], :dollars => 10)
       assert !d.valid?
-      assert d.errors.on_base
+      assert d.errors[:base].any?
 
       d.fund_transactions.first.dollars = 90
       assert d.valid?
@@ -26,7 +26,7 @@ class DepositTest < ActiveSupport::TestCase
       d = Factory.build(:deposit)
       d.dollars = 0
       assert !d.valid?
-      assert d.errors.on_base
+      assert d.errors[:base].any?
     end
 
     should "handle allocations with fractions of cents" do

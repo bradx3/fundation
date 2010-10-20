@@ -1,5 +1,5 @@
 %h2.title Edit deposit
 
 .inner
-  - form_for(@deposit, :html => { :class => "form" }) do |f|
+  = form_for(@deposit, :html => { :class => "form" }) do |f|
     = render :partial => "form", :locals => { :f => f }

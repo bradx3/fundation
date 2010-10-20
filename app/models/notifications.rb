@@ -1,5 +1,5 @@
 class Notifications < ActionMailer::Base
-  if RAILS_ENV == "dev"
+  if Rails.env.development?
     default_url_options[:host] = "fundation.lucky-dip.net"
   else
     default_url_options[:host] = "localhost:3000"
@@ -19,7 +19,7 @@ class Notifications < ActionMailer::Base
     from "Fundation <noreply@lucky-dip.net>"
     recipients user.email
     sent_on Time.now
-    body :edit_password_reset_url => edit_password_resets_url(:id => user.perishable_token)
+    @edit_password_reset_url = edit_password_resets_url(:id => user.perishable_token)
   end
 
 end

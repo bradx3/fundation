@@ -59,7 +59,7 @@ class FundsController < ApplicationController
   # PUT /funds/1
   # PUT /funds/1.xml
   def update
-    @fund = current_user.family.funds.find(params[:id])
+    @fund = current_user.family.funds.find(params[:id], :readonly => false)
 
     respond_to do |format|
       if @fund.update_attributes(params[:fund])

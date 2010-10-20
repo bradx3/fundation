@@ -3,7 +3,7 @@
   = @user.login
   
 .inner
-  - form_for(@user, :html => { :class => "form" }) do |f|
+  = form_for(@user, :html => { :class => "form" }) do |f|
     = f.error_messages
 
     .group

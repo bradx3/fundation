@@ -1,6 +1,6 @@
 %h2.title Synchronize With Real Account
 
-- deposit_template_sidebar if depositing?
+= deposit_template_sidebar if depositing?
 
 .inner
   %p= sync_desc
@@ -16,7 +16,7 @@
       = "Choose the fund(s) to #{ sync_verb } money"
       = "#{ wd ? "from" : "into" } below."
 
-  - form_for(@transaction, :url => synchronize_index_path, :html => { :class => "form" }) do |f|
+  = form_for(@transaction, :url => synchronize_index_path, :html => { :class => "form" }) do |f|
     = f.error_messages
     = f.hidden_field :description
     = f.hidden_field :dollars
@@ -25,7 +25,7 @@
     .group
       %hr/
 
-    - f.fields_for(:fund_transactions) do |fields|
+    = f.fields_for(:fund_transactions) do |fields|
       .fund
         - da = fields.object
         = fields.hidden_field :fund_id, :value => da.fund_id, :id => "fund_#{ da.fund_id }"

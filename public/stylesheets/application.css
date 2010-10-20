@@ -20,7 +20,7 @@ h2.title span {
 
 .group .text_field.amount, .group .text_field.total {
   text-align: right;
-  width: 5.0em; }
+  width: 5em; }
 
 #main-navigation ul li.config {
   float: right;
@@ -57,7 +57,7 @@ h2.title span {
   font-size: 1.2em; }
 
 #unallocated.incorrect {
-  color: red  color: red; }
+  color: red; }
 
 table.table tr {
   cursor: pointer; }

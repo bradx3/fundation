@@ -1,4 +1,4 @@
-- simple_sidebar do
+= simple_sidebar do
   %li= link_to "Create New Fund", new_fund_path
 
 %h2.title
@@ -18,6 +18,6 @@
   %br/
   %p
     %h4 Recent Transactions
-    = render :partial => "/transactions/transaction_table", :object => @fund.recent_transactions
+    = render :partial => "/transactions/transaction_table", :locals => { :transactions => @fund.recent_transactions }
     = link_to "Show more transactions", transactions_path(:f => { "fund_id" => @fund.id })
 

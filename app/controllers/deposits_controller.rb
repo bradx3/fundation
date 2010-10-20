@@ -52,7 +52,7 @@ class DepositsController < ApplicationController
   # PUT /deposits/1
   # PUT /deposits/1.xml
   def update
-    @deposit = current_user.family.transactions.find(params[:id])
+    @deposit = current_user.family.transactions.find(params[:id], :readonly => false)
     @deposit.user = current_user
 
     respond_to do |format|

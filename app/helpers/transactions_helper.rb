@@ -7,7 +7,7 @@ module TransactionsHelper
       res += check_box_filter_for(column, o)
     end
     
-    return res
+    return res.html_safe
   end
   
   # Returns all the filter params for the current request
@@ -43,16 +43,18 @@ module TransactionsHelper
       name = "f[created_after]"
       id = "f_created_after"
       res = label_tag(id, "After", :class => "date")
-      res += calendar_date_select_tag(name, filter_params[:created_after], :id => id, :class => "text")
+      res += "TODO"
+#      res += calendar_date_select_tag(name, filter_params[:created_after], :id => id, :class => "text")
     end
     res += content_tag(:li) do
       name = "f[created_before]"
       id = "f_created_before"
       res = label_tag(id, "Before", :class => "date")
-      res += calendar_date_select_tag(name, filter_params[:created_before], :id => id, :class => "text")
+      res += "TODO"
+#      res += calendar_date_select_tag(name, filter_params[:created_before], :id => id, :class => "text")
     end
 
-    return res
+    return res.html_safe
   end
 
 end

@@ -7,5 +7,5 @@
   All Transactions
 
 .inner
-  = render :partial => "transaction_table", :object => @transactions
+  = render :partial => "transaction_table", :locals => { :transactions => @transactions }
 

@@ -1,24 +1,32 @@
-ActionController::Routing::Routes.draw do |map|
-  map.resources :transactions
-  map.resources :transfers
+Fundation::Application.routes.draw do
+  resources :transactions
+  resources :transfers
+  resources :users do
+    collection do
+      get :confirm
+      put :confirm_password
+    end
+  end
 
-  map.resources(:users, 
-                :collection => { :confirm => :get, :confirm_password => :put })
+  resources :withdrawals
 
-  map.resources :withdrawals
-  map.resources(:synchronize, 
-                :collection => { :start => :post })
-  map.resources(:deposits, 
-                :collection => { :funds => :any })
-  map.resources :deposit_templates
-  map.resources :funds
-  map.resource :user_session
-  map.resource :password_resets
+  resources :synchronize do
+    collection do
+      post :start
+    end
+  end
 
-  map.connect "login", :controller => "user_sessions", :action => "new"
+  resources :deposits do
+    collection do
+      get :funds
+    end
+  end
 
-  map.root :controller => "funds", :action => "index"
-
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  resources :deposit_templates
+  resources :funds
+  resource :user_session
+  resource :password_resets
+  match 'login' => 'user_sessions#new'
+  match '/' => 'funds#index'
+  match '/:controller(/:action(/:id))'
 end

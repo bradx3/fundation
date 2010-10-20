@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        Notifications.deliver_user_created(@user, current_user)
+        Notifications.user_created(@user, current_user).deliver
 
         flash[:notice] = "User was successfully created. They will receive an email with their user details"
         format.html { redirect_to(users_path) }

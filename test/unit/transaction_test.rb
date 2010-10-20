@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class TransactionTest < ActiveSupport::TestCase
-  should_have_many :fund_transactions, :dependent => :destroy
-  should_belong_to :user
+  should have_many :fund_transactions
+  should belong_to :user
 
   should "convert dollars to cents" do
     d = Transaction.new
@@ -29,7 +29,7 @@ class TransactionTest < ActiveSupport::TestCase
     t.fund_transactions.build
 
     assert t.fund_transactions.any?
-    t.save(false) # don't need validations here, just the callback
+    t.save(:validate => false) # don't need validations here, just the callback
     assert t.fund_transactions.empty?
   end
 end

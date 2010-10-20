@@ -3,7 +3,7 @@ module SidebarHelper
   # and any content from block as the links in a list
   def simple_sidebar(name = "Actions", list = nil, &block)
     list ||= capture_haml { block.call }
-    render(:partial => "/common/sidebar", :locals => { :name => name, :list => list })
+    render(:partial => "/common/sidebar", :locals => { :name => name, :list => list.html_safe })
   end
 
   def deposit_template_sidebar

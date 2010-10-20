@@ -1,7 +1,7 @@
 %h2.title Transfer Between Funds
 
 .inner
-  - form_tag({ :action => "create" }, :class => "form") do
+  = form_tag({ :action => "create" }, :class => "form") do
     .group
       = label_tag :amount, nil, :class => "label"
       $

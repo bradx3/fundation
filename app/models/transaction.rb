@@ -52,7 +52,7 @@ class Transaction < ActiveRecord::Base
 
     if diff != 0
       error = "#{ currency(diff.abs) } still has to be allocated."
-      self.errors.add_to_base(error)
+      self.errors.add(:base, error)
     end
   end
 

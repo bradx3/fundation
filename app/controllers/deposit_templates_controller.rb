@@ -60,7 +60,7 @@ class DepositTemplatesController < ApplicationController
   # PUT /deposit_templates/1
   # PUT /deposit_templates/1.xml
   def update
-    @deposit_template = current_user.family.deposit_templates.find(params[:id])
+    @deposit_template = current_user.family.deposit_templates.find(params[:id], :readonly => false)
     @deposit_template.user = current_user
 
     respond_to do |format|

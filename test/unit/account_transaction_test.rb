@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class FundTransactionTest < ActiveSupport::TestCase
-  should_belong_to :transaction
-  should_belong_to :fund
+  should belong_to :transaction
+  should belong_to :fund
 
   should "convert dollars to cents" do
     d = FundTransaction.new

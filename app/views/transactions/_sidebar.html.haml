@@ -1,5 +1,5 @@
 - content_for :sidebar do
-  - form_tag(transactions_path, :method => :get, :class => "form") do
+  = form_tag(transactions_path, :method => :get, :class => "form") do
     .block
       %h3 Funds
       %ul.filter
