@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
   # GET /transactions.xml
   def index
     @transactions = current_user.family.transactions.all(:conditions => search_conditions,
-                                                         :include => :fund_transactions,
+                                                         :include => [ :user, :fund_transactions ],
                                                          :order => "transactions.id desc")
     @transactions = Transaction.trim_filtered_funds(@transactions, filter_params["fund_transactions.fund_id"])
     @total = @transactions.inject(0) { |total, t| total += t.allocated_dollars }
@@ -38,11 +38,11 @@ class TransactionsController < ApplicationController
 
     if created_after = params.delete(:created_after)
       string << "transactions.created_at >= ?"
-      cond_params << Date.strptime(created_after, "%d/%m/%Y")
+      cond_params << Date.strptime(created_after, "%Y-%m-%d")
     end
     if created_before = params.delete(:created_before)
       string << "transactions.created_at <= ?"
-      cond_params << Date.strptime(created_before, "%d/%m/%Y")
+      cond_params << Date.strptime(created_before, "%Y-%m-%d")
     end
 
     if params[:user_id] and params[:user_id].any?

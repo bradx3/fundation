@@ -19,6 +19,9 @@ document.observe("dom:loaded", function() {
     addTableRowListeners();
     addSidebarCheckboxLiListeners();
     addSidebarCheckboxListeners();
+
+    Calendar.setup({ dateField : 'f_created_after' });
+    Calendar.setup({ dateField : 'f_created_before' });
 });
 
 function addDepositTemplateListener() {
