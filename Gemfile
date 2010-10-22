@@ -17,9 +17,6 @@ group :test do
   gem "factory_girl", "1.3.2"
   gem "factory_girl_rails"
   gem "shoulda", "2.11.3"
-#  gem "fastercsv", "1.5.3"
   gem "nokogiri", "1.4.3.1"
-#  gem "webrat", "0.7.2"
-#  gem "webrat", "0.7.2", :git => "http://github.com/bluetools/webrat.git"
   gem "capybara", "0.3.9"
 end

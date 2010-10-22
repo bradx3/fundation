@@ -6,3 +6,4 @@ db/*.sqlite3-journal
 doc/app/
 .#*
 .bundle
+webrat.log
