@@ -3,7 +3,7 @@
 %head
   %meta{:'http-equiv'=>"Content-Type", :content=>"text/html; charset=utf-8"}
   %title= $SITE_NAME
-  = stylesheet_link_tag 'web_app_theme', "theme", "application", "scaffold", "calendarview"
+  = stylesheet_link_tag '/assets/site.css'
   = csrf_meta_tag
 %body
   #container
@@ -51,5 +51,5 @@
 
       .clear
 
-  = javascript_include_tag :all, :cache => true
+  = javascript_include_tag "/assets/site.js"
   = render :partial => "/layouts/tracking"

@@ -28,5 +28,6 @@ Fundation::Application.routes.draw do
   resource :password_resets
   match 'login' => 'user_sessions#new'
   match '/' => 'funds#index'
+
   match '/:controller(/:action(/:id))'
 end

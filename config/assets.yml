@@ -1,0 +1,16 @@
+embed_assets: on
+gzip_assets: off
+
+javascripts:
+  site:
+    - public/javascripts/prototype.js
+    - public/javascripts/effects.js
+    - public/javascripts/dragdrop.js
+    - public/javascripts/controls.js
+    - public/javascripts/rails.js
+    - public/javascripts/application.js
+    - public/javascripts/calendarview.js
+
+stylesheets:
+  site:
+    - public/stylesheets/*.css
