@@ -20,4 +20,5 @@ group :test do
   gem "shoulda", "2.11.3"
   gem "nokogiri", "1.4.3.1"
   gem "capybara", "0.3.9"
+  gem "launchy", "0.3.7"
 end
