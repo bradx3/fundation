@@ -46,7 +46,7 @@ class DepositTemplatesController < ApplicationController
     @deposit_template.user = current_user
 
     respond_to do |format|
-      if @deposit_template.save
+      if @deposit_template.save!
         flash[:notice] = 'DepositTemplate was successfully created.'
         format.html { redirect_to(@deposit_template) }
         format.xml  { render :xml => @deposit_template, :status => :created, :location => @deposit_template }

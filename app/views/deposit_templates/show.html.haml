@@ -1,3 +1,6 @@
+= simple_sidebar do
+  %li= link_to "Delete This Template", deposit_template_path(@deposit_template), :method => :delete, :confirm => "Really delete this template?"
+
 %h2.title
   %span= link_to "Edit", edit_deposit_template_path(@deposit_template)
   Showing
