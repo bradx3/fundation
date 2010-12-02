@@ -6,6 +6,7 @@ gem "haml", "3.0.22"
 #gem "authlogic", "2.1.6"
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 #gem "jammit", "0.5.3", :git => 'http://github.com/documentcloud/jammit.git'
+gem "escape_utils", "0.1.9"
 
 group :development do
   gem "sqlite3-ruby", "1.2.5"
