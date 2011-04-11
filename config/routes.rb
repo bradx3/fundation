@@ -23,7 +23,11 @@ Fundation::Application.routes.draw do
   end
 
   resources :deposit_templates
-  resources :funds
+  resources :funds, :except => :destroy do
+    member do
+      post :archive
+    end
+  end
   resource :user_session
   resource :password_resets
   match 'login' => 'user_sessions#new'

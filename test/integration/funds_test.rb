@@ -34,5 +34,18 @@ class FundsTest < ActionController::IntegrationTest
       assert fund.default_synchronize_fund?
     end
 
+    should "be able to archive a fund" do
+      fund = Factory(:fund, :user => @user)
+      visit funds_path
+
+      click_link fund.name
+      click_link "Edit"
+
+      click_link "Delete This Fund"
+
+      fund.reload
+      assert fund.archived?
+    end
+
   end
 end

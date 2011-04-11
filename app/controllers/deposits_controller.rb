@@ -16,7 +16,7 @@ class DepositsController < ApplicationController
   def new
     @deposit = Deposit.new(:user => current_user)
     @deposit.init_all_deposit_funds
-    
+
     default = current_user.family.default_deposit_template
     default.apply(@deposit) if default
 

@@ -42,4 +42,29 @@ class FundTest < ActiveSupport::TestCase
     assert !f1.default_synchronize_fund?
     assert f2.default_synchronize_fund?
   end
+
+  should ".active should ignore archived funds by default" do
+    archived = Factory(:fund, :archived => true)
+    normal = Factory(:fund)
+
+    funds = Fund.active
+    assert_equal 1, funds.length
+    assert funds.include?(normal)
+    assert !funds.include?(archived)
+  end
+
+  should "include archived funds in with_archived scope" do
+    archived = Factory(:fund, :archived => true)
+    normal = Factory(:fund)
+
+    funds = Fund.archived
+    assert_equal 1, funds.length
+    assert !funds.include?(normal)
+    assert funds.include?(archived)
+  end
+
+  should "include archived funds when found by id" do
+    archived = Factory(:fund, :archived => true)
+    assert_not_nil Fund.find(archived.id)
+  end
 end

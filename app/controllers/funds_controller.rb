@@ -2,7 +2,7 @@ class FundsController < ApplicationController
   # GET /funds
   # GET /funds.xml
   def index
-    @funds = current_user.family.funds
+    @funds = current_user.family.funds.active
 
     respond_to do |format|
       format.html # index.html.erb
@@ -74,15 +74,13 @@ class FundsController < ApplicationController
     end
   end
 
-  # DELETE /funds/1
-  # DELETE /funds/1.xml
-  def destroy
-    @fund = current_user.family.funds.find(params[:id])
-    @fund.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(funds_url) }
-      format.xml  { head :ok }
+  def archive
+    @fund = current_user.family.funds.find(params[:id], :readonly => false)
+    if @fund.update_attributes(:archived => true)
+      flash[:notice] = 'Fund deleted.'
+      redirect_to "/"
+    else
+      render :action => "edit"
     end
   end
 end

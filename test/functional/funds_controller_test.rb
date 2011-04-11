@@ -53,14 +53,18 @@ class FundsControllerTest < ActionController::TestCase
       assert_redirected_to fund_path(assigns(:fund))
     end
 
-    should "destroy fund" do
-      fund = Factory.create(:fund, :user => @user)
-
-      assert_difference('Fund.count', -1) do
-        delete :destroy, :id => fund.to_param
+    context "and some funds" do
+      setup do
+        @active = Factory(:fund, :user => @user)
+        @archived = Factory(:fund, :archived => true, :user => @user)
       end
 
-      assert_redirected_to funds_path
+      should "only show active funds" do
+        get :index
+        assert_not_nil assigns(:funds)
+        assert_equal 1, assigns(:funds).length
+        assert_equal @active, assigns(:funds).first
+      end
     end
 
   end

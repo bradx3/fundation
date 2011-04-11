@@ -32,4 +32,14 @@ class TransactionTest < ActiveSupport::TestCase
     t.save(:validate => false) # don't need validations here, just the callback
     assert t.fund_transactions.empty?
   end
+
+  should "only use active funds when init_all_deposit_funds" do
+    user = Factory(:user)
+    archived = Factory(:fund, :archived => true, :user => user)
+    normal = Factory(:fund, :user => user)
+    t = Transaction.new(:user => user)
+    t.init_all_deposit_funds
+    assert_equal 1, t.fund_transactions.length
+    assert_equal normal, t.fund_transactions.first.fund
+  end
 end

@@ -7,11 +7,11 @@ class Transaction < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :user
   before_save :remove_unused_fund_transactions
-  
+
   include DollarMethods
 
   # Returns the given transactions with any fund_transactions not
-  # in fund_ids removed (but unsaved). 
+  # in fund_ids removed (but unsaved).
   def self.trim_filtered_funds(transactions, fund_ids)
     if fund_ids and fund_ids.any?
       # trim out filtered fund transactions
@@ -33,7 +33,7 @@ class Transaction < ActiveRecord::Base
   end
 
   def init_all_deposit_funds
-    funds = user.family.funds
+    funds = user.family.funds.active
     fts = self.fund_transactions
     set_funds = fts.map { |d| d.fund }
 
@@ -41,7 +41,7 @@ class Transaction < ActiveRecord::Base
       fts.build(:percentage => 0, :fund => f)
     end
   end
-  
+
   protected
 
   include ApplicationHelper

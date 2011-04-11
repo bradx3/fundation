@@ -59,7 +59,7 @@ class DepositsControllerTest < ActionController::TestCase
         @type.deposit_template_fund_percentages.build(:fund => @acc1, :percentage => 25).save!
         @type.deposit_template_fund_percentages.build(:fund => @acc2, :percentage => 75).save!
       end
-      
+
       should "return values with amount empty" do
         get :funds, :type_id => @type.id
         result = assigns["result"]
@@ -92,5 +92,5 @@ class DepositsControllerTest < ActionController::TestCase
         get :funds, :type_id => @other.id
       end
     end
-  end 
+  end
 end

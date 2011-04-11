@@ -10,7 +10,7 @@ class DepositTemplate < ActiveRecord::Base
   validate :percentages_add_up
 
   def init_all_fund_percentages
-    funds = user.family.funds
+    funds = user.family.funds.active
     percentages = self.deposit_template_fund_percentages
     set_funds = percentages.map { |d| d.fund }
 
@@ -20,7 +20,7 @@ class DepositTemplate < ActiveRecord::Base
   end
 
   def allocated_percentage
-    deposit_template_fund_percentages.inject(0) do |total, dtfp| 
+    deposit_template_fund_percentages.inject(0) do |total, dtfp|
       total += dtfp.percentage
     end
   end

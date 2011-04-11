@@ -1,4 +1,7 @@
-%h2.title 
+= simple_sidebar do
+  %li= link_to "Delete This Fund", archive_fund_path(@fund), :method => :post, :confirm => "Really delete this fund?"
+
+%h2.title
   Edit fund -
   = @fund.name
 
