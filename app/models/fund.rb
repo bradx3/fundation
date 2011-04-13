@@ -44,4 +44,11 @@ class Fund < ActiveRecord::Base
     end
   end
 
+  def archive!
+    update_attributes!(:archived => true)
+    percentages = DepositTemplateFundPercentage.where(:fund_id => self)
+    percentages.each(&:destroy)
+    true
+  end
+
 end

@@ -67,4 +67,25 @@ class FundTest < ActiveSupport::TestCase
     archived = Factory(:fund, :archived => true)
     assert_not_nil Fund.find(archived.id)
   end
+
+  context "calling archive! on a fund with a deposit template using it" do
+    setup do
+      @fund1 = Factory(:fund)
+      @fund2 = Factory(:fund, :user => @fund1.user)
+      @dt = Factory(:deposit_template)
+      @dt.deposit_template_fund_percentages.create!(:percentage => 50, :fund => @fund1)
+      @dt.deposit_template_fund_percentages.create!(:percentage => 50, :fund => @fund2)
+      @fund1.archive!
+    end
+
+    should "set archived attributed" do
+      assert @fund1.reload.archived?
+    end
+
+    should "unlink itself from the deposit template when archived" do
+      @dt.reload
+      assert_equal 1, @dt.deposit_template_fund_percentages.length
+      assert_equal @fund2, @dt.deposit_template_fund_percentages[0].fund
+    end
+  end
 end

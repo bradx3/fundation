@@ -76,7 +76,7 @@ class FundsController < ApplicationController
 
   def archive
     @fund = current_user.family.funds.find(params[:id], :readonly => false)
-    if @fund.update_attributes(:archived => true)
+    if @fund.archive!
       flash[:notice] = 'Fund deleted.'
       redirect_to "/"
     else

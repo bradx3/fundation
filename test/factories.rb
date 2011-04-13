@@ -28,8 +28,8 @@ end
 Factory.define :deposit do |d|
   d.dollars 100
   d.association :user
-  d.fund_transactions do |da| 
-    [ da.association(:fund_transaction, :dollars => 50), 
+  d.fund_transactions do |da|
+    [ da.association(:fund_transaction, :dollars => 50),
       da.association(:fund_transaction, :dollars => 50) ]
   end
 end
