@@ -5,7 +5,7 @@ class Fund < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :user
 
-  scope :active, :conditions => { :archived => false }
+  scope :active, :conditions => [ "archived is null or archived = ?", false ]
   scope :archived, :conditions => { :archived => true }
 
   include DollarMethods
