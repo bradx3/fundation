@@ -126,7 +126,7 @@ GEM
     sqlite3-ruby (1.2.5)
     thor (1.2.1)
     thread_safe (0.3.6)
-    tzinfo (1.2.9)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     web-app-theme (0.6.2)
 
