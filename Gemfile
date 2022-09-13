@@ -17,7 +17,7 @@ group :test do
   gem "factory_girl", "1.3.2"
   gem "factory_girl_rails"
   gem "shoulda", "2.11.3"
-  gem "nokogiri", "1.4.3.1"
+  gem "nokogiri", "1.13.6"
   gem "capybara", "0.3.9"
   gem "launchy", "0.3.7"
   gem "autotest-rails", "4.1.0"
