@@ -80,7 +80,7 @@ GEM
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
     minitest (5.16.0)
-    nokogiri (1.13.6)
+    nokogiri (1.13.9)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     racc (1.6.0)
@@ -146,7 +146,7 @@ DEPENDENCIES
   factory_girl_rails
   haml (= 3.0.22)
   launchy (= 0.3.7)
-  nokogiri (= 1.13.6)
+  nokogiri (= 1.13.9)
   rails (= 4.1.16)
   ruby-debug19 (= 0.11.6)
   shoulda (= 2.11.3)
